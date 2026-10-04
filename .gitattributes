@@ -1,0 +1,7 @@
+# Lot 36 : fins de ligne LF dans le dépôt, quel que soit le réglage de Git sous Windows.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.woff binary
+*.woff2 binary
+*.zip binary

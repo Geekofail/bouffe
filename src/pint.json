@@ -1,0 +1,11 @@
+{
+    "preset": "laravel",
+    "rules": {
+        "fully_qualified_strict_types": false
+    },
+    "exclude": [
+        "storage",
+        "bootstrap/cache",
+        "node_modules"
+    ]
+}

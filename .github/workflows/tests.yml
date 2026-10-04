@@ -1,0 +1,79 @@
+# Lot 36 (36.2) — à chaque envoi : style du code, tests sous SQLite, tests dans un vrai navigateur.
+# Environ 12 minutes par envoi (document 08, §7.3). Rien de secret n'est nécessaire.
+name: Tests
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: src
+
+jobs:
+  sqlite:
+    name: Style, SQLite et navigateur
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: gd, zip, intl, exif, bcmath, pdo_sqlite
+          coverage: none
+
+      - name: Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: src/package-lock.json
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache/files
+          key: composer-${{ hashFiles('src/composer.lock') }}
+
+      - name: Bibliothèques PHP
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Configuration de test
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Style du code (Pint)
+        run: vendor/bin/pint --test
+
+      - name: Bibliothèques JavaScript et construction
+        run: |
+          npm ci
+          npm run build
+
+      - name: Tests (SQLite)
+        run: php artisan test --parallel
+
+      - name: Navigateur Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Tests dans le navigateur
+        run: npm run test:browser
+
+      - name: Rapport du navigateur (en cas d'échec)
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapport-navigateur
+          path: src/storage/framework/testing/browser
+          retention-days: 7

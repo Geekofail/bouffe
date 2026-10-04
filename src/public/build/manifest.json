@@ -1,0 +1,98 @@
+{
+  "node_modules/@fontsource/figtree/files/figtree-latin-400-normal.woff": {
+    "file": "assets/figtree-latin-400-normal-BD4aNku5.woff",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-400-normal.woff"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-400-normal.woff2": {
+    "file": "assets/figtree-latin-400-normal-g7Dtegnw.woff2",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-400-normal.woff2"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-500-normal.woff": {
+    "file": "assets/figtree-latin-500-normal-B_yy1phn.woff",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-500-normal.woff"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-500-normal.woff2": {
+    "file": "assets/figtree-latin-500-normal-BWnGEVsr.woff2",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-500-normal.woff2"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-600-normal.woff": {
+    "file": "assets/figtree-latin-600-normal-BM_oTo4n.woff",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-600-normal.woff"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-600-normal.woff2": {
+    "file": "assets/figtree-latin-600-normal-Cv_xCTDl.woff2",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-600-normal.woff2"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-700-normal.woff": {
+    "file": "assets/figtree-latin-700-normal-BCCt2T1q.woff",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-700-normal.woff"
+  },
+  "node_modules/@fontsource/figtree/files/figtree-latin-700-normal.woff2": {
+    "file": "assets/figtree-latin-700-normal-th6qEP7c.woff2",
+    "src": "node_modules/@fontsource/figtree/files/figtree-latin-700-normal.woff2"
+  },
+  "node_modules/@fontsource/fraunces/files/fraunces-latin-600-normal.woff": {
+    "file": "assets/fraunces-latin-600-normal-DL5QCzvS.woff",
+    "src": "node_modules/@fontsource/fraunces/files/fraunces-latin-600-normal.woff"
+  },
+  "node_modules/@fontsource/fraunces/files/fraunces-latin-600-normal.woff2": {
+    "file": "assets/fraunces-latin-600-normal-BFCDtZfi.woff2",
+    "src": "node_modules/@fontsource/fraunces/files/fraunces-latin-600-normal.woff2"
+  },
+  "node_modules/@fontsource/fraunces/files/fraunces-latin-700-normal.woff": {
+    "file": "assets/fraunces-latin-700-normal-DTjk5d1Q.woff",
+    "src": "node_modules/@fontsource/fraunces/files/fraunces-latin-700-normal.woff"
+  },
+  "node_modules/@fontsource/fraunces/files/fraunces-latin-700-normal.woff2": {
+    "file": "assets/fraunces-latin-700-normal-CEOla-zY.woff2",
+    "src": "node_modules/@fontsource/fraunces/files/fraunces-latin-700-normal.woff2"
+  },
+  "node_modules/@zxing/browser/esm/index.js": {
+    "file": "assets/esm-UfiwdTMl.js",
+    "name": "esm",
+    "src": "node_modules/@zxing/browser/esm/index.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/qrcode/lib/browser.js": {
+    "file": "assets/browser-CH82ntnI.js",
+    "name": "browser",
+    "src": "node_modules/qrcode/lib/browser.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.js"
+    ]
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-D18h8efv.css",
+    "name": "app",
+    "names": [
+      "app.css"
+    ],
+    "src": "resources/css/app.css",
+    "isEntry": true,
+    "assets": [
+      "assets/figtree-latin-400-normal-g7Dtegnw.woff2",
+      "assets/figtree-latin-400-normal-BD4aNku5.woff",
+      "assets/figtree-latin-500-normal-BWnGEVsr.woff2",
+      "assets/figtree-latin-500-normal-B_yy1phn.woff",
+      "assets/figtree-latin-600-normal-Cv_xCTDl.woff2",
+      "assets/figtree-latin-600-normal-BM_oTo4n.woff",
+      "assets/figtree-latin-700-normal-th6qEP7c.woff2",
+      "assets/figtree-latin-700-normal-BCCt2T1q.woff",
+      "assets/fraunces-latin-600-normal-BFCDtZfi.woff2",
+      "assets/fraunces-latin-600-normal-DL5QCzvS.woff",
+      "assets/fraunces-latin-700-normal-CEOla-zY.woff2",
+      "assets/fraunces-latin-700-normal-DTjk5d1Q.woff"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-5hVlIKrF.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "node_modules/qrcode/lib/browser.js",
+      "node_modules/@zxing/browser/esm/index.js"
+    ]
+  }
+}

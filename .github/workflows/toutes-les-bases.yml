@@ -1,0 +1,80 @@
+# Lot 36 (36.2) — MariaDB 10.11 et MySQL 8.0 : chaque nuit, avant une mise en ligne
+# (étiquette « mise-en-ligne-… » ou bouton « Run workflow »), environ 10 minutes chacune.
+name: Toutes les bases
+
+on:
+  schedule:
+    - cron: '17 1 * * *'   # 3 h 17 à Luxembourg en été (l'heure de GitHub est UTC)
+  workflow_dispatch:
+  push:
+    tags: ['mise-en-ligne-*']
+
+defaults:
+  run:
+    working-directory: src
+
+jobs:
+  base:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: MariaDB 10.11
+            image: mariadb:10.11
+            connection: mariadb
+          - name: MySQL 8.0
+            image: mysql:8.0
+            connection: mysql
+
+    services:
+      db:
+        image: ${{ matrix.image }}
+        env:
+          MYSQL_ROOT_PASSWORD: bouffe
+          MYSQL_DATABASE: bouffe_test
+          MARIADB_ROOT_PASSWORD: bouffe
+          MARIADB_DATABASE: bouffe_test
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h 127.0.0.1 -pbouffe || mariadb-admin ping -h 127.0.0.1 -pbouffe"
+          --health-interval=5s --health-timeout=5s --health-retries=30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # PHP 8.4, comme chez OVH (la version minimum 8.3 est couverte par « Tests » à chaque envoi).
+      - name: PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: gd, zip, intl, exif, bcmath, pdo_mysql
+          coverage: none
+
+      - name: Cache Composer
+        uses: actions/cache@v4
+        with:
+          path: ~/.composer/cache/files
+          key: composer-${{ hashFiles('src/composer.lock') }}
+
+      - name: Bibliothèques PHP
+        run: composer install --no-interaction --prefer-dist --no-progress
+
+      - name: Configuration de test
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+
+      - name: Tests (${{ matrix.name }})
+        env:
+          DB_CONNECTION: ${{ matrix.connection }}
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_DATABASE: bouffe_test
+          DB_USERNAME: root
+          DB_PASSWORD: bouffe
+          DB_ENGINE: InnoDB
+        run: php vendor/bin/pest

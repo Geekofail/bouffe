@@ -1,0 +1,30 @@
+{
+    "id": "/",
+    "name": "Bouffe — les repas de la semaine",
+    "short_name": "Bouffe",
+    "description": "Recettes, planning de la semaine, liste de courses et stock de la maison.",
+    "lang": "fr",
+    "dir": "ltr",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#fbf7f2",
+    "theme_color": "#c0401c",
+    "icons": [
+        { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+        { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+        { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+        { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ],
+    "share_target": {
+        "action": "/partager",
+        "method": "GET",
+        "params": { "title": "title", "text": "text", "url": "url" }
+    },
+    "shortcuts": [
+        { "name": "Liste de courses", "short_name": "Courses", "url": "/courses", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+        { "name": "Planning de la semaine", "short_name": "Planning", "url": "/planning", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] },
+        { "name": "Que cuisiner ce soir", "short_name": "Ce soir", "url": "/que-cuisiner", "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }] }
+    ]
+}

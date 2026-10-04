@@ -1,0 +1,7 @@
+# Configuration OpenSSL minimale pour Bouffe (notifications, lot 20).
+# Sous Windows, PHP ne trouve pas toujours son openssl.cnf : sans lui, la création
+# des clés des notifications échoue. Ce fichier suffit pour des clés EC P-256.
+[ req ]
+distinguished_name = req_distinguished_name
+
+[ req_distinguished_name ]

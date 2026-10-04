@@ -1,0 +1,7 @@
+alim_grp_nom_fr;alim_code;alim_nom_fr;Energie, Règlement UE N° 1169/2011 (kcal/100 g);Protéines, N x facteur de Jones (g/100 g);Glucides (g/100 g);Sucres (g/100 g);Lipides (g/100 g);AG saturés (g/100 g);Fibres alimentaires (g/100 g);Sel chlorure de sodium (g/100 g)
+"légumes";20009;"Carotte, crue";36,3;0,62;6,12;5,15;0,34;0,062;2,8;0,08
+"légumes";20009bis;"Carotte, cuite, en conserve";28,0;0,60;4,50;3,80;0,30;0,050;2,5;0,42
+"produits laitiers";19024;"Beurre à 82% MG, doux";753;0,70;0,70;0,70;82,2;51,4;traces;0,02
+"produits laitiers";19041;"Lait demi-écrémé, UHT";46,4;3,25;4,80;4,80;1,55;1,00;-;0,10
+"oeufs";22000;"Œuf, cru";137;12,7;0,27;0,27;9,51;2,68;< 0,5;0,33
+"céréales";9410;"Farine de blé T55";341;10,2;70,4;1,20;1,10;0,20;3,00;0,01

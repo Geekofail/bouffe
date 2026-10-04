@@ -1,0 +1,7 @@
+# Dépôt Bouffe (lot 36) : le code est dans src/ (qui a son propre .gitignore), la documentation dans docs/.
+*.zip
+.DS_Store
+Thumbs.db
+/.idea
+/.vscode
+/.vs

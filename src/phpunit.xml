@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+>
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+        <!-- Sauvegarde / restauration : tables recréées, donc migrations complètes à chaque test (en dernier) -->
+        <testsuite name="Backup">
+            <directory>tests/Backup</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+    </source>
+    <php>
+        <!-- Le traitement des photos (GD) demande plus que les 128 Mo par défaut de PHP CLI. -->
+        <ini name="memory_limit" value="512M"/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_MAINTENANCE_DRIVER" value="file"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="BROADCAST_CONNECTION" value="null"/>
+        <env name="CACHE_STORE" value="array"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="DB_URL" value=""/>
+        <env name="MAIL_MAILER" value="array"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="SESSION_DRIVER" value="array"/>
+        <env name="PULSE_ENABLED" value="false"/>
+        <env name="TELESCOPE_ENABLED" value="false"/>
+        <env name="NIGHTWATCH_ENABLED" value="false"/>
+        <env name="BOUFFE_BACKUP_AUTO_DAYS" value="0"/>
+        <env name="BOUFFE_BACKUP_BEFORE_MERGE" value="false"/>
+        <!-- Assistant culinaire (lot 33) : les tests simulent Mistral, quel que soit le .env du poste. -->
+        <env name="BOUFFE_ASSISTANT_ENDPOINT" value="https://api.mistral.ai/v1/chat/completions"/>
+        <env name="BOUFFE_ASSISTANT_ENABLED" value="true"/>
+        <env name="BOUFFE_ASSISTANT_MONTHLY_CAP" value="1"/>
+        <env name="MISTRAL_CHAT_MODEL" value="mistral-small-latest"/>
+        <env name="MISTRAL_API_KEY" value=""/>
+    </php>
+</phpunit>
