@@ -3,5 +3,8 @@
 # des clés des notifications échoue. Ce fichier suffit pour des clés EC P-256.
 [ req ]
 distinguished_name = req_distinguished_name
+# PHP 8.3 refuse toute clé (même EC) si cette valeur manque : « Private key length must be at
+# least 384 bits, configured to 0 ». Sans effet sur les clés EC elles-mêmes.
+default_bits = 2048
 
 [ req_distinguished_name ]
