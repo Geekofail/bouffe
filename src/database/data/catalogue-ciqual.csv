@@ -1,0 +1,1124 @@
+code;nom;pluriel;rayon;unite;poids_piece;densite;de_base;aliment_ciqual
+7007;Baguette;baguettes;bakery;piece;250;;0;Pain de tradition française (par ex. : baguette, boule…)
+7310;Biscotte;;bakery;g;;;0;Biscotte, sans sel ajouté
+7340;Biscotte au blé complet;;bakery;g;;;0;Biscotte au blé complet
+7330;Biscotte aux céréales;;bakery;g;;;0;Biscotte aux céréales
+23805;Blinis;;bakery;g;;;0;Blinis
+7263;Bretzel;;bakery;g;;;0;Bretzel, pain frais
+7742;Brioche nature;brioches nature;bakery;g;;;0;Brioche nature, artisanale
+7745;Brioche pur beurre nature;brioches pur beurre nature;bakery;g;;;0;Brioche pur beurre (ex : gâche vendéenne) nature, préemballée
+23480;Chausson aux pommes;chaussons aux pommes;bakery;g;;;0;Chausson aux pommes
+23467;Chouquette;chouquettes;bakery;g;;;0;Chouquette
+7349;Cracker de table au blé complet;;bakery;g;;;0;Cracker de table au blé complet
+7351;Cracker de table au froment;;bakery;g;;;0;Cracker de table au froment
+7650;Croissant aux amandes;croissants aux amandes;bakery;g;;;0;Croissant aux amandes, artisanal
+7615;Croissant ordinaire;croissants ordinaires;bakery;g;;;0;Croissant ordinaire, artisanal
+7620;Croissant pur beurre;croissants pur beurre;bakery;g;;;0;Croissant pur beurre, artisanal
+7432;Croûton nature;;bakery;g;;;0;Croûton nature, préemballé
+7357;Galette de céréale soufflée;;bakery;g;;;0;Galette de céréale(s) soufflée(s), aux graines
+7352;Galette de riz complet soufflé;;bakery;g;;;0;Galette de riz complet soufflé
+7525;Gressin;;bakery;g;;;0;Gressin, nature (sans sésame)
+7257;Muffin anglais;;bakery;g;;;0;Muffin anglais, petit pain spécial, préemballé
+7001;Pain;;bakery;g;;;0;Pain blanc (par ex. : baguette, boule…)
+7730;Pain au chocolat;pains au chocolat;bakery;g;;;0;Pain au chocolat, artisanal
+7710;Pain au lait;pains au lait;bakery;g;;;0;Pain au lait, artisanal
+7002;Pain au levain;;bakery;g;;;0;Pain au levain
+7115;Pain au son;;bakery;g;;;0;Pain au son
+7255;Pain aux céréales et/ou graines;;bakery;g;;;0;Pain aux céréales et/ou graines
+7720;Pain aux raisins;pains aux raisins;bakery;g;;;0;Pain aux raisins (viennoiserie), artisanal
+7114;Pain azyme;;bakery;g;;;0;Pain azyme, préemballé
+7258;Pain bagel;;bakery;g;;;0;Pain bagel
+7010;Pain bis;;bakery;g;;;0;Pain bis (à la farine T80 ou T110) 
+7160;Pain blanc;;bakery;g;;;0;Pain blanc, sans sel ajouté
+7009;Pain blanc précuit;;bakery;g;;;0;Pain blanc précuit, à finir de cuire, préemballé
+7225;Pain brioché;pains briochés;bakery;g;;;0;Pain brioché ou viennois, artisanal
+7259;Pain burger;pains burger;bakery;piece;60;;0;Pain pour burger ou hot dog (bun), préemballé
+7110;Pain complet;;bakery;piece;500;;0;Pain complet ou intégral (à la farine T150)
+7106;Pain complet au seigle;;bakery;g;;;0;Pain complet au seigle, préemballé
+7100;Pain de campagne;;bakery;g;;;0;Pain de campagne
+7200;Pain de mie;;bakery;tranche;25;;0;Pain de mie blanc, préemballé
+7210;Pain de mie brioché;;bakery;g;;;0;Pain de mie brioché, préemballé
+7111;Pain de mie complet;;bakery;g;;;0;Pain de mie complet, préemballé
+7201;Pain de mie sans croûte;;bakery;tranche;;;0;Pain de mie blanc, sans croûte, préemballé
+7125;Pain de seigle et froment;;bakery;g;;;0;Pain de seigle et froment
+7007;Pain de tradition;;bakery;g;;;0;Pain de tradition française (par ex. : baguette, boule…)
+7400;Pain grillé;;bakery;tranche;;;0;Pain grillé au froment, tranches, préemballé
+7170;Pain panini;;bakery;g;;;0;Pain panini
+7180;Pain pita;;bakery;g;;;0;Pain pita
+7130;Pain sans gluten;;bakery;g;;;0;Pain sans gluten, préemballé
+7719;Panettone;panettones;bakery;g;;;0;Panettone (brioche italienne aux raisins secs et écorces d'orange confite), préemballée
+7414;Tartine craquante extrudées;;bakery;g;;;0;Tartine craquante extrudées, source ou riche en fibres
+7359;Tartine croustillante au seigle;;bakery;g;;;0;Tartine croustillante au seigle, source ou riche en fibres
+7815;Tortilla;tortillas;bakery;piece;40;;0;Tortilla souple (à garnir), à base de blé
+7813;Tortilla de maïs;tortillas de maïs;bakery;piece;;;0;Tortilla souple (à garnir), à base de maïs
+21504;Agneau (épaule);;butcher;g;;;0;Agneau, épaule crue
+36310;Aile de dinde;;butcher;g;;;0;Dinde, aile crue
+36023;Aile de poulet;;butcher;g;;;0;Poulet, aile, viande et peau crues
+6003;Basse-côte de bœuf;;butcher;g;;;0;Boeuf, basse-côte crue
+6212;Bavette d'aloyau de bœuf;;butcher;g;;;0;Boeuf, bavette d'aloyau crue
+36017;Blanc de poulet;blancs de poulet;butcher;piece;150;;0;Poulet, filet sans peau cru
+6231;Bœuf à braiser;;butcher;g;;;0;Boeuf, à bourguignon ou pot-au-feu, cru
+6231;Bœuf bourguignon;;butcher;g;;;0;Boeuf, à bourguignon ou pot-au-feu, cru
+6254;Bœuf haché;;butcher;g;;;0;Boeuf, steak haché 15% MG cru
+6202;Boule de macreuse de bœuf;;butcher;g;;;0;Boeuf, boule de macreuse crue
+36101;Caille;;butcher;g;;;0;Caille, viande crue
+36201;Canard;;butcher;g;;;0;Canard, viande crue
+28104;Carré de porc;;butcher;g;;;0;Porc, carré cru
+6513;Carré de veau;;butcher;g;;;0;Veau, carré cru
+14006;Cerf;;butcher;g;;;0;Cerf, viande crue
+40002;Cervelle d'agneau;;butcher;g;;;0;Cervelle, agneau, crue
+40005;Cervelle de porc;;butcher;g;;;0;Cervelle, porc, crue
+40006;Cervelle de veau;;butcher;g;;;0;Cervelle, veau, crue
+14005;Chevreuil;;butcher;g;;;0;Chevreuil, viande crue
+40058;Cœur d'agneau;;butcher;g;;;0;Coeur, agneau, cru
+40052;Cœur de bœuf;;butcher;g;;;0;Coeur, boeuf, cru
+40055;Cœur de dinde;;butcher;g;;;0;Coeur, dinde, cru
+40060;Cœur de porc;;butcher;g;;;0;Coeur, porc, cru
+40054;Cœur de poulet;;butcher;g;;;0;Coeur, poulet, cru
+40062;Cœur de veau;;butcher;g;;;0;Coeur, veau, cru
+21514;Collier d'agneau;;butcher;g;;;0;Agneau, collier cru
+6240;Collier de bœuf;;butcher;g;;;0;Boeuf, collier cru
+6590;Collier de veau;;butcher;g;;;0;Veau, collier cru
+21521;Côte d'agneau;;butcher;g;;;0;Agneau, côte ou côtelette, crue (aliment moyen)
+6001;Côte de bœuf;;butcher;g;;;0;Boeuf, côte crue
+28100;Côte de porc;côtes de porc;butcher;piece;200;;0;Porc, côte crue
+6510;Côte de veau;;butcher;g;;;0;Veau, côte crue
+21500;Côtelette d'agneau;;butcher;g;;;0;Agneau, côtelette crue
+36203;Cuisse de canard;;butcher;g;;;0;Canard, cuisse avec peau, sans os, crue
+36307;Cuisse de dinde;;butcher;g;;;0;Dinde, cuisse, viande crue
+36703;Cuisse de pintade;;butcher;g;;;0;Pintade, cuisse crue
+36024;Cuisse de poulet;cuisses de poulet;butcher;piece;250;;0;Poulet, cuisse, viande crue
+36301;Dinde;;butcher;g;;;0;Dinde, viande crue
+28302;Échine de porc;;butcher;g;;;0;Porc, échine crue
+6103;Entrecôte de bœuf;;butcher;g;;;0;Boeuf, entrecôte crue
+6002;Épaule de bœuf;;butcher;g;;;0;Boeuf, épaule crue
+21003;Épaule de mouton;;butcher;g;;;0;Mouton, épaule crue
+28001;Épaule de porc;;butcher;g;;;0;Porc, épaule crue
+6560;Épaule de veau;;butcher;g;;;0;Veau, épaule crue
+36304;Escalope de dinde;escalopes de dinde;butcher;piece;130;;0;Dinde, escalope crue
+28460;Escalope de jambon de porc;;butcher;g;;;0;Porc, escalope de jambon crue
+6521;Escalope de veau;;butcher;g;;;0;Veau, escalope crue
+36401;Faisan;;butcher;g;;;0;Faisan, viande crue
+6111;Faux-filet de bœuf;;butcher;g;;;0;Boeuf, faux-filet cru
+6116;Filet de bœuf;;butcher;g;;;0;Boeuf, filet cru
+36017;Filet de poulet;filets de poulet;butcher;g;;;0;Poulet, filet sans peau cru
+6530;Filet de veau;;butcher;g;;;0;Veau, filet cru
+28480;Filet mignon de porc;;butcher;g;;;0;Porc, rôti filet avec chaînette, cru
+40102;Foie d'agneau;;butcher;g;;;0;Foie, agneau, cru
+40104;Foie d'oie;;butcher;g;;;0;Foie, génisse, cru
+40121;Foie de canard;;butcher;g;;;0;Foie, canard, cru
+40115;Foie de dinde;;butcher;g;;;0;Foie, dinde, cru
+40110;Foie de lapin;;butcher;g;;;0;Foie, lapin, cru
+40119;Foie de porc;;butcher;g;;;0;Foie, porc, cru
+40111;Foie de poulet;;butcher;g;;;0;Foie, poulet, cru
+40106;Foie de veau;;butcher;g;;;0;Foie, veau, cru
+40700;Gésier de poulet;;butcher;g;;;0;Gésier, poulet, cru
+21502;Gigot d'agneau;;butcher;g;;;0;Agneau, gigot cru
+21006;Gigot de mouton;;butcher;g;;;0;Mouton, gigot cru
+6102;Gîte à la noix de bœuf;;butcher;g;;;0;Boeuf, gîte à la noix cru
+6130;Hampe de bœuf;;butcher;g;;;0;Boeuf, hampe crue
+36311;Haut de cuisse de dinde;;butcher;g;;;0;Dinde, haut de cuisse cru
+36019;Haut de cuisse de poulet;;butcher;g;;;0;Poulet, haut de cuisse, viande crue
+28700;Jambon à rôtir;;butcher;g;;;0;Jambon de porc à cuire ou jambon à rôtir/cuire au four
+6150;Jarret de bœuf;;butcher;g;;;0;Boeuf, jarret cru
+6583;Jarret de veau;;butcher;g;;;0;Veau, jarret cru
+6140;Joue de bœuf;;butcher;g;;;0;Boeuf, joue crue
+40207;Langue d'agneau;;butcher;g;;;0;Langue, agneau, crue
+40202;Langue de bœuf;;butcher;g;;;0;Langue, boeuf, crue
+40205;Langue de porc;;butcher;g;;;0;Langue, porc, crue
+40204;Langue de veau;;butcher;g;;;0;Langue, veau, crue
+34001;Lapin;;butcher;g;;;0;Lapin, viande crue
+14004;Lièvre;;butcher;g;;;0;Lièvre, viande crue
+36206;Magret de canard;;butcher;g;;;0;Canard, magret cru
+6522;Noix de veau;;butcher;g;;;0;Veau, noix,crue
+36500;Oie;;butcher;g;;;0;Oie, viande crue
+6204;Onglet de bœuf;;butcher;g;;;0;Boeuf, onglet cru
+6270;Paleron de bœuf;;butcher;g;;;0;Boeuf, paleron cru
+28009;Palette de porc;;butcher;g;;;0;Porc, palette crue
+6580;Pied de veau;;butcher;g;;;0;Veau, pied cru
+36600;Pigeon;;butcher;g;;;0;Pigeon, viande crue
+36022;Pilon de poulet;;butcher;g;;;0;Poulet, pilon cru
+36700;Pintade;;butcher;g;;;0;Pintade, viande crue
+6122;Plat de côtes de bœuf;;butcher;g;;;0;Boeuf, plat de côtes cru
+28002;Poitrine de porc;;butcher;g;;;0;Porc, poitrine crue
+36029;Poitrine de poulet;;butcher;g;;;0;Poulet, poitrine, viande et peau crues
+6540;Poitrine de veau;;butcher;g;;;0;Veau, poitrine crue
+36001;Poule;;butcher;g;;;0;Poule, viande crue
+36003;Poulet;;butcher;g;;;0;Poulet, viande crue
+36016;Poulet entier;poulets entiers;butcher;piece;1500;;0;Poulet, viande et peau crues
+36008;Poulet fermier;;butcher;g;;;0;Poulet fermier, viande et peau crues
+6311;Queue de bœuf;;butcher;g;;;0;Boeuf, queue crue
+40302;Ris d'agneau;;butcher;g;;;0;Ris, agneau, cru
+40304;Ris de veau;;butcher;g;;;0;Ris, veau, cru
+40407;Rognon d'agneau;;butcher;g;;;0;Rognon, agneau, cru
+40402;Rognon de bœuf;;butcher;g;;;0;Rognon, boeuf, cru
+40404;Rognon de porc;;butcher;g;;;0;Rognon, porc, cru
+40409;Rognon de veau;;butcher;g;;;0;Rognon, veau, cru
+6106;Rond de gîte de bœuf;;butcher;g;;;0;Boeuf, rond de gîte cru
+28300;Rôti de porc;rôtis de porc;butcher;g;;;0;Porc, rôti cru
+6550;Rôti de veau;;butcher;g;;;0;Veau, rôti cru
+28102;Rouelle de jambon de porc;;butcher;g;;;0;Porc, rouelle de jambon crue
+6206;Rumsteck de bœuf;;butcher;g;;;0;Boeuf, rumsteck cru
+40600;Sang de bœuf;;butcher;g;;;0;Sang, boeuf, cru
+14002;Sanglier;;butcher;g;;;0;Sanglier, viande crue
+30110;Saucisse;saucisses;butcher;piece;100;;0;Saucisse de Toulouse crue
+21515;Selle d'agneau;;butcher;g;;;0;Agneau, selle crue
+6201;Steak de bœuf;;butcher;g;;;0;Boeuf, steak ou bifteck cru
+6254;Steak haché;steaks hachés;butcher;piece;125;;0;Boeuf, steak haché 15% MG cru
+6252;Steak haché 10% MG de bœuf;;butcher;g;;;0;Boeuf, steak haché 10% MG cru
+6256;Steak haché 20% MG de bœuf;;butcher;g;;;0;Boeuf, steak haché 20% MG cru
+6250;Steak haché 5 %;steaks hachés 5 %;butcher;piece;;;0;Boeuf, steak haché 5% MG cru
+6250;Steak haché 5% MG de bœuf;;butcher;g;;;0;Boeuf, steak haché 5% MG cru
+6160;Tende de tranche de bœuf;;butcher;g;;;0;Boeuf, tende de tranche crue
+28400;Travers de porc;;butcher;g;;;0;Porc, travers cru
+40502;Tripes de bœuf;;butcher;g;;;0;Tripes, boeuf, crues
+6254;Viande hachée de bœuf;;butcher;g;;;0;Boeuf, steak haché 15% MG cru
+13714;Abricot au sirop;abricots au sirop;cans;g;;;0;Abricot au sirop, appertisé, égoutté
+13716;Ananas au jus d'ananas;;cans;g;;;0;Ananas au jus d'ananas, appertisé, égoutté
+11040;Câpres;;cans;cs;;;0;Câpres, au vinaigre
+20079;Champignons de Paris en boîte;;cans;g;;;0;Champignon de Paris ou champignon de couche, appertisé, égoutté
+20155;Cœurs d'artichaut;;cans;g;;;0;Artichaut, coeur, appertisé, égoutté
+20018;Cœur de palmier;cœurs de palmier;cans;g;;;0;Coeur de palmier, appertisé, égoutté
+20068;Concentré de tomate;;cans;cs;;;0;Tomate, concentré, appertisé
+8110;Confit de canard;;cans;g;;;0;Confit de canard, appertisé
+28505;Corned-beef;;cans;g;;;0;Corned-beef, appertisé
+11097;Cornichons;;cans;pot;200;;0;Cornichon, aigre-doux
+20260;Coulis de tomate;;cans;ml;;;0;Tomate, coulis, appertisé (purée de tomates mi-réduite à 11%)
+20060;Épinards en branches;;cans;g;;;0;Épinard, appertisé, égoutté
+20508;Flageolets en boîte;;cans;g;;;0;Haricot flageolet, appertisé, égoutté
+20511;Haricots blancs en boîte;;cans;g;;;0;Haricot blanc, appertisé, égoutté
+20524;Haricots rouges en boîte;;cans;boite;250;;0;Haricot rouge, appertisé, égoutté
+20062;Haricots verts en boîte;;cans;g;;;0;Haricot vert, appertisé, égoutté
+20510;Lentilles en boîte;;cans;g;;;0;Lentille, cuisinée, appertisée, égouttée
+20051;Macédoine de légumes;macédoines de légumes;cans;g;;;0;Macédoine de légumes, appertisée, égouttée
+20066;Maïs en boîte;;cans;boite;285;;0;Maïs doux, appertisé, égoutté
+26096;Maquereau à la moutarde;;cans;g;;;0;Maquereau, filet sauce moutarde, appertisé, égoutté
+26086;Maquereau à la tomate;;cans;g;;;0;Maquereau, filet sauce tomate, appertisé, égoutté
+26097;Maquereau au vin blanc;;cans;g;;;0;Maquereau, filet au vin blanc, appertisé, égoutté
+10005;Miettes de crabe;;cans;g;;;0;Crabe, miettes et ou pattes décortiquées, appertisé, égoutté
+13032;Olives noires;;cans;g;;;0;Olive noire, en saumure, égouttée
+20036;Petits pois en boîte;;cans;g;;;0;Petits pois, appertisés, égouttés
+20532;Pois chiches en boîte;;cans;boite;265;;0;Pois chiche, appertisé, égoutté
+13734;Poire au sirop léger;poires au sirop léger;cans;g;;;0;Poire au sirop léger, appertisée, égouttée
+20275;Poivron rouge en bocal;;cans;g;;;0;Poivron rouge, appertisé, égoutté
+15015;Purée de marrons;;cans;g;;;0;Purée de marrons, appertisée
+20170;Purée de tomate;;cans;g;;;0;Tomate, purée, appertisée
+13706;Salade de fruits au sirop;salades de fruits au sirop;cans;g;;;0;Macédoine ou cocktail ou salade de fruits, au sirop, appertisé, égoutté
+26034;Sardines à l'huile;;cans;g;;;0;Sardine, à l'huile, appertisée, égouttée
+26040;Sardines à l'huile d'olive;;cans;g;;;0;Sardine, à l'huile d'olive, appertisée, égouttée
+26035;Sardines à la tomate;;cans;g;;;0;Sardine, sauce tomate, appertisée, égouttée
+26119;Saumon en boîte;;cans;g;;;0;Saumon, appertisé, égoutté
+26245;Thon à l'huile;;cans;g;;;0;Thon à l'huile de tournesol, miettes, appertisées, égouttées
+26039;Thon au naturel;;cans;boite;140;;0;Thon, au naturel, appertisé, égoutté
+20169;Tomates concassées;;cans;boite;400;;0;Tomate, chair, appertisée
+20048;Tomates pelées;;cans;g;;;0;Tomate, pelée, appertisée, égouttée
+20189;Tomate séchée;tomates séchées;cans;g;;;0;Tomate, séchée
+12112;Abondance;;cheese;g;;;0;Abondance
+12761;Asiago;;cheese;g;;;0;Asiago
+12105;Beaufort;;cheese;g;;;0;Beaufort
+12526;Bleu de Gex;;cheese;g;;;0;Bleu de Gex ou fromage bleu du Haut-Jura ou bleu de Septmoncel
+12020;Brie;;cheese;g;;;0;Brie, sans précision
+12021;Brie de Meaux;;cheese;g;;;0;Brie de Meaux
+12022;Brie de Melun;;cheese;g;;;0;Brie de Melun
+12059;Brocciu;;cheese;g;;;0;Brocciu ou brucciu corse, fromage à base de lactosérum de brebis et/ou de chèvre non affiné
+12072;Burrata;;cheese;g;;;0;Burrata
+12001;Camembert;;cheese;g;;;0;Camembert, sans précision sur le type de lait (pasteurisé ou cru)
+12006;Camembert au lait cru;;cheese;g;;;0;Camembert au lait cru ou thermisé
+12325;Cancoillotte;;cheese;g;;;0;Cancoillotte (spécialité fromagère fondue)
+12724;Cantal;;cheese;g;;;0;Cantal
+12109;Cantal jeune;;cheese;g;;;0;Cantal jeune
+12025;Carré de l'Est;;cheese;g;;;0;Carré de l'Est
+12830;Chabichou;;cheese;g;;;0;Chabichou (fromage de chèvre)
+12028;Chaource;;cheese;g;;;0;Chaource
+12726;Cheddar;;cheese;g;;;0;Cheddar
+12805;Chèvre;;cheese;g;;;0;Fromage de chèvre frais, type palet, crottin ou bûchette
+12805;Chèvre frais;;cheese;g;;;0;Fromage de chèvre frais, type palet, crottin ou bûchette
+12110;Comté;;cheese;g;;;0;Comté
+12010;Coulommiers;;cheese;g;;;0;Coulommiers
+12834;Crottin de Chavignol;;cheese;g;;;0;Crottin de Chavignol (fromage de chèvre)
+12832;Crottin de chèvre;;cheese;g;;;0;Crottin de chèvre, au lait cru
+12729;Edam;;cheese;g;;;0;Edam
+12115;Emmental;;cheese;g;;;0;Emmental ou emmenthal
+12099;Emmental de Savoie;;cheese;g;;;0;Emmental de Savoie ou emmenthal de Savoie
+12115;Emmental râpé;;cheese;g;;;0;Emmental ou emmenthal
+12038;Époisses;;cheese;g;;;0;Époisses
+12066;Feta;;cheese;g;;;0;Feta, au lait de brebis 70% minimum et lait de chèvre 30% maximum
+12121;Fontina;;cheese;g;;;0;Fontina
+12522;Fourme d'Ambert;;cheese;g;;;0;Fourme d'Ambert
+12519;Fourme de Montbrison;;cheese;g;;;0;Fourme de Montbrison
+12521;Fromage bleu d'Auvergne;;cheese;g;;;0;Fromage bleu d'Auvergne
+12523;Fromage bleu des Causses;;cheese;g;;;0;Fromage bleu des Causses
+12820;Fromage de chèvre à pâte molle et croûte fleurie;;cheese;g;;;0;Fromage de chèvre à pâte molle et croûte fleurie (type camembert, cabécou)
+12819;Fromage de chèvre à tartiner;;cheese;g;;;0;Fromage de chèvre à tartiner, nature
+12812;Fromage de chèvre bûche;;cheese;g;;;0;Fromage de chèvre bûche
+12810;Fromage de chèvre demi-sec;;cheese;g;;;0;Fromage de chèvre demi-sec
+12815;Fromage de chèvre sec;;cheese;g;;;0;Fromage de chèvre sec
+12303;Fromage fondu en portion;;cheese;g;;;0;Fromage fondu en portion (triangle), non enrichi
+12300;Fromage fondu en tranchettes;;cheese;g;;;0;Fromage fondu en tranchettes
+12069;Fromage frais;;cheese;g;;;0;Fromage frais ou spécialité fromagère non affinée, nature, à tartiner, en barquette, allégée en matière grasse
+12053;Fromage pour tartiflette;;cheese;g;;;0;Fromage pour tartiflette (pâte molle et croûte mixte)
+12775;Fromage râpé;;cheese;g;;;0;Mélange de fromages râpés (ex : spécial gratins, spécial pâtes, spécial pizzas…)
+12033;Fromage triple crème;;cheese;g;;;0;Fromage à pâte molle, triple crème, environ 38% MG
+12060;Fromage type feta (vache);;cheese;g;;;0;Fromage type feta, au lait de vache 100%
+1028;Fromage végétal;;cheese;g;;;0;Spécialité végétale type fromage, à la noix de cajou, préemballée
+12524;Gorgonzola;;cheese;g;;;0;Gorgonzola
+12736;Gouda;;cheese;g;;;0;Gouda
+12123;Grana Padano;;cheese;g;;;0;Grana Padano
+12114;Gruyère;;cheese;g;;;0;Gruyère, sans précision (origine France ou Suisse)
+12040;Langres;;cheese;g;;;0;Langres
+12037;Livarot;;cheese;g;;;0;Livarot
+12029;Maroilles;;cheese;g;;;0;Maroilles, laitier
+19584;Mascarpone;;cheese;g;;;0;Mascarpone
+12740;Mimolette;;cheese;g;;;0;Mimolette, sans précision
+12738;Mimolette vieille;;cheese;g;;;0;Mimolette vieille (12 mois d'affinage minimum)
+12051;Mont d'or;;cheese;g;;;0;Mont d'or ou vacherin du Haut-Doubs (produit en France) ou vacherin-Mont d'Or (produit en Suisse)
+12743;Morbier;;cheese;g;;;0;Morbier
+19590;Mozzarella;mozzarellas;cheese;piece;125;;0;Mozzarella au lait de vache
+19590;Mozzarella au lait de vache;;cheese;g;;;0;Mozzarella au lait de vache
+19591;Mozzarella di bufala;;cheese;g;;;0;"Mozzarella au lait de bufflonne ou buflesse (""di bufala"")"
+12039;Munster;;cheese;g;;;0;Munster
+12031;Neufchâtel;;cheese;g;;;0;Neufchâtel
+12119;Ossau-Iraty;;cheese;g;;;0;Ossau-Iraty (fromage de brebis)
+12120;Parmesan;;cheese;g;;;0;Parmesan
+12122;Pecorino;;cheese;g;;;0;Pecorino (fromage de brebis)
+12831;Pélardon;;cheese;g;;;0;Pélardon (fromage de chèvre)
+12836;Picodon;;cheese;g;;;0;Picodon (fromage de chèvre)
+12042;Pont l'Évêque;;cheese;g;;;0;Pont l'Évêque
+12839;Pouligny Saint-Pierre;;cheese;g;;;0;Pouligny Saint-Pierre (fromage de chèvre)
+12716;Provolone;;cheese;g;;;0;Provolone
+12749;Raclette;;cheese;g;;;0;Raclette (fromage)
+12776;Raclette de Savoie;;cheese;g;;;0;Raclette de Savoie (fromage)
+12765;Raclette fumée;;cheese;g;;;0;Raclette (fromage) fumée
+12045;Reblochon;reblochons;cheese;piece;450;;0;Reblochon
+19585;Ricotta;;cheese;g;;;0;Ricotta
+12847;Rocamadour;;cheese;g;;;0;Rocamadour (fromage de chèvre)
+12500;Roquefort;;cheese;g;;;0;Roquefort (fromage de brebis)
+12052;Saint-Félicien;;cheese;g;;;0;Saint-Félicien
+12049;Saint-Marcellin;;cheese;g;;;0;Saint-Marcellin
+12748;Saint-Nectaire;;cheese;g;;;0;Saint-Nectaire, laitier
+12842;Sainte-Maure;;cheese;g;;;0;Sainte-Maure (fromage de chèvre)
+12807;Sainte-Maure de Touraine;;cheese;g;;;0;Sainte-Maure de Touraine (fromage de chèvre)
+12725;Salers;;cheese;g;;;0;Salers
+12845;Selles-sur-Cher;;cheese;g;;;0;Selles-sur-Cher (fromage de chèvre)
+1027;Spécialité végétale type fromage à tartiner;;cheese;g;;;0;Spécialité végétale type fromage à tartiner, au soja, préemballée
+12764;Tête de moine;;cheese;g;;;0;Tête de moine
+12763;Tome des Bauges;;cheese;g;;;0;Tome des Bauges
+12758;Tomme;;cheese;g;;;0;Tomme ou tome de vache
+12848;Valençay;;cheese;g;;;0;Valençay (fromage de chèvre)
+16400;Beurre;;dairy;g;;;0;Beurre à 80% MG minimum, doux
+16415;Beurre allégé;;dairy;g;;;0;Beurre à 39-41% MG, léger, doux
+16402;Beurre demi-sel;;dairy;g;;;0;Beurre à 80% MG, demi-sel
+16403;Beurre salé;;dairy;g;;;0;Beurre à 80% MG, salé
+22001;Blanc d'œuf;blancs d'œufs;dairy;piece;;;0;Oeuf, blanc (blanc d'oeuf), cru
+25624;Caviar d'aubergine;;dairy;g;;;0;Caviar d'aubergine, préemballé
+19420;Crème chantilly;;dairy;g;;;0;Crème chantilly, sous pression, UHT
+19411;Crème d'Isigny;;dairy;g;;;0;Crème d'Isigny, >= 35% MG
+11214;Crème de soja;;dairy;g;;;0;"Préparation culinaire à base de soja, type ""crème de soja"""
+19410;Crème fraîche épaisse;;dairy;cl;;;0;Crème 30% MG, épaisse, rayon frais
+19431;Crème fraîche légère;;dairy;g;;;0;Crème 12 à 25% MG, légère, épaisse, rayon frais
+19417;Crème liquide;;dairy;cl;;;0;Crème 30% MG, fluide, UHT
+19436;Crème liquide légère;;dairy;ml;;;0;Crème 12 à 20% MG, légère, fluide, rayon frais
+19415;Crème semi-épaisse;;dairy;g;;;0;Crème 30% MG, semi-épaisse, UHT
+19641;Faisselle;;dairy;g;;;0;Faisselle, 6% MG environ
+51550;Feuille de brick;;dairy;g;;;0;Feuille de brick ou khatfa, préemballée
+19646;Fromage blanc;;dairy;g;;;0;Fromage blanc, nature, 2-3% MG
+25620;Guacamole;;dairy;g;;;0;Guacamole, préemballé
+25621;Houmous;;dairy;g;;;0;Houmous, préemballé
+22002;Jaune d'œuf;jaunes d'œufs;dairy;piece;;;0;Oeuf, jaune (jaune d'oeuf), cru
+19865;Kéfir de lait;;dairy;g;;;0;Kéfir de lait
+19038;Lait à 1,2% MG;;dairy;ml;;;0;Lait à 1,2% MG, UHT, enrichi en vitamines
+19026;Lait concentré sans sucres ajoutés;;dairy;ml;;;0;Lait concentré sans sucres ajoutés, entier
+19027;Lait concentré sucré;;dairy;ml;;;0;Lait concentré sucré, entier
+19250;Lait de brebis;;dairy;ml;;;0;Lait de brebis, entier
+19202;Lait de chèvre;;dairy;ml;;;0;Lait de chèvre, entier, cru
+18041;Lait de coco;;dairy;ml;;;0;Lait de coco
+19041;Lait demi-écrémé;;dairy;l;;;0;Lait demi-écrémé, UHT
+19050;Lait écrémé;;dairy;ml;;;0;Lait écrémé, UHT
+19021;Lait en poudre;;dairy;g;;;0;Lait en poudre, entier
+19023;Lait entier;;dairy;ml;;;0;Lait entier, UHT
+16590;Margarine;;dairy;g;;;0;Matière grasse tartinable à teneur en MG > 62%, doux, standard
+22000;Œuf;œufs;dairy;piece;55;;0;Oeuf cru
+22050;Œuf de caille;;dairy;g;;;0;Oeuf de caille, cru
+22060;Œuf de cane;;dairy;g;;;0;Oeuf de cane, cru
+23402;Pâte à pizza fine;;dairy;g;;;0;Pâte à pizza fine, préemballée, crue
+23445;Pâte phyllo;;dairy;g;;;0;Pâte phyllo ou pâte filo, crue
+23440;Pâte sablée;;dairy;g;;;0;Pâte sablée, préemballée, crue
+19664;Petit-suisse;;dairy;g;;;0;Fromage frais type petit suisse, nature, 4% MG environ
+25598;Seitan;;dairy;g;;;0;Seitan, préemballé
+20917;Tempeh;;dairy;g;;;0;Tempeh
+20912;Tofu fumé;;dairy;g;;;0;Tofu fumé, préemballé
+20906;Tofu soyeux;;dairy;g;;;0;Tofu soyeux, préemballé
+19863;Tzatziki;;dairy;g;;;0;Tzatziki à base de yaourt, préemballé
+19508;Yaourt à boire;;dairy;g;;;0;Lait fermenté ou yaourt à boire, aromatisé, sucré
+19860;Yaourt à la grecque;;dairy;g;;;0;Yaourt à la grecque nature
+19554;Yaourt au lait de brebis;;dairy;g;;;0;Yaourt au lait de brebis, nature, 3% MG environ
+19556;Yaourt au lait de chèvre;;dairy;g;;;0;Yaourt au lait de chèvre, nature
+19593;Yaourt nature;yaourts nature;dairy;piece;125;;0;Yaourt ou lait fermenté, nature
+8500;Andouille;;deli;g;;;0;Andouille
+8550;Andouillette;;deli;g;;;0;Andouillette, à cuire
+8801;Boudin blanc;;deli;g;;;0;Boudin blanc, à cuire
+8703;Boudin noir;;deli;g;;;0;Boudin noir, à cuire
+28503;Bresaola;;deli;g;;;0;Bresaola
+30730;Cervelas;;deli;g;;;0;Cervelas
+30051;Chair à saucisse;;deli;g;;;0;Chair à saucisse, pur porc, crue
+30115;Chipolata crue;;deli;g;;;0;Chipolata crue
+30315;Chorizo;;deli;g;;;0;Chorizo
+28850;Coppa;;deli;g;;;0;Coppa
+28922;Dés de jambon;;deli;g;;;0;Dés, allumettes, râpé ou haché de jambon
+28727;Filet de bacon;;deli;g;;;0;Filet de bacon
+8328;Foie gras;;deli;g;;;0;Foie gras, canard, cru
+26264;Gnocchis;;deli;g;;;0;Gnocchi à la pomme de terre, à cuire
+28927;Haché de volaille;;deli;g;;;0;Haché de volaille
+28905;Jambon à l'os braisé;;deli;g;;;0;Jambon à l'os braisé
+28900;Jambon blanc;;deli;tranche;45;;0;Jambon cuit, supérieur
+28906;Jambon blanc découenné dégraissé;;deli;tranche;;;0;Jambon cuit, supérieur, découenné dégraissé
+28800;Jambon cru;;deli;tranche;15;;0;Jambon cru
+28801;Jambon cru fumé;;deli;g;;;0;Jambon cru fumé
+28803;Jambon cuit;;deli;g;;;0;Jambon cuit, fumé
+28803;Jambon cuit fumé;;deli;tranche;;;0;Jambon cuit, fumé
+28811;Jambon de Bayonne;;deli;g;;;0;Jambon de Bayonne
+28964;Jambon de dinde;;deli;g;;;0;Jambon de dinde ou blanc de dinde en tranche
+28700;Jambon de porc à cuire;;deli;g;;;0;Jambon de porc à cuire ou jambon à rôtir/cuire au four
+28963;Jambon de poulet;;deli;g;;;0;Jambon de poulet ou blanc de poulet en tranche
+28812;Jambon sec;;deli;g;;;0;Jambon sec
+28844;Jambon sec de Parme;;deli;g;;;0;Jambon sec de Parme
+28845;Jambon sec Serrano;;deli;g;;;0;Jambon sec Serrano
+28960;Jambonneau;;deli;g;;;0;Jambonneau, cuit
+28720;Lardons;;deli;g;;;0;Lardon fumé, cru
+28501;Lardons nature;;deli;g;;;0;Lardon nature, cru
+30152;Merguez;;deli;g;;;0;Merguez, pur boeuf, crue
+30789;Mortadelle;;deli;g;;;0;Mortadelle
+8315;Mousse de canard;;deli;g;;;0;Mousse de canard
+8313;Mousse de foie de porc;;deli;g;;;0;Mousse de foie de porc
+28858;Pancetta;;deli;g;;;0;Pancetta ou poitrine roulée sèche
+37001;Pâte à pizza;pâtes à pizza;deli;piece;260;;0;Pâte à pizza, préemballée, crue
+8214;Pâté breton;;deli;g;;;0;Pâté breton
+23414;Pâte brisée;pâtes brisées;deli;piece;230;;0;Pâte brisée, pur beurre, préemballée, crue
+8326;Pâté de foie d'oie;;deli;g;;;0;Pâté de foie d'oie
+8305;Pâté de foie de porc;;deli;g;;;0;Pâté de foie de porc
+8316;Pâté de foie de volaille;;deli;g;;;0;Pâté de foie de volaille
+8240;Pâté de lapin;;deli;g;;;0;Pâté de lapin
+8391;Pâté en croûte;;deli;g;;;0;Pâté en croûte
+23420;Pâte feuilletée;pâtes feuilletées;deli;piece;230;;0;Pâte feuilletée, matière grasse végétale, crue
+28550;Poitrine de porc demi-sel;;deli;g;;;0;Poitrine de porc demi-sel
+8933;Quenelle de poisson;;deli;g;;;0;Quenelle de poisson, à cuire
+8910;Quenelle de volaille;;deli;g;;;0;Quenelle de volaille, à cuire
+8937;Quenelle nature;;deli;g;;;0;Quenelle nature, à cuire
+8030;Rillettes d'oie;;deli;g;;;0;Rillettes d'oie
+8026;Rillettes de canard;;deli;g;;;0;Rillettes de canard
+8001;Rillettes pur porc;;deli;g;;;0;Rillettes pur porc
+28917;Rond de jambon cuit;;deli;g;;;0;Rond de jambon cuit
+30304;Rosette;;deli;g;;;0;Rosette ou fuseau
+28976;Rôti de volaille en salaison;;deli;g;;;0;Rôti de volaille en salaison, cuit
+30350;Salami;;deli;g;;;0;Salami
+30125;Saucisse alsacienne fumée;;deli;g;;;0;Saucisse alsacienne fumée ou gendarme
+30746;Saucisse cocktail;;deli;g;;;0;Saucisse cocktail
+30766;Saucisse de bière;;deli;g;;;0;Saucisse de bière
+30176;Saucisse de foie;;deli;g;;;0;Saucisse de foie
+30134;Saucisse de Francfort;;deli;g;;;0;Saucisse de Francfort
+30105;Saucisse de Montbéliard;;deli;g;;;0;Saucisse de Montbéliard, à cuire
+30104;Saucisse de Morteau;;deli;g;;;0;Saucisse de Morteau
+30742;Saucisse de Strasbourg;saucisses de Strasbourg;deli;piece;;;0;Saucisse de Strasbourg ou knack, à cuire
+30110;Saucisse de Toulouse crue;;deli;g;;;0;Saucisse de Toulouse crue
+30130;Saucisse de volaille façon charcutière;;deli;g;;;0;Saucisse de volaille façon charcutière
+30131;Saucisse de volaille type knack;;deli;g;;;0;Saucisse de volaille type knack
+30102;Saucisse fumée à cuire;;deli;g;;;0;Saucisse fumée à cuire
+30309;Saucisse sèche;;deli;g;;;0;Saucisse sèche
+25232;Saucisse végétale au blé;;deli;g;;;0;Saucisse végétale au blé ou seitan, préemballé
+20337;Saucisse végétale au tofu;;deli;g;;;0;Saucisse végétale au tofu (convient aux véganes ou végétaliens), préemballée
+30700;Saucisson à l'ail;;deli;g;;;0;Saucisson à l'ail
+30707;Saucisson brioché;;deli;g;;;0;Saucisson brioché, cuit
+30701;Saucisson pur porc cuit;;deli;g;;;0;Saucisson pur porc cuit
+30300;Saucisson sec;;deli;g;;;0;Saucisson sec
+30311;Saucisson sec aux noix et/ou noisettes;;deli;g;;;0;Saucisson sec aux noix et/ou noisettes
+8232;Terrine de canard;;deli;g;;;0;Terrine de canard
+8242;Terrine de lapin;;deli;g;;;0;Terrine de lapin
+20904;Tofu;;deli;g;;;0;Tofu nature, préemballé
+28860;Viande des Grisons;;deli;g;;;0;Viande des Grisons
+1007;Apéritif à base de vin;;drinks;ml;;;0;Apéritif à base de vin ou vermouth
+5001;Bière;bières;drinks;cl;;;0;"Bière ""coeur de marché"" (4-5° alcool)"
+5009;Bière blanche;;drinks;ml;;;0;Bière blanche
+5000;Bière brune;;drinks;ml;;;0;Bière brune
+5001;Bière cœur de marché;;drinks;ml;;;0;"Bière ""coeur de marché"" (4-5° alcool)"
+5002;Bière forte;;drinks;ml;;;0;Bière forte (>8° alcool)
+5029;Bière sans alcool;;drinks;ml;;;0;Bière sans alcool, sucrée, aromatisée ou au jus de fruits
+18107;Boisson à l'amande;;drinks;ml;;;0;Boisson à l'amande, nature, sans sucres ajoutés, non enrichie, préemballée
+18899;Boisson à l'avoine;;drinks;ml;;;0;Boisson à l'avoine, nature, sans sucres ajoutés, non enrichie, préemballée
+18907;Boisson à la noix de coco;;drinks;ml;;;0;Boisson à la noix de coco, nature, préemballée
+18904;Boisson au riz;;drinks;ml;;;0;Boisson au riz, nature, préemballée
+18900;Boisson au soja;;drinks;ml;;;0;Boisson au soja, nature, non enrichie, préemballée
+18112;Boisson végétale;;drinks;ml;;;0;Boisson végétale, préemballée (aliment moyen)
+18071;Café expresso;;drinks;ml;;;0;Café expresso, non instantané, sans sucres ajoutés, prêt à boire
+18003;Café moulu;;drinks;g;;;0;Café, moulu
+5207;Champagne;;drinks;ml;;;0;Champagne
+18152;Chicorée;;drinks;g;;;0;Chicorée, poudre soluble
+5006;Cidre brut;;drinks;ml;;;0;Cidre brut
+5007;Cidre doux;;drinks;ml;;;0;Cidre doux
+18299;Citronnade;;drinks;ml;;;0;Citronnade, boisson plate au citron (teneur en fruits >= 10% et < 50%), sucrée
+18007;Cocktail sans alcool;;drinks;ml;;;0;Cocktail ou boisson apéritive sans alcool à base de jus de fruits sans sirop
+18018;Cola;;drinks;ml;;;0;Cola, sucré
+1021;Crème de cassis;;drinks;ml;;;0;Crème de cassis
+18011;Eau de coco;;drinks;ml;;;0;Eau de coco
+1023;Eau de vie de vin type armagnac;;drinks;ml;;;0;Eau de vie de vin type armagnac ou cognac
+1024;Eau de vie type calvados;;drinks;ml;;;0;Eau de vie type calvados
+1002;Gin;;drinks;ml;;;0;Gin
+2073;Jus d'ananas;;drinks;ml;;;0;Jus d'ananas, pur jus
+2013;Jus d'orange;;drinks;ml;;;0;Jus d'orange, frais
+2377;Jus d'orange sanguine;;drinks;ml;;;0;Jus d'orange sanguine, pur jus
+2381;Jus de canneberge;;drinks;ml;;;0;Jus de canneberge ou cranberry
+2006;Jus de carotte;;drinks;ml;;;0;Jus de carotte, pur jus
+2028;Jus de citron;;drinks;ml;;;0;Jus de citron, pur jus
+2034;Jus de clémentine;;drinks;ml;;;0;Jus de clémentine ou mandarine, pur jus
+2024;Jus de fruit de la passion;;drinks;ml;;;0;Jus de fruit de la passion ou maracudja, frais
+2023;Jus de mangue;;drinks;ml;;;0;Jus de mangue, frais
+2025;Jus de pamplemousse;;drinks;ml;;;0;Jus de pamplemousse (pomélo), frais
+2074;Jus de pomme;;drinks;ml;;;0;Jus de pomme, pur jus
+2016;Jus de raisin;;drinks;ml;;;0;Jus de raisin, pur jus
+2026;Jus de tomate;;drinks;ml;;;0;Jus de tomate, pur jus, salé à 3 g/L
+2035;Jus multifruit;;drinks;ml;;;0;Jus multifruit, pur jus, standard
+18025;Kombucha;;drinks;ml;;;0;Kombucha, préemballé
+18010;Limonade;;drinks;ml;;;0;Limonade, sucrée
+1003;Liqueur;;drinks;ml;;;0;Liqueur
+1015;Marsala;;drinks;ml;;;0;Marsala
+2043;Nectar d'abricot;;drinks;ml;;;0;Nectar d'abricot
+2374;Nectar d'ananas;;drinks;ml;;;0;Nectar d'ananas
+2375;Nectar d'orange;;drinks;ml;;;0;Nectar d'orange
+2370;Nectar de mangue;;drinks;ml;;;0;Nectar de mangue
+5004;Panaché;;drinks;ml;;;0;Panaché (limonade et bière)
+1000;Pastis;;drinks;ml;;;0;Pastis
+18101;Poudre cacaotée;;drinks;g;;;0;Poudre cacaotée ou au chocolat pour boisson, sucrée
+1004;Rhum;;drinks;ml;;;0;Rhum
+1026;Saké;;drinks;ml;;;0;Saké ou alcool de riz
+18017;Sirop à diluer;;drinks;ml;;;0;Sirop à diluer, sucré
+18076;Thé en feuilles;;drinks;g;;;0;Thé, feuille
+18154;Thé noir;;drinks;ml;;;0;Thé noir, infusé, sans sucres ajoutés
+18155;Thé vert;;drinks;ml;;;0;Thé vert, infusé, sans sucres ajoutés
+18344;Tonic;;drinks;ml;;;0;Tonic ou bitter, sucré
+5210;Vin;;drinks;ml;;;0;Vin (aliment moyen)
+5215;Vin blanc;;drinks;cl;;;0;Vin blanc sec
+5201;Vin blanc mousseux;;drinks;ml;;;0;Vin blanc mousseux
+5217;Vin cuisiné;;drinks;ml;;;0;Vin cuisiné (alcool évaporé)
+1006;Vin doux;;drinks;ml;;;0;Vin doux
+5216;Vin rosé;;drinks;ml;;;0;Vin rosé
+5214;Vin rouge;;drinks;cl;;;0;Vin rouge
+1008;Vodka;;drinks;ml;;;0;Vodka
+1005;Whisky;;drinks;ml;;;0;Whisky
+26079;Anchois;;fish;g;;;0;Anchois, cru
+27016;Anguille;;fish;g;;;0;Anguille, crue
+26072;Bar commun;;fish;g;;;0;Bar commun ou loup, cru
+10074;Bigorneau;bigorneaux;fish;g;;;0;Bigorneau, cru
+26101;Bonite;;fish;g;;;0;Bonite ou bonite à dos rayé, crue
+27011;Brochet;;fish;g;;;0;Brochet, cru
+10019;Bulot;bulots;fish;g;;;0;Bulot ou buccin, cru
+26043;Cabillaud;;fish;g;;;0;Cabillaud, cru
+10001;Calmar;calmars;fish;g;;;0;Calmar ou calamar ou encornet, cru
+27003;Carpe;;fish;g;;;0;Carpe,  élevage, crue
+26055;Carrelet;;fish;g;;;0;Carrelet ou plie ou plie commune, cru
+26005;Caviar;;fish;g;;;0;Caviar, semi-conserve
+26113;Chinchard;;fish;g;;;0;Chinchard, cru
+10017;Clam;clams;fish;g;;;0;Clam, praire ou palourde, cru
+26127;Congre;;fish;g;;;0;Congre ou congre commun, cru
+10045;Coquille Saint-Jacques;coquilles Saint-Jacques;fish;g;;;0;Coquille Saint-Jacques, noix, crue
+10039;Crabe;crabes;fish;g;;;0;Crabe, cru
+10021;Crevette;crevettes;fish;g;;;0;Crevette, crue
+10086;Crevettes cuites;;fish;g;;;0;Crevettes, décortiquées, cuites, réfrigérées, préemballées
+10089;Crevettes grises;;fish;g;;;0;Crevettes grises, décortiquées, cuites, réfrigérées, préemballées
+26099;Dorade grise;;fish;g;;;0;Dorade grise ou daurade grise, ou griset, crue
+26109;Dorade rose;;fish;g;;;0;Dorade rose ou daurade rose ou pageot rose, crue
+26080;Dorade royale;;fish;g;;;0;Dorade royale ou daurade ou vraie daurade, sauvage, crue
+10030;Écrevisse;écrevisses;fish;g;;;0;Écrevisse, crue
+26122;Églefin;;fish;g;;;0;Églefin, cru
+26083;Éperlan;;fish;g;;;0;Éperlan, cru
+10008;Escargot;escargots;fish;g;;;0;Escargot, cru
+10042;Escargot en sauce au beurre persillé;;fish;g;;;0;Escargot en sauce au beurre persillé, préemballé, cuit
+26082;Espadon;;fish;g;;;0;Espadon, cru
+26043;Filet de cabillaud;filets de cabillaud;fish;piece;140;;0;Cabillaud, cru
+26009;Flétan de l'Atlantique;;fish;g;;;0;Flétan de l'Atlantique ou flétan, cru
+26141;Foie de morue;;fish;g;;;0;Foie de morue, cru
+34500;Grenouille;grenouilles;fish;g;;;0;Grenouille, cuisse, crue
+26106;Grondin;;fish;g;;;0;Grondin, cru
+26090;Haddock;;fish;g;;;0;Haddock (fumé) ou églefin fumé
+26011;Hareng;;fish;g;;;0;Hareng, cru
+26013;Hareng fumé;;fish;g;;;0;Hareng fumé, au naturel
+26010;Hareng mariné;;fish;g;;;0;Hareng mariné ou rollmops, préemballé
+10010;Homard;homards;fish;g;;;0;Homard, cru
+10011;Huître;huîtres;fish;g;;;0;Huître, sans précision, crue
+10035;Huître creuse;huîtres creuses;fish;g;;;0;Huître creuse, crue
+10036;Huître plate;huîtres plates;fish;g;;;0;Huître plate, crue
+26130;Julienne;;fish;g;;;0;Julienne ou lingue, crue
+10015;Langouste;langoustes;fish;g;;;0;Langouste, crue
+10024;Langoustine;langoustines;fish;g;;;0;Langoustine, crue
+26006;Lieu;;fish;g;;;0;Lieu ou colin d'Alaska, cru
+26129;Lieu jaune;;fish;g;;;0;Lieu jaune ou colin, cru
+26134;Lieu noir;;fish;g;;;0;Lieu noir, cru
+26057;Limande;;fish;g;;;0;Limande, crue
+26135;Limande-sole;;fish;g;;;0;Limande-sole, crue
+26018;Lotte;;fish;g;;;0;Lotte ou baudroie, crue
+26051;Maquereau;;fish;g;;;0;Maquereau, cru
+26095;Merlan;;fish;g;;;0;Merlan, cru
+26044;Merlu;;fish;g;;;0;Merlu, cru
+26178;Mérou;;fish;g;;;0;Mérou, cru
+26098;Morue;;fish;g;;;0;Morue, salée, sèche
+10014;Moules;;fish;kg;;;0;Moule commune, crue
+10026;Moule de Méditerranée;moules de Méditerranée;fish;g;;;0;Moule de Méditerranée, crue
+26091;Mulet;;fish;g;;;0;Mulet, cru
+26028;Nuggets;;fish;g;;;0;Nuggets ou croquette panée de poisson, préemballé
+26004;Œufs de lompe;;fish;g;;;0;Oeufs de lompe ou oeufs de lump, semi-conserve
+26151;Œufs de truite;;fish;g;;;0;Oeufs de truite, semi-conserve
+26171;Omble chevalier;;fish;g;;;0;Omble chevalier, cru
+27017;Pangas;;fish;g;;;0;Pangas, poisson-chat, machoiron, cru
+26036;Pavé de saumon;pavés de saumon;fish;piece;130;;0;Saumon, élevage, cru
+27010;Perche;;fish;g;;;0;Perche ou perche européenne, crue
+10049;Pétoncle;pétoncles;fish;g;;;0;Pétoncle ou peigne du Pérou, noix, crue
+26030;Poisson pané;;fish;g;;;0;Poisson pané, frit
+10018;Poulpe;poulpes;fish;g;;;0;Poulpe, cru
+26052;Raie;;fish;g;;;0;Raie, crue
+26063;Rascasse;;fish;g;;;0;Rascasse ou rascasse de profondeur, crue
+8083;Rillettes de maquereau;;fish;g;;;0;Rillettes de maquereau, préemballées
+8080;Rillettes de poisson;;fish;g;;;0;Rillettes de poisson, préemballées
+8081;Rillettes de saumon;;fish;g;;;0;Rillettes de saumon, préemballées
+8082;Rillettes de thon;;fish;g;;;0;Rillettes de thon, préemballées
+26074;Roussette;;fish;g;;;0;Roussette ou petite roussette ou saumonette, crue
+26104;Saint-Pierre;;fish;g;;;0;Saint-Pierre, cru
+27024;Sandre;;fish;g;;;0;Sandre, cru
+26065;Sardine;;fish;g;;;0;Sardine, crue
+26036;Saumon;;fish;g;;;0;Saumon, élevage, cru
+26037;Saumon fumé;;fish;tranche;25;;0;Saumon fumé
+26161;Saumon sauvage;;fish;g;;;0;Saumon, sauvage, cru
+10016;Seiche;seiches;fish;g;;;0;Seiche, crue
+26058;Sole;;fish;g;;;0;Sole, crue
+26173;Sprat;;fish;g;;;0;Sprat, cru
+26239;Surimi;;fish;g;;;0;Surimi, fourré au fromage frais
+8290;Tarama;;fish;g;;;0;Tarama, au saumon fumé, préemballé
+8291;Terrine de poisson;;fish;g;;;0;Terrine de poisson, préemballée
+26053;Thon;;fish;g;;;0;Thon, cru
+26064;Thon albacore;;fish;g;;;0;Thon albacore, cru
+26076;Thon germon;;fish;g;;;0;Thon germon ou thon blanc, cru
+26069;Thon rouge;;fish;g;;;0;Thon rouge, cru
+27019;Tilapia;;fish;g;;;0;Tilapia, cru
+27008;Truite;;fish;g;;;0;Truite ou truite fario, élevage, crue
+26092;Truite de mer;;fish;g;;;0;Truite de mer, crue
+27021;Truite saumonée;;fish;g;;;0;Truite saumonée, crue
+26174;Turbot;;fish;g;;;0;Turbot, cru
+20204;Brocoli surgelé;;frozen;g;;;0;Brocoli, surgelé, cru
+20228;Champignons surgelés;;frozen;g;;;0;Champignon de Paris ou champignon de couche, surgelé, cru
+20082;Chou-fleur surgelé;;frozen;g;;;0;Chou-fleur, surgelé, cru
+10038;Crevettes surgelées;;frozen;g;;;0;Crevette, surgelée, crue
+4049;Croquettes de pommes de terre;;frozen;g;;;0;Croquette de pomme de terre, surgelée, à cuire
+20231;Crosne;crosnes;frozen;g;;;0;Crosne, surgelé, cru
+20083;Épinards surgelés;;frozen;g;;;0;Epinard, haché ou purée ou en branches, surgelé, cru
+20541;Fèves surgelées;;frozen;g;;;0;Fève, pelée, fraîche, surgelée, crue
+26048;Filet de merlu surgelé;;frozen;g;;;0;Merlu, filet, surgelé, cru
+13136;Framboises surgelées;;frozen;g;;;0;Framboise, surgelée, crue
+4044;Frites surgelées;;frozen;g;;;0;Frites de pommes de terre, surgelées, préfrites, pour cuisson au four
+39527;Glace;;frozen;g;;;0;Glace ou crème glacée, bac ou pot (aliment moyen)
+20070;Haricots verts surgelés;;frozen;g;;;0;Haricot vert, surgelé, cru
+20267;Jardinière de légumes surgelée;jardinières de légumes surgelée;frozen;g;;;0;Printanière ou jardinière de légumes, surgelée, crue (petits pois, pommes de terre, haricots verts, carottes, oignon)
+20265;Julienne de légumes surgelée;;frozen;g;;;0;Julienne ou brunoise de légumes, surgelée, crue
+20496;Légumes pour couscous surgelés;;frozen;g;;;0;Légumes pour couscous, surgelés, crus
+20263;Légumes pour potage surgelés;;frozen;g;;;0;Légumes pour potages, surgelés, crus
+20266;Légumes pour ratatouille surgelés;;frozen;g;;;0;Légumes pour ratatouille, surgelés
+20101;Légumes surgelés;;frozen;g;;;0;Légumes, mélange surgelé, crus
+20233;Maïs doux surgelé;maïs doux surgelés;frozen;g;;;0;Maïs doux, surgelé, cru
+13132;Myrtilles surgelées;;frozen;g;;;0;Myrtille, surgelée, crue
+20235;Oignon surgelé;;frozen;g;;;0;Oignon, surgelé, cru
+20214;Petits pois et carottes surgelés;;frozen;g;;;0;Petits pois et carottes, surgelés, crus
+20084;Petits pois surgelés;;frozen;g;;;0;Petits pois, surgelés, crus
+20273;Poêlée asiatique surgelée;;frozen;g;;;0;Poêlée de légumes assaisonnés à l'asiatiques ou wok de légumes, surgelée, crue
+20262;Poêlée de légumes surgelée;;frozen;g;;;0;Poêlée de légumes assaisonnés sans champignon, surgelée, crue
+20274;Poêlée méridionale surgelée;;frozen;g;;;0;Poêlée de légumes assaisonnés grillée, méridionale ou méditerranéenne, surgelée, crue
+4020;Pomme de terre dauphine;pommes de terre dauphine;frozen;g;;;0;Pomme de terre dauphine, surgelée, à cuire
+4042;Pomme de terre duchesse;pommes de terre duchesse;frozen;g;;;0;Pomme de terre duchesse, surgelée, à cuire
+4053;Pomme de terre grenaille;pommes de terre grenaille;frozen;g;;;0;Pomme de terre grenaille, préfrite, surgelée, à cuire
+4013;Pomme de terre noisette;pommes de terre noisette;frozen;g;;;0;Pomme de terre noisette, surgelée, à cuire
+4051;Pommes de terre sarladaises surgelées;;frozen;g;;;0;Poêlée de pommes de terre à la sarladaise (graisse de canard, ail et persil), surgelée, à cuire
+4043;Pommes de terre sautées surgelées;;frozen;g;;;0;Pomme de terre sautée/poêlée/rissolée, préfrite, surgelée, à cuire
+4052;Potatoes surgelées;;frozen;g;;;0;Potatoes ou wedges ou quartiers de pommes de terre épicés, surgelées, à cuire
+26244;Rouget-barbet;;frozen;g;;;0;Rouget-barbet, filet avec peau, surgelé, cru (Thaïlande,Vietnam, Sénégal…)
+20237;Salsifis;;frozen;g;;;0;Salsifis, surgelé, cru
+39528;Sorbet;;frozen;g;;;0;Sorbet, cône
+13000;Abricot;abricots;fruits;g;;;0;Abricot, dénoyauté, cru
+11000;Ail;;fruits;gousse;5;;0;Ail, cru
+13002;Ananas;;fruits;g;;;0;Ananas, chair sans peau, cru
+11093;Aneth;;fruits;g;;;0;Aneth, frais
+20052;Artichaut;artichauts;fruits;g;;;0;Artichaut, cru
+20279;Asperge;asperges;fruits;g;;;0;Asperge, verte, crue
+20053;Aubergine;aubergines;fruits;piece;300;;0;Aubergine, crue
+13004;Avocat;avocats;fruits;piece;200;;0;Avocat, chair sans peau, sans noyau, cru
+13183;Baie de goji;baies de goji;fruits;g;;;0;Baie de goji, séchée
+20198;Bambou;bambous;fruits;g;;;0;Bambou, pousse, crue
+13005;Banane;bananes;fruits;piece;120;;0;Banane, chair sans peau, crue
+53100;Banane plantain;bananes plantains;fruits;g;;;0;Banane plantain, crue
+11033;Basilic;;fruits;botte;30;;0;Basilic, frais
+20123;Batavia;batavias;fruits;g;;;0;Batavia, crue
+20003;Betterave cuite;betteraves cuites;fruits;piece;150;;0;Betterave rouge, cuite
+20091;Betterave rouge;betteraves rouges;fruits;g;;;0;Betterave rouge, crue
+20004;Blette;blettes;fruits;g;;;0;Bette ou blette, côte (sans feuille), crue
+20057;Brocoli;brocolis;fruits;piece;400;;0;Brocoli, cru
+20138;Butternut;butternuts;fruits;piece;1000;;0;Courge butternut (doubeurre), chair sans peau, crue
+13113;Canneberge;canneberges;fruits;g;;;0;Canneberge ou cranberry, crue
+13054;Carambole;caramboles;fruits;g;;;0;Carambole, chair et peau, crue
+20054;Cardon;cardons;fruits;g;;;0;Cardon, cru
+20009;Carotte;carottes;fruits;piece;100;;0;Carotte, crue
+13007;Cassis;;fruits;g;;;0;Cassis, cru
+20023;Céleri branche;;fruits;piece;40;;0;Céleri branche, cru
+20055;Céleri-rave;céleris-raves;fruits;g;;;0;Céleri-rave, cru
+20160;Cèpe;cèpes;fruits;g;;;0;Champignon, cèpe, cru
+11002;Cerfeuil;;fruits;g;;;0;Cerfeuil, frais
+13008;Cerise;cerises;fruits;g;;;0;Ceriser, chair et peau, sans noyau, crue
+20010;Champignon;champignons;fruits;g;;;0;Champignon, tout type, cru
+20056;Champignon de Paris;champignons de Paris;fruits;g;20;;0;Champignon de Paris ou champignon de couche, cru
+20202;Champignon noir;champignons noirs;fruits;g;;;0;Champignon noir, séché
+20103;Chanterelle;chanterelles;fruits;g;;;0;Champignon, chanterelle ou girolle, crue
+13128;Chayote;chayotes;fruits;g;;;0;Chayote ou christophine ou chouchou, crue
+20162;Chicorée rouge;chicorées rouges;fruits;g;;;0;Chicorée rouge, crue
+20163;Chicorée verte;chicorées vertes;fruits;g;;;0;Chicorée verte, crue
+20116;Chou blanc;choux blancs;fruits;g;;;0;Chou blanc, cru
+20058;Chou de Bruxelles;choux de Bruxelles;fruits;g;;;0;Chou de Bruxelles, cru
+20016;Chou-fleur;choux-fleurs;fruits;piece;800;;0;Chou-fleur, cru
+20218;Chou frisé;choux frisés;fruits;g;;;0;Chou frisé, cru
+20346;Chou kale;choux kale;fruits;g;;;0;Chou kale, cru
+20065;Chou-rave;choux-raves;fruits;g;;;0;Chou-rave, cru
+20280;Chou romanesco;choux romanesco;fruits;g;;;0;Chou romanesco ou brocoli à pomme, cru
+20014;Chou rouge;choux rouges;fruits;g;;;0;Chou rouge, cru
+20069;Chou vert;choux verts;fruits;g;;;0;Chou vert, cru
+11003;Ciboulette;;fruits;botte;30;;0;Ciboule ou ciboulette, fraîche
+13009;Citron;citrons;fruits;piece;120;;0;Citron, chair sans peau, sans pépins, cru
+13067;Citron vert;citrons verts;fruits;piece;70;;0;Citron vert ou lime, chair sans peau, sans pépins, cru
+20166;Citrouille;citrouilles;fruits;g;;;0;Citrouille, chair sans peau, crue
+13024;Clémentine;clémentines;fruits;g;;;0;Clémentine ou mandarine, chair sans peau, sans pépins, crue
+13010;Coing;coings;fruits;g;;;0;Coing, cru
+13211;Compote;compotes;fruits;g;;;0;Compote, autres fruits, préemballée
+13205;Compote d'abricot;compotes d'abricot;fruits;g;;;0;Compote d'abricot, préemballée
+13204;Compote de pêche;compotes de pêche;fruits;g;;;0;Compote de pêche, préemballée
+13038;Compote de pomme;compotes de pomme;fruits;g;;;0;Compote de pomme, préemballée
+13206;Compote de rhubarbe;compotes de rhubarbe;fruits;g;;;0;Compote de rhubarbe, préemballée
+20019;Concombre;concombres;fruits;piece;300;;0;Concombre, chair et peau, cru
+11094;Coriandre;;fruits;botte;50;;0;Coriandre, fraiche
+20139;Courge;courges;fruits;g;;;0;Courge, crue
+20134;Courge hokkaïdo;courges hokkaïdo;fruits;g;;;0;Courge hokkaïdo, chair sans peau, crue
+20128;Courge musquée;courges musquées;fruits;g;;;0;Courge musquée, chair sans peau, crue
+20145;Courge spaghetti;courges spaghetti;fruits;g;;;0;Courge spaghetti, chair sans peau, crue
+20020;Courgette;courgettes;fruits;piece;250;;0;Courgette, chair et peau, crue
+20022;Cresson;;fruits;g;;;0;Cresson de fontaine, cru
+20199;Cresson alénois;cressons alénois;fruits;g;;;0;Cresson alénois, cru
+13011;Datte;dattes;fruits;g;;;0;Datte, chair et peau, sans noyau, sèche
+20097;Échalote;échalotes;fruits;piece;30;;0;Échalote, crue
+20026;Endive;endives;fruits;g;;;0;Endive, crue
+20059;Épinard;épinards;fruits;g;;;0;Épinard, cru
+20059;Épinards frais;;fruits;g;;;0;Épinard, cru
+11092;Estragon;;fruits;g;;;0;Estragon, frais
+20028;Fenouil;fenouils;fruits;piece;300;;0;Fenouil, cru
+13012;Figue;figues;fruits;g;;;0;Figue, crue
+13063;Figue de Barbarie;figues de Barbarie;fruits;g;;;0;Figue de Barbarie, chair et peau, avec pépins, crue
+13014;Fraise;fraises;fruits;g;;;0;Fraise, crue
+13015;Framboise;framboises;fruits;g;;;0;Framboise, crue
+20012;Frisée;frisées;fruits;g;;;0;Salade ou chicorée frisée, crue
+13016;Fruit de la passion;fruits de la passion;fruits;g;;;0;Fruit de la passion ou maracudja, chair sans peau, avec pépins, cru
+13997;Fruits rouges;;fruits;g;;;0;Fruits rouges, crus (framboises, fraises, groseilles, cassis)
+11074;Gingembre frais;;fruits;g;;;0;Gingembre, racine fraîche
+58100;Gombo;gombos;fruits;g;;;0;Gombo, fruit, cru
+13083;Goyave;goyaves;fruits;g;;;0;Goyave, chair sans peau, crue
+13018;Grenade;grenades;fruits;g;;;0;Grenade, chair sans peau, avec pépins, crue
+13110;Griotte;griottes;fruits;g;;;0;Griotte, crue
+13019;Groseille;groseilles;fruits;g;;;0;Groseille, crue
+13020;Groseille à maquereau;groseilles à maquereau;fruits;g;;;0;Groseille à maquereau, crue
+20195;Haricot beurre;haricots beurre;fruits;g;;;0;Haricot beurre, cru
+20269;Haricot plat;haricots plats;fruits;g;;;0;Haricot plat, cru
+20061;Haricots verts;;fruits;g;;;0;Haricot vert, cru
+11080;Herbes fraîches;;fruits;g;;;0;Herbes aromatiques fraîches (aliment moyen)
+53672;Igname;ignames;fruits;g;;;0;Igname, crue
+20270;Jeunes pousses d'épinard;;fruits;g;;;0;Épinard, jeunes pousses pour salades, cru
+13021;Kiwi;kiwis;fruits;g;;;0;Kiwi, chair sans peau, avec pépins, cru
+13549;Kumquat;kumquats;fruits;g;;;0;Kumquat, chair et peau, sans pépin, cru
+20031;Laitue;laitues;fruits;g;;;0;Laitue, crue
+20200;Laitue iceberg;laitues iceberg;fruits;g;;;0;Laitue iceberg, crue
+20171;Laitue romaine;laitues romaine;fruits;g;;;0;Laitue romaine, crue
+20521;Lentilles germées;;fruits;g;;;0;Graine germée de lentille, fraîche, crue
+13023;Litchi;litchis;fruits;g;;;0;Litchi, chair sans peau, sans noyau, cru
+20099;Mâche;mâches;fruits;g;;;0;Mâche, crue
+13025;Mangue;mangues;fruits;g;;;0;Mangue, chair sans peau, sans noyau, crue
+54031;Manioc;maniocs;fruits;g;;;0;Manioc, racine crue
+13026;Melon;melons;fruits;piece;;;0;Melon cantaloup (par ex.: Charentais), chair sans peau, sans pépins, cru
+13026;Melon cantaloup;melons cantaloup;fruits;g;;;0;Melon cantaloup (par ex.: Charentais), chair sans peau, sans pépins, cru
+13742;Melon miel;melons miel;fruits;g;;;0;Melon miel ou melon honeydew, chair sans peau, sans pépins, cru
+11027;Menthe;;fruits;botte;30;;0;Menthe, fraîche
+20272;Mesclun;mescluns;fruits;g;;;0;Mesclun ou salade, mélange de jeunes pousses
+20105;Morille;morilles;fruits;g;;;0;Champignon, morille, crue
+13029;Mûre;mûres;fruits;g;;;0;Mûre (de ronce), crue
+13071;Mûre noire;mûres noires;fruits;g;;;0;Mûre noire (du mûrier), crue
+13028;Myrtille;myrtilles;fruits;g;;;0;Myrtille, crue
+20064;Navet;navets;fruits;piece;150;;0;Navet, pelé, cru
+13148;Nectarine;nectarines;fruits;ml;;;0;Nectarine ou brugnon, jaune, chair et peau, sans noyau, crue
+13564;Nèfle du Japon;nèfles du Japon;fruits;g;;;0;Nèfle du Japon, chair et peau, sans noyau, crue
+15006;Noix de coco fraîche;;fruits;g;;;0;Noix de coco, chair, fraîche
+20034;Oignon;oignons;fruits;piece;150;;0;Oignon, cru
+20239;Oignon jaune;oignons jaunes;fruits;g;;;0;Oignon jaune, cru
+20238;Oignon rouge;oignons rouges;fruits;piece;150;;0;Oignon rouge, cru
+13034;Orange;oranges;fruits;piece;200;;0;Orange, chair sans peau, sans pépins, crue
+20111;Oseille;oseilles;fruits;g;;;0;Oseille, crue
+20340;Pak choï;paks choï;fruits;g;;;0;Chou chinois pak choï ou pak choy (feuilles vertes ressemblant à des blettes), cru
+20181;Panais;;fruits;g;;;0;Panais, cru
+13035;Papaye;papayes;fruits;g;;;0;Papaye, chair sans peau, crue
+13036;Pastèque;pastèques;fruits;g;;;0;Pastèque, chair sans peau, sans pépins, crue
+4101;Patate douce;patates douces;fruits;piece;300;;0;Patate douce, crue
+13043;Pêche;pêches;fruits;g;;;0;Pêche, chair et peau, sans noyau, crue
+13193;Pêche blanche;pêches blanches;fruits;g;;;0;Pêche blanche, chair et peau, sans noyau, crue
+13195;Pêche jaune;pêches jaunes;fruits;g;;;0;Pêche jaune, chair sans peau, sans noyau, crue
+11014;Persil;;fruits;botte;50;;0;Persil, frais
+20072;Petits pois frais;;fruits;g;;;0;Petits pois, crus
+20151;Piment;piments;fruits;g;;;0;Piment, cru
+20038;Pissenlit;pissenlits;fruits;g;;;0;Pissenlit, cru
+20114;Pleurote;pleurotes;fruits;g;;;0;Champignon, pleurote, crue
+20173;Pois mange-tout;pois mange-touts;fruits;g;;;0;Pois mange-tout ou pois gourmand, cru
+13037;Poire;poires;fruits;piece;180;;0;Poire, chair et peau, crue
+13188;Poire Conférence;poires Conférence;fruits;g;;;0;Poire Conférence, chair sans peau, crue
+13189;Poire Williams;poires Williams;fruits;g;;;0;Poire Williams, chair sans peau, crue
+20039;Poireau;poireaux;fruits;piece;250;;0;Poireau, cru
+20168;Poivron jaune;poivrons jaunes;fruits;g;;;0;Poivron jaune, cru
+20087;Poivron rouge;poivrons rouges;fruits;piece;180;;0;Poivron rouge, cru
+20085;Poivron vert;poivrons verts;fruits;piece;180;;0;Poivron vert, cru
+13179;Pomelo jaune;pomelos jaunes;fruits;g;;;0;Pomelo (dit Pamplemousse) jaune, chair sans peau, sans pépins, cru
+13180;Pomelo rose;pomelos roses;fruits;g;;;0;Pomelo (dit Pamplemousse) rose, chair sans peau, sans pépins, cru
+13039;Pomme;pommes;fruits;piece;180;;0;Pomme, chair et peau, crue
+4008;Pomme de terre;pommes de terre;fruits;g;150;;0;Pomme de terre, sans peau, crue
+4023;Pomme de terre nouvelle;pommes de terre nouvelle;fruits;g;;;0;Pomme de terre nouvelle ou primeur, crue
+13191;Pomme Gala;pommes Gala;fruits;g;;;0;Pomme Gala, chair sans peau, crue
+13620;Pomme Golden;pommes Golden;fruits;g;;;0;Pomme Golden, chair et peau, crue
+13122;Pomme Granny Smith;pommes Granny Smith;fruits;g;;;0;Pomme Granny Smith, chair et peau, crue
+13192;Pomme Pink lady;pommes Pink lady;fruits;g;;;0;Pomme Pink lady, chair sans peau, crue
+20132;Potimarron;potimarrons;fruits;g;;;0;Potimarron, chair sans peau, cru
+20044;Potiron;potirons;fruits;g;;;0;Potiron, cru
+20127;Pourpier;pourpiers;fruits;g;;;0;Pourpier, feuille, cru
+20183;Pousses de soja;;fruits;g;;;0;"Graine germée de haricot mungo ou pousse de ""soja"", crue"
+13100;Prune;prunes;fruits;g;;;0;Prune, sans noyau, crue
+13027;Prune mirabelle;prunes mirabelle;fruits;g;;;0;Prune mirabelle, sans noyau, crue
+13041;Prune Reine-Claude;prunes Reine-Claude;fruits;g;;;0;Prune Reine-Claude, sans noyau, crue
+13583;Prune violette;prunes violettes;fruits;g;;;0;Prune violette, sans noyau, crue
+13042;Pruneau;pruneaux;fruits;g;;;0;Pruneau, sans noyau, sec
+13153;Purée de fruits;purées de fruits;fruits;g;;;0;"Purée de fruits, tout type de fruits, type ""compote sans sucres ajoutés"", rayon ambiant"
+13187;Purée de pommes;purées de pommes;fruits;g;;;0;"Purée de pommes, type ""compote sans sucres ajoutés"", rayon ambiant"
+20045;Radis;;fruits;botte;250;;0;Radis rouge, cru
+20089;Radis noir;radis noirs;fruits;g;;;0;Radis noir, cru
+11016;Raifort;;fruits;g;;;0;Raifort, frais
+13044;Raisin blanc;raisins blancs;fruits;g;;;0;Raisin blanc, à gros grain (type Italia ou Dattier), cru
+13101;Raisin Chasselas;raisins Chasselas;fruits;g;;;0;Raisin Chasselas, cru
+13045;Raisin noir;raisins noirs;fruits;g;;;0;Raisin noir, cru
+13046;Raisin sec;raisins secs;fruits;g;;;0;Raisin sec
+13047;Rhubarbe;rhubarbes;fruits;g;;;0;Rhubarbe, tige, crue
+11068;Romarin frais;;fruits;brin;1;;0;Romarin, frais
+20217;Roquette;roquettes;fruits;g;;;0;Roquette, crue
+20161;Rosé des prés;rosés des prés;fruits;g;;;0;Champignon, rosé des prés, cru
+4039;Röstis;;fruits;g;;;0;Rostis ou galette de pomme de terre
+20201;Rutabaga;rutabagas;fruits;g;;;0;Rutabaga, cru
+20295;Salade feuille de chêne;salades feuille de chêne;fruits;g;;;0;Salade feuille de chêne, crue
+20288;Salade sucrine;salades sucrine;fruits;g;;;0;Salade sucrine, crue
+25604;Salade verte;salades vertes;fruits;piece;300;;0;Salade verte, crue, sans assaisonnement
+20283;Salicorne;salicornes;fruits;g;;;0;Salicorne (Salicornia sp.), crue
+20197;Salsifis noir;salsifis noirs;fruits;g;;;0;Salsifis noir, ou scorsonère d'Espagne, cru
+20090;Scarole;scaroles;fruits;g;;;0;Scarole, crue
+20211;Shiitaké;shiitakés;fruits;g;;;0;Champignon, lentin comestible ou shiitaké, séché
+4000;Tapioca;tapiocas;fruits;g;;;0;Tapioca ou perles du Japon, cru
+53200;Taro;taros;fruits;g;;;0;Taro, tubercule, cru
+11070;Thym frais;;fruits;brin;1;;0;Thym, frais
+20385;Tomate;tomates;fruits;piece;120;;0;Tomate sans précision, crue (aliment moyen)
+20345;Tomate allongée;tomates allongée;fruits;g;;;0;Tomate allongée, crue
+20172;Tomate cerise;tomates cerises;fruits;g;15;;0;Tomate cerise, crue
+20192;Tomate cœur de bœuf;tomates cœur de bœuf;fruits;g;;;0;Tomate côtelée ou coeur de boeuf, crue
+20584;Tomate grappe;tomates grappe;fruits;g;;;0;Tomate grappe, crue
+20343;Tomate marmande;tomates marmande;fruits;g;;;0;Tomate marmande, crue
+20276;Tomate ronde;tomates ronde;fruits;g;;;0;Tomate ronde, crue
+20119;Tomate verte;tomates vertes;fruits;g;;;0;Tomate verte, crue
+20196;Topinambour;topinambours;fruits;g;;;0;Topinambour, cru
+20106;Truffe noire;truffes noires;fruits;g;;;0;Champignon, truffe noire, crue
+13125;Zeste de citron;;fruits;g;;;0;Citron, zeste, cru
+11084;Agar;;savory;g;;;0;Agar (algue), frais, cru
+15000;Amandes;;savory;g;;;0;Amande, avec peau, sans sel ajouté
+15041;Amandes effilées;;savory;g;;;0;Amande, émondée, sans sel ajouté
+9510;Amidon de maïs;;savory;g;;;0;Amidon de maïs ou fécule de maïs
+96781;Amidon de riz;;savory;g;;;0;Amidon de riz
+9310;Avoine;;savory;g;;;0;Avoine, crue
+15202;Beurre de cacahuète;;savory;g;;;0;Beurre de cacahuète ou pâte d'arachide
+38420;Biscuit apéritif soufflé;;savory;g;;;0;Biscuit ou cracker apéritif, soufflé, nature
+9060;Blé dur complet;;savory;g;;;0;Blé dur complet, cru
+11041;Bouillon de légumes;;savory;piece;10;;0;Bouillon de légumes, déshydraté
+11174;Bouillon de volaille;;savory;piece;10;;0;Bouillon de volaille, déshydraté
+9690;Boulgour de blé;;savory;g;;;0;Boulgour de blé, cru
+15001;Cacahuète;;savory;g;;;0;Cacahuète, sans sel ajouté
+7500;Chapelure;;savory;g;;;0;Chapelure
+15024;Châtaigne;;savory;g;;;0;Châtaigne, crue
+38104;Chips à la crevette;;savory;g;;;0;Chips, beignet ou pétale à la crevette
+9810;Coquillettes;;savory;g;;;0;Pâtes sèches, standard, crues
+9681;Couscous (graine);;savory;g;;;0;Graine de couscous (semoule de blé dur précuite), à cuire
+20988;Dulse;;savory;g;;;0;Dulse (Palmaria palmata), séchée ou déshydratée
+9001;Épeautre;;savory;g;;;0;Épeautre, cru
+9810;Farfalle;;savory;g;;;0;Pâtes sèches, standard, crues
+9436;Farine;;savory;g;;;1;Farine de blé tendre ou froment T55 (pour pains)
+9437;Farine à levure incorporée;;savory;g;;;0;Farine de blé tendre ou froment avec levure incorporée
+9415;Farine complète;;savory;g;;;0;Farine de blé tendre ou froment T150
+9480;Farine d'épeautre;;savory;g;;;0;Farine d'épeautre (grand épeautre)
+9550;Farine d'orge;;savory;g;;;0;Farine d'orge
+9570;Farine de châtaigne;;savory;g;;;0;Farine de châtaigne
+9545;Farine de maïs;;savory;g;;;0;Farine de maïs
+9555;Farine de millet;;savory;g;;;0;Farine de millet
+9580;Farine de pois chiche;;savory;g;;;0;Farine de pois chiche
+9520;Farine de riz;;savory;g;;;0;Farine de riz
+9540;Farine de sarrasin;;savory;g;;;0;Farine de sarrasin
+9533;Farine de seigle T130;;savory;g;;;0;Farine de seigle T130
+9530;Farine de seigle T170;;savory;g;;;0;Farine de seigle T170
+9532;Farine de seigle T85;;savory;g;;;0;Farine de seigle T85
+20915;Farine de soja complète;;savory;g;;;0;Farine de soja complète
+9520;Farine sans gluten;;savory;g;;;0;Farine de riz
+9440;Farine T45;;savory;g;;;0;Farine de blé tendre ou froment T45 (pour pâtisserie)
+9435;Farine T65;;savory;g;;;0;Farine de blé tendre ou froment T65
+9510;Fécule de maïs;;savory;g;;;0;Amidon de maïs ou fécule de maïs
+4090;Fécule de pomme de terre;;savory;g;;;0;Fécule de pomme de terre
+20518;Fève;;savory;g;;;0;Fève, sèche
+20517;Fève à écosser;;savory;g;;;0;Fève à écosser, fraîche, crue
+4022;Flocons de pomme de terre;;savory;g;;;0;Flocons de pomme de terre, nature, déshydratés
+9810;Fusilli;;savory;g;;;0;Pâtes sèches, standard, crues
+26265;Gnocchi à la semoule;;savory;g;;;0;Gnocchi à la semoule, à cuire
+15063;Graines de chanvre;;savory;g;;;0;Chanvre ou chènevis, graine décortiquée
+15047;Graines de chia;;savory;g;;;0;Chia, graine, séchée
+15064;Graines de courge;;savory;g;;;0;Courge, graine, séchée
+15034;Graines de lin;;savory;g;;;0;Lin, graine
+15034;Graines de lin moulues;;savory;g;;;0;Lin, graine
+15010;Graines de sésame;;savory;g;;;0;Sésame, graine
+15011;Graines de tournesol;;savory;g;;;0;Tournesol, graine
+16560;Graisse d'oie;;savory;g;;;0;Graisse d'oie
+16550;Graisse de canard;;savory;g;;;0;Graisse de canard
+16080;Graisse végétale (type margarine);;savory;cs;;0.92;1;Matière grasse ou graisse végétale solide (type margarine) pour friture ou graisse à frire
+20501;Haricot blanc;;savory;g;;;0;Haricot blanc, sec
+20539;Haricot flageolet;;savory;g;;;0;Haricot flageolet, vert, sec
+20530;Haricot mungo;;savory;g;;;0;Haricot mungo, sec
+20525;Haricot rouge;;savory;g;;;0;Haricot rouge, sec
+17030;Huile d'amande;;savory;cs;;0.92;1;Huile d'amande
+17040;Huile d'arachide;;savory;cs;;0.92;1;Huile d'arachide
+17900;Huile d'argan;;savory;cs;;0.92;1;Huile d'argan ou d'argane
+17100;Huile d'avocat;;savory;cs;;0.92;1;Huile d'avocat
+17270;Huile d'olive;;savory;cs;;0.92;1;Huile d'olive vierge extra
+17850;Huile de chanvre;;savory;cs;;0.92;1;Huile de chanvre
+16030;Huile de coco;;savory;cs;;0.92;1;Huile ou beurre de cacao
+17130;Huile de colza;;savory;cs;;0.92;1;Huile de colza
+17180;Huile de lin;;savory;cs;;0.92;1;Huile de lin
+17190;Huile de maïs;;savory;cs;;0.92;1;Huile de maïs
+17220;Huile de noix;;savory;cs;;0.92;1;Huile de noix
+17210;Huile de noisette;;savory;cs;;0.92;1;Huile de noisette
+17350;Huile de pépins de raisin;;savory;cs;;0.92;1;Huile de pépins de raisin
+17400;Huile de sésame;;savory;cs;;0.92;1;Huile de sésame
+17420;Huile de soja;;savory;cs;;0.92;1;Huile de soja
+17440;Huile de tournesol;;savory;cs;;0.92;1;Huile de tournesol
+20990;Kombu;;savory;g;;;0;Kombu ou kombu japonais (Saccharina japonica), séché ou déshydraté
+16530;Lard gras;;savory;g;;;0;Lard gras, cru
+9810;Lasagnes (feuilles);;savory;g;;;0;Pâtes sèches, standard, crues
+20586;Lentille blonde;;savory;g;;;0;Lentille blonde, sèche
+20535;Lentilles corail;;savory;g;;;0;Lentille corail, sèche
+20585;Lentilles vertes;;savory;g;;;0;Lentille verte, sèche
+9810;Macaroni;;savory;g;;;0;Pâtes sèches, standard, crues
+15005;Noix;;savory;g;;;0;Noix, cerneau, séchée
+15007;Noix de coco;;savory;g;;;0;Noix de coco, chair, sèche
+15007;Noix de coco râpée;;savory;g;;;0;Noix de coco, chair, sèche
+15027;Noix de macadamia;;savory;g;;;0;Noix de macadamia, sans sel ajouté
+15046;Noix de pécan;;savory;g;;;0;Noix de pécan, salées
+15008;Noix du Brésil;;savory;g;;;0;Noix du Brésil ou noix d'Amazonie, sans sel ajouté
+15004;Noisette;;savory;g;;;0;Noisette, sans sel ajouté
+20987;Nori;;savory;g;;;0;Nori (Porphyra sp., Pyropia), séchée ou déshydratée
+9863;Nouilles aux œufs;;savory;g;;;0;Pâtes ou nouilles asiatiques sèches, au blé et aux oeufs, nature, crues
+9320;Orge complète;;savory;g;;;0;Orge complète, crue
+9321;Orge perlée;;savory;g;;;0;Orge perlée, crue
+9810;Pâtes;;savory;g;;;0;Pâtes sèches, standard, crues
+9870;Pâtes complètes;;savory;g;;;0;Pâtes sèches, au blé complet, crues
+9874;Pâtes sans gluten;;savory;g;;;0;Pâtes sèches, sans gluten, crues
+9810;Penne;;savory;g;;;0;Pâtes sèches, standard, crues
+15025;Pignon de pin;;savory;g;;;0;Pignon de pin
+20515;Pois cassé;;savory;g;;;0;Pois cassé, sec
+20516;Pois chiches secs;;savory;g;;;0;Pois chiche, sec
+9614;Polenta;;savory;g;;;0;Polenta ou semoule de maïs, précuite, à cuire
+9340;Quinoa;;savory;g;;;0;Quinoa, cru
+9100;Riz arborio;;savory;g;;;0;Riz blanc, cru
+9119;Riz basmati;;savory;g;;;0;Riz thaï ou basmati, cru
+9100;Riz blanc;;savory;g;;;0;Riz blanc, cru
+9101;Riz blanc étuvé;;savory;g;;;0;Riz blanc étuvé, cru
+9102;Riz complet;;savory;g;;;0;Riz complet, cru
+9121;Riz mélange de variétés;;savory;g;;;0;Riz, mélange de variétés (blanc, complet, rouge, sauvage, etc.), cru
+9100;Riz rond;;savory;g;;;0;Riz blanc, cru
+9109;Riz rouge;;savory;g;;;0;Riz rouge, cru
+9108;Riz sauvage;;savory;g;;;0;Riz sauvage, cru
+9119;Riz thaï;;savory;g;;;0;Riz thaï ou basmati, cru
+16520;Saindoux;;savory;g;;;0;Saindoux
+9380;Sarrasin complet;;savory;g;;;0;Sarrasin complet, cru
+9390;Seigle complet;;savory;g;;;0;Seigle complet, cru
+9610;Semoule;;savory;g;;;0;Semoule de blé dur, crue
+20901;Soja en grains;;savory;g;;;0;Soja, graine entière
+9810;Spaghetti;;savory;g;;;0;Pâtes sèches, standard, crues
+9821;Tagliatelles;;savory;g;;;0;Pâtes sèches, aux oeufs, crues
+9815;Tagliatelles fraîches;;savory;g;;;0;Pâtes fraîches, aux oeufs, crues
+15203;Tahin;;savory;g;;;0;Tahin ou purée de sésame
+9900;Vermicelles de riz sèches;;savory;g;;;0;Vermicelles de riz sèches, crues
+9902;Vermicelles de soja sèches;;savory;g;;;0;Vermicelles de soja sèches, crues
+11091;Vinaigre balsamique;;savory;cs;;;1;Vinaigre balsamique
+11220;Vinaigre de vin;;savory;cs;;;1;Vinaigre de vin rouge
+11023;Ail en poudre;;spices;cc;;;1;Ail séché, poudre
+11507;Bicarbonate de soude;;spices;g;;;0;Bicarbonate de soude
+11001;Bouillon de bœuf;;spices;g;;;0;Bouillon de boeuf, déshydraté
+11025;Cannelle;;spices;cc;;;1;Cannelle, poudre
+11075;Cardamome;;spices;cc;;;1;Cardamome, poudre
+11064;Carvi;;spices;cc;;;1;Carvi, graine
+11095;Ciboulette séchée;;spices;cc;;;1;Ciboulette, séchée
+11052;Clou de girofle;;spices;cc;;;1;Clou de girofle
+39700;Crème anglaise;;spices;g;;;0;Crème anglaise, préemballée
+11042;Cumin;;spices;cc;;;1;Cumin, graine
+11089;Curcuma;;spices;cc;;;1;Curcuma, poudre
+11005;Curry en poudre;;spices;cc;;;1;Curry, poudre
+11077;Fenugrec;;spices;cc;;;1;Fenugrec, graine
+11082;Fleur de sel;;spices;pincee;;;1;Fleur de sel, non iodée, non fluorée
+11304;Fond de veau;;spices;g;;;0;Fond de veau, préemballé
+11171;Fond de volaille pour sauces et cuisson;;spices;g;;;0;Fond de volaille pour sauces et cuisson, déshydraté
+11303;Fumet de poisson;;spices;g;;;0;Fumet de poisson, prêt à consommer, préemballé
+11007;Gélatine;;spices;g;;;0;Gélatine, sèche
+9660;Germe de blé;;spices;g;;;0;Germe de blé
+11006;Gingembre en poudre;;spices;cc;;;1;Gingembre, poudre
+11061;Graines de pavot;;spices;cc;;;1;Pavot, graine
+11083;Gros sel;;spices;cc;;;1;Sel marin gris, non iodé, non fluoré
+11112;Harissa;;spices;g;;;0;Harissa (sauce au piment), préemballée
+11060;Herbes de Provence;;spices;cc;;;1;Herbes de Provence, séchées
+11008;Ketchup;;spices;cs;;;0;Ketchup, préemballé
+11053;Laurier;;spices;piece;0.2;;1;Laurier, feuille
+11045;Levure de boulanger déshydratée;;spices;g;;;0;Levure de boulanger déshydratée
+11010;Levure de boulanger fraîche;;spices;g;;;0;Levure de boulanger fraîche
+11034;Marjolaine;;spices;cc;;;1;Marjolaine, séchée
+11054;Mayonnaise;;spices;cs;;;0;Mayonnaise (70% MG min.), préemballée
+11029;Menthe séchée;;spices;cc;;;1;Menthe, séchée
+20916;Miso;;spices;g;;;0;Miso
+11013;Moutarde;;spices;cs;;;1;Moutarde
+11021;Moutarde à l'ancienne;;spices;cs;;;0;Moutarde à l'ancienne
+11048;Muscade;;spices;pincee;;;1;Noix de muscade
+13147;Olives farcies;;spices;g;;;0;Olives vertes, fourrées ou farcies (anchois, poivrons, etc.)
+13131;Olives noires à la grecque;;spices;g;;;0;Olive noire, à l'huile (à la grecque)
+13033;Olives vertes;;spices;g;;;0;Olive verte, en saumure, égouttée
+11035;Origan;;spices;cc;;;1;Origan, séché
+11049;Paprika;;spices;cc;;;1;Paprika, poudre
+11024;Persil séché;;spices;cc;;;1;Persil, séché
+11088;Piment d'Espelette;;spices;pincee;;;1;Poivre de Cayenne ou piment de Cayenne, poudre
+11015;Poivre;;spices;pincee;;;1;Poivre noir, poudre
+11019;Poivre blanc;;spices;cc;;;1;Poivre blanc, poudre
+11088;Poivre de Cayenne;;spices;cc;;;1;Poivre de Cayenne ou piment de Cayenne, poudre
+11056;Quatre épices;;spices;cc;;;1;Quatre épices, poudre
+11036;Romarin séché;;spices;cc;;;1;Romarin, séché
+11039;Safran;;spices;cc;;;1;Safran
+11062;Sarriette;;spices;cc;;;1;Sarriette, séchée
+11159;Sauce à la crème;;spices;g;;;0;Sauce à la crème
+11163;Sauce aigre douce;;spices;g;;;0;Sauce aigre douce, préemballée
+11168;Sauce aïoli;;spices;g;;;0;Sauce aïoli, préemballée
+11167;Sauce américaine;;spices;g;;;0;Sauce américaine, préemballée
+11111;Sauce armoricaine;;spices;g;;;0;Sauce armoricaine, préemballée
+11140;Sauce au beurre blanc;;spices;g;;;0;Sauce au beurre blanc, préemballée
+11300;Sauce au chocolat;;spices;g;;;0;Sauce au chocolat, préemballée
+11247;Sauce au curry;;spices;g;;;0;Sauce au curry, froide, préemballée
+11191;Sauce au roquefort;;spices;g;;;0;Sauce au roquefort, préemballée
+11160;Sauce aux champignons;;spices;g;;;0;Sauce aux champignons, préemballée
+11100;Sauce barbecue;;spices;g;;;0;Sauce barbecue, préemballée
+11170;Sauce basquaise;;spices;g;;;0;Sauce basquaise ou sauce aux poivrons, préemballée
+11102;Sauce béarnaise;;spices;g;;;0;Sauce béarnaise, préemballée
+11101;Sauce béchamel;;spices;g;;;0;Sauce béchamel, préemballée
+11143;Sauce béchamel au beurre;;spices;g;;;0;Sauce béchamel au beurre, faite maison
+11120;Sauce bourguignonne;;spices;g;;;0;Sauce bourguignonne, préemballée
+11248;Sauce Caesar;;spices;g;;;0;Sauce Caesar, préemballée
+11128;Sauce carbonara;;spices;g;;;0;Sauce carbonara, préemballée
+11129;Sauce chasseur;;spices;g;;;0;Sauce chasseur, préemballée
+11244;Sauce cocktail;;spices;g;;;0;Sauce cocktail, préemballée
+11187;Sauce crudités;;spices;g;;;0;Sauce crudités ou sauce salade, préemballée
+11223;Sauce d'huître;;spices;cs;;;0;Sauce d'huître, préemballée
+11199;Sauce grand veneur;;spices;g;;;0;Sauce grand veneur, préemballée
+11105;Sauce hollandaise;;spices;g;;;0;Sauce hollandaise, préemballée
+11202;Sauce indienne type tandoori;;spices;g;;;0;Sauce indienne type tandoori ou tikka masala, préemballée
+11121;Sauce madère;;spices;g;;;0;Sauce madère, préemballée
+11157;Sauce moutarde;;spices;g;;;0;Sauce moutarde, préemballée
+11194;Sauce nuoc mâm;;spices;cs;;;0;Sauce nuoc mâm ou sauce au poisson, préemballée
+11179;Sauce pesto;;spices;g;;;0;Sauce pesto, préemballée
+11210;Sauce pesto rosso;;spices;g;;;0;Sauce pesto rosso, préemballée
+11205;Sauce rouille;;spices;g;;;0;Sauce rouille, préemballée
+11104;Sauce soja;;spices;cs;;;1;Sauce soja, préemballée
+11216;Sauce soja sucrée;;spices;cs;;;0;Sauce soja sucrée, préemballée
+11051;Sauce tartare;;spices;g;;;0;Sauce tartare, préemballée
+11301;Sauce teriyaki;;spices;g;;;0;Sauce teriyaki, préemballée
+11114;Sauce tomate à la viande;;spices;g;;;0;Sauce tomate à la viande ou sauce bolognaise, préemballée
+11207;Sauce tomate aux petits légumes;;spices;g;;;0;Sauce tomate aux petits légumes, préemballée
+11110;Sauce vinaigrette;;spices;g;;;0;Sauce vinaigrette (50 à 75% d'huile), préemballée
+11108;Sauce vinaigrette à l'huile d'olive;;spices;g;;;0;Sauce vinaigrette à l'huile d'olive (50 à 75% d'huile), préemballée
+11037;Sauge;;spices;cc;;;1;Sauge, séchée
+11058;Sel;;spices;pincee;;;1;Sel blanc alimentaire, iodé, non fluoré (marin, ignigène ou gemme)
+11083;Sel marin gris;;spices;cc;;;1;Sel marin gris, non iodé, non fluoré
+9640;Son d'avoine;;spices;g;;;0;Son d'avoine
+9621;Son de blé;;spices;g;;;0;Son de blé
+11043;Tapenade;;spices;g;;;0;Tapenade, préemballée
+11038;Thym séché;;spices;cc;;;1;Thym, séché
+11057;Vanille (gousse);;spices;piece;3;;0;Vanille, gousse
+11018;Vinaigre;;spices;cs;;;1;Vinaigre
+11090;Vinaigre de cidre;;spices;cs;;;1;Vinaigre de cidre
+31106;Barre céréalière au chocolat;;sweet;g;;;0;Barre céréalière au chocolat
+31114;Barre céréalière aux amandes;;sweet;g;;;0;Barre céréalière aux amandes ou noisettes
+31012;Barre chocolatée au lait;;sweet;g;;;0;Barre ou confiserie chocolatée au lait
+24430;Biscuits à la cuillère;;sweet;g;;;0;Biscuit sec aux oeufs à la cuillère (cuiller) ou boudoir
+24011;Biscuits secs;;sweet;g;;;0;Biscuit sec, assortiment
+24036;Biscuit sec au chocolat;;sweet;g;;;0;Biscuit sec au chocolat, non enrichi
+24001;Biscuits secs nature;;sweet;g;;;0;Biscuit sec nature
+31060;Bonbon gélifié;;sweet;g;;;0;Bonbon gélifié
+18100;Cacao en poudre;;sweet;g;;;0;Cacao, sans sucres ajoutés, poudre soluble
+31046;Caramel liquide;;sweet;g;;;0;Caramel liquide ou nappage caramel
+31017;Cassonade;;sweet;g;;;0;Sucre roux
+32001;Céréales pour petit déjeuner chocolatées;;sweet;g;;;0;Céréales pour petit déjeuner chocolatées, non fourrées, enrichies en vitamines et minéraux
+32035;Céréales pour petit déjeuner riches en fibres;;sweet;g;;;0;Céréales pour petit déjeuner riches en fibres, nature, enrichies en vitamines et minéraux
+31004;Chocolat au lait;;sweet;g;;;0;Chocolat au lait, tablette
+31010;Chocolat blanc;;sweet;g;;;0;Chocolat blanc, tablette
+31085;Chocolat noir;;sweet;g;;;0;Chocolat noir 40% de cacao et plus, à pâtisser, tablette
+31074;Chocolat noir 70 %;;sweet;g;;;0;Chocolat noir 70 % de cacao environ, de dégustation, tablette
+31005;Chocolat noir à croquer;;sweet;g;;;0;Chocolat noir 50 % de cacao environ, tablette
+31083;Confiture;confitures;sweet;pot;370;;0;Confiture, autres fruits ou mélange de fruits (extra ou classique)
+31037;Confiture d'abricot;;sweet;g;;;0;Confiture d'abricot (extra ou classique)
+31038;Confiture de cerise;;sweet;g;;;0;Confiture de cerise (extra ou classique)
+30994;Confiture de figue;;sweet;g;;;0;Confiture de figue (extra ou classique)
+31024;Confiture de fraise;;sweet;g;;;0;Confiture de fraise (extra ou classique)
+31062;Confiture de framboise;;sweet;g;;;0;Confiture de framboise (extra ou classique)
+31040;Confiture de lait;;sweet;g;;;0;Confiture de lait
+30993;Confiture de pêche;;sweet;g;;;0;Confiture de pêche (extra ou classique)
+31053;Confiture de prune;;sweet;g;;;0;Confiture de prune, par ex. mirabelle, quetsche, reine-claude (extra ou classique)
+30992;Confiture de rhubarbe;;sweet;g;;;0;Confiture de rhubarbe (extra ou classique)
+24684;Cookie au chocolat;;sweet;g;;;0;Cookie au chocolat, préemballé
+15013;Crème de marron;;sweet;g;;;0;Crème de marron ou confiture de châtaigne, préemballée
+24370;Crêpe dentelle nature;;sweet;g;;;0;Crêpe dentelle nature
+31021;Ecorce d'orange confite;;sweet;g;;;0;Ecorce d'orange confite
+32140;Flocons d'avoine;;sweet;g;;;0;Flocons d'avoine
+31077;Fructose;;sweet;g;;;0;Fructose
+31027;Fruit confit;;sweet;g;;;0;Fruit confit
+30998;Gelée de framboise;;sweet;g;;;0;Gelée de framboise (extra ou classique)
+30886;Gelée de fruits;;sweet;g;;;0;Gelée, autres fruits ou mélange de fruits (extra ou classique)
+31095;Gelée de groseille;;sweet;g;;;0;Gelée de groseille (extra ou classique)
+31050;Guimauve;;sweet;g;;;0;Guimauve ou marshmallow
+11046;Levure chimique;;sweet;sachet;11;;0;Levure chimique ou poudre à lever
+31039;Marmelade d'orange;;sweet;g;;;0;Marmelade d'orange ou confiture d'orange (extra ou classique)
+31023;Marron glacé;;sweet;g;;;0;Marron glacé
+32041;Mélange de flocons de céréales;;sweet;g;;;0;Mélange de flocons de céréales, nature, non enrichi en vitamines et minéraux
+31067;Mélasse de canne;;sweet;g;;;0;Mélasse de canne
+24520;Meringue;;sweet;g;;;0;Meringue
+31008;Miel;;sweet;cs;;;0;Miel
+32111;Muesli croustillant aux fruits;;sweet;g;;;0;Muesli croustillant aux fruits, avec ou sans fruits à coque et/ou graines, enrichi en vitamines et minéraux
+32110;Muesli floconneux aux fruits;;sweet;g;;;0;Muesli floconneux aux fruits, fruits à coque et/ou graines, enrichi en vitamines et minéraux
+23200;Pain d'épices;;sweet;g;;;0;Pain d'épices, préemballé
+31032;Pâte à tartiner chocolat et noisette;;sweet;g;;;0;Pâte à tartiner chocolat et noisette
+15201;Pâte d'amande;;sweet;g;;;0;Pâte d'amande, préemballée
+31014;Pâte de fruits;;sweet;g;;;0;Pâte de fruits
+32005;Pétales de maïs nature;;sweet;g;;;0;Pétales de maïs nature, enrichis en vitamines et minéraux
+24015;Petit-beurre;;sweet;g;;;0;Biscuit sec petit beurre
+15041;Poudre d'amande;;sweet;g;;;0;Amande, émondée, sans sel ajouté
+31052;Praline;;sweet;g;;;0;Praline
+32006;Riz soufflé nature;;sweet;g;;;0;Riz soufflé nature, enrichi en vitamines et minéraux
+24071;Sablé pâtissier;;sweet;g;;;0;Sablé pâtissier, artisanal
+31089;Sirop d'agave;;sweet;g;;;0;Sirop d'agave
+31034;Sirop d'érable;;sweet;g;;;0;Sirop d'érable
+24009;Spéculoos;;sweet;g;;;0;Spéculoos
+31016;Sucre;;sweet;g;;;1;Sucre blanc
+31016;Sucre glace;;sweet;g;;;0;Sucre blanc
+31017;Sucre roux;;sweet;g;;;0;Sucre roux
+31044;Sucre vanillé;;sweet;sachet;7.5;;0;Sucre vanillé
+11510;Vermicelles multicolores;;sweet;g;;;0;Vermicelles multicolores

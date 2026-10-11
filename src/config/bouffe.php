@@ -22,6 +22,10 @@ return [
     // Nombre de portions proposé par défaut pour une nouvelle recette.
     'default_servings' => (int) env('BOUFFE_DEFAULT_SERVINGS', 2),
 
+    // Lot 43 : table Ciqual et catalogue d'ingrédients appliqués au déploiement et au db:seed.
+    // Désactivé pendant les tests automatiques (qui utilisent de petits extraits).
+    'reference_data' => (bool) env('BOUFFE_REFERENCE_DATA', true),
+
     // Photos de recettes : taille maximale acceptée à l'envoi (Ko) et dimensions générées (px).
     'photos' => [
         'max_upload_kb' => 10240,

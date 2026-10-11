@@ -12,11 +12,11 @@ use RuntimeException;
 /**
  * Import de la table Ciqual de l'Anses (17.4, règle R19).
  *
- * Bouffe ne livre **aucune** donnée nutritionnelle : les valeurs viennent du fichier officiel,
- * téléchargé une fois sur ciqual.anses.fr (ou data.gouv.fr) puis importé ici. Rien n'est
- * inventé, rien n'est estimé, et aucune requête Internet n'est faite ensuite.
+ * Depuis le lot 43, la table Ciqual 2025 est livrée avec Bouffe (database/data/ciqual-2025.csv,
+ * licence ouverte Etalab, « Source : Anses, Table Ciqual 2025 ») et importée automatiquement
+ * par ReferenceData. Rien n'est inventé, et aucune requête Internet n'est faite.
  *
- * Le fichier officiel est un tableur : il suffit de l'enregistrer en CSV. L'import est
+ * Un autre fichier (édition plus récente) peut toujours être importé. L'import est
  * volontairement tolérant, parce que les intitulés de colonnes changent d'une édition à
  * l'autre : les colonnes sont reconnues par mots-clés, et une colonne absente laisse
  * simplement la valeur vide au lieu de faire échouer l'import.
@@ -31,13 +31,17 @@ class CiqualImporter
         'ciqual_code' => ['alim_code', 'code aliment', 'code'],
         'name' => ['alim_nom_fr', 'nom de l\'aliment', 'nom aliment', 'libelle', 'nom'],
         'food_group' => ['alim_grp_nom_fr', 'groupe'],
-        'energy_kcal' => ['energie, reglement ue', 'energie (kcal', 'energie kcal', 'kcal'],
+        'food_subgroup' => ['alim_ssgrp_nom_fr', 'sous-groupe'],
+        // « & » : tous les morceaux doivent figurer dans l'intitulé. La table 2025 a quatre colonnes
+        // d'énergie (kJ et kcal, deux méthodes) : il faut celle en kcal du règlement UE.
+        'energy_kcal' => ['energie, reglement ue&kcal', 'energie&kcal', 'kcal'],
         'proteins' => ['proteines, n x facteur de jones', 'proteines brutes', 'proteines'],
         'carbs' => ['glucides'],
         'sugars' => ['sucres'],
         'fat' => ['lipides'],
         'saturated_fat' => ['ag satures', 'acides gras satures'],
-        'fibres' => ['fibres'],
+        // « ^ » : l'intitulé commence par… (« Énergie, … avec fibres » n'est pas la colonne des fibres).
+        'fibres' => ['fibres alimentaires', '^fibres'],
         'salt' => ['sel chlorure de sodium', 'sel'],
     ];
 
@@ -109,8 +113,8 @@ class CiqualImporter
             return [
                 'imported' => $imported,
                 'skipped' => $skipped,
-                'columns' => array_map(fn (int $index) => (string) ($header[$index] ?? ''), $map),
-                'missing' => array_values(array_diff(array_keys(self::COLUMNS), array_keys($map))),
+                'columns' => array_map(fn (int $index) => (string) preg_replace('/\s+/u', ' ', trim((string) ($header[$index] ?? ''))), $map),
+                'missing' => array_values(array_diff(array_keys(self::COLUMNS), array_keys($map), ['food_subgroup'])),
             ];
         } finally {
             fclose($handle);
@@ -120,17 +124,22 @@ class CiqualImporter
     /**
      * Propose un aliment Ciqual pour chaque ingrédient qui n'en a pas encore.
      *
-     * La correspondance est volontairement prudente : nom exact d'abord, puis un aliment dont
-     * le nom **commence** par celui de l'ingrédient, en préférant les formes « cru » et en
-     * écartant les préparations (« en conserve », « surgelé », « cuit »). Tout est vérifiable
-     * et modifiable dans Paramètres → Nutrition.
+     * Le catalogue livré avec Bouffe d'abord (un nom → un aliment, choisi à la main), puis le nom
+     * exact d'un aliment, puis un aliment dont le nom commence par **le mot** de l'ingrédient
+     * (« Poire » ne donne plus « Poireau »). Un choix fait dans Paramètres → Nutrition n'est
+     * jamais remplacé. Tout reste vérifiable et modifiable.
      *
+     * @param  bool  $overwrite  refaire aussi les associations automatiques déjà faites
      * @return array{matched: int, total: int}
      */
     public function matchIngredients(bool $overwrite = false): array
     {
         $ingredients = Ingredient::query()
-            ->when(! $overwrite, fn ($query) => $query->whereNull('ciqual_code'))
+            ->when(
+                $overwrite,
+                fn ($query) => $query->where(fn ($q) => $q->whereNull('ciqual_source')->orWhere('ciqual_source', 'auto')),
+                fn ($query) => $query->whereNull('ciqual_code')->whereNull('ciqual_source'),
+            )
             ->orderBy('name')
             ->get();
 
@@ -143,7 +152,7 @@ class CiqualImporter
                 continue;
             }
 
-            $ingredient->forceFill(['ciqual_code' => $code])->save();
+            $ingredient->forceFill(['ciqual_code' => $code, 'ciqual_source' => 'auto'])->saveQuietly();
             $matched++;
         }
 
@@ -159,13 +168,17 @@ class CiqualImporter
             return null;
         }
 
+        if (($code = app(CiqualCatalogue::class)->codeFor($name)) && ($food = NutritionFood::firstWhere('ciqual_code', $code))) {
+            return $food;
+        }
+
         if ($exact = NutritionFood::query()->where('search_name', $name)->first()) {
             return $exact;
         }
 
         $candidates = NutritionFood::query()
-            ->where('search_name', 'like', $name.'%')
-            ->limit(40)
+            ->where('search_name', 'like', $name.' %')
+            ->limit(60)
             ->get();
 
         if ($candidates->isEmpty()) {
@@ -174,8 +187,10 @@ class CiqualImporter
 
         return $candidates
             ->sortBy(fn (NutritionFood $food) => [
-                // « cru » d'abord, préparations ensuite, et à défaut le nom le plus court.
-                Str::contains($food->search_name, ['conserve', 'surgele', 'prepare', 'sechee', 'seche', 'confit']) ? 1 : 0,
+                // « Tomate, crue » plutôt que « Tomate verte, crue » : même premier segment d'abord.
+                NameNormalizer::normalize($food->shortName()) === $name ? 0 : 1,
+                // Préparations ensuite, « cru » d'abord, et à défaut le nom le plus court.
+                Str::contains($food->search_name, ['conserve', 'appertise', 'surgele', 'prepare', 'cuit', 'seche', 'confit', 'zeste']) ? 1 : 0,
                 Str::contains($food->search_name, ['cru', 'crue', 'frais', 'fraiche']) ? 0 : 1,
                 mb_strlen($food->name),
             ])
@@ -231,7 +246,8 @@ class CiqualImporter
             'ciqual_code' => mb_substr($code, 0, 10),
             'name' => mb_substr($name, 0, 250),
             'search_name' => mb_substr(NameNormalizer::normalize($name), 0, 250),
-            'food_group' => isset($map['food_group']) ? mb_substr(trim((string) ($row[$map['food_group']] ?? '')), 0, 150) ?: null : null,
+            'food_group' => $this->text($row, $map, 'food_group'),
+            'food_subgroup' => $this->text($row, $map, 'food_subgroup'),
             'source' => 'ciqual',
             'created_at' => now(),
             'updated_at' => now(),
@@ -242,6 +258,21 @@ class CiqualImporter
         }
 
         return $record;
+    }
+
+    /**
+     * @param  list<string>  $row
+     * @param  array<string, int>  $map
+     */
+    private function text(array $row, array $map, string $field): ?string
+    {
+        if (! isset($map[$field])) {
+            return null;
+        }
+
+        $value = trim((string) ($row[$map[$field]] ?? ''));
+
+        return $value === '' || $value === '-' ? null : mb_substr($value, 0, 150);
     }
 
     /** « 12,4 » → 12.4 · « traces » → 0 · « < 0,5 » → 0.5 · « - » → null */
@@ -274,7 +305,7 @@ class CiqualImporter
         DB::table('nutrition_foods')->upsert(
             $batch,
             ['ciqual_code'],
-            ['name', 'search_name', 'food_group', 'source', 'updated_at', ...array_keys(NutritionFood::NUTRIENTS)],
+            ['name', 'search_name', 'food_group', 'food_subgroup', 'source', 'updated_at', ...array_keys(NutritionFood::NUTRIENTS)],
         );
     }
 
@@ -283,8 +314,15 @@ class CiqualImporter
      */
     private function findColumn(array $columns, string $keyword): ?int
     {
+        $startsWith = str_starts_with($keyword, '^');
+        $parts = explode('&', ltrim($keyword, '^'));
+
         foreach ($columns as $index => $label) {
-            if ($label !== '' && str_contains($label, $keyword)) {
+            if ($label === '') {
+                continue;
+            }
+
+            if ($startsWith ? str_starts_with($label, $parts[0]) : collect($parts)->every(fn ($part) => str_contains($label, $part))) {
                 return $index;
             }
         }
@@ -295,6 +333,6 @@ class CiqualImporter
     /** Minuscules sans accents : les intitulés Ciqual changent de casse et d'accents. */
     private function flatten(string $value): string
     {
-        return Str::lower(Str::ascii(trim($value)));
+        return Str::lower(Str::ascii(preg_replace('/\s+/u', ' ', trim($value))));
     }
 }

@@ -260,17 +260,19 @@ erDiagram
 | added_to_list_id | FK → shopping_lists NULL | la liste qui l'a emporté |
 | added_at | TIMESTAMP NULL | |
 
-**`nutrition_foods`** (lot 19 — extrait de la table Ciqual de l'Anses, importé, R19)
+**`nutrition_foods`** (lot 19 — table Ciqual de l'Anses, R19 ; livrée avec Bouffe et importée au déploiement depuis le lot 43)
 | Colonne | Type | Notes |
 |---|---|---|
 | ciqual_code | VARCHAR(10) UNIQUE | code aliment officiel |
 | name / search_name | VARCHAR(250) | nom, et nom normalisé pour la correspondance |
 | food_group | VARCHAR(150) NULL | groupe Ciqual |
+| food_subgroup | VARCHAR(150) NULL | sous-groupe Ciqual (lot 43) : « légumes », « fruits », « légumineuses » comptent comme fruits et légumes pour le Nutri-Score estimé |
 | energy_kcal … salt | DECIMAL NULL | valeurs **pour 100 g** (énergie, protéines, glucides, sucres, lipides, AG saturés, fibres, sel) |
 | source | VARCHAR(40) | `ciqual` |
 
 `ingredients.season_months` (JSON NULL) : mois de saison, ex. `[6,7,8,9]` — vide = pas de saison (R18).
 `ingredients.ciqual_code` (FK logique) et `ingredients.density` (DECIMAL(6,3), g/ml) : correspondance et conversion des volumes (R19).
+`ingredients.ciqual_source` (VARCHAR(12) NULL, lot 43) : d'où vient l'association — `catalogue`, `auto` ou `manuel` (jamais remplacée).
 
 **`recipe_variants`** (lot 19 — variantes d'une recette, 13.7)
 | Colonne | Type | Notes |
@@ -746,6 +748,16 @@ propres à chaque foyer.
     Bouffe ;
   - `shopping_list_aisle_owners` (shopping_list_id en cascade, aisle_id — rayon du mode magasin, 0
     autres, -1 placard, -2 ajoutés —, user_id ; unique liste + rayon) : courses à deux.
+- **Lot 43** (nutrition et catalogue Ciqual) :
+  - `nutrition_foods.food_subgroup` : sous-groupe Ciqual ;
+  - `ingredients.ciqual_source` : `catalogue` · `auto` · `manuel` ; les associations antérieures
+    sont marquées `auto` par la migration ;
+  - `recipes.nutri_score` (CHAR(1) NULL, indexé : A à E, vide = données insuffisantes),
+    `recipes.nutrition` (JSON : valeurs par portion et pour 100 g, couverture, part de fruits et
+    légumes, points du Nutri-Score, repères, lignes non comptées) et `recipes.nutrition_at`
+    (vide = à recalculer) : le calcul mis de côté ;
+  - `reference_versions` (name — `ciqual`, `catalogue` —, version — empreinte du fichier —, meta
+    JSON — pour le catalogue, les noms déjà livrés —, applied_at) : données de référence appliquées.
 
 ## 4. Points d'attention
 

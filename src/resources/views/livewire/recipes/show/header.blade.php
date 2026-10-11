@@ -71,6 +71,9 @@
                 @if ($this->cost->isKnown())
                     <span class="inline-flex items-center gap-1 rounded-full bg-stone-100 px-2.5 py-1"><strong class="font-semibold text-stone-800">{{ $this->cost->label($prices, $this->cost->perServing()) }}</strong> <span class="text-stone-500">/ portion</span></span>
                 @endif
+                @if ($letter = $this->nutritionSummary['score']['letter'] ?? null)
+                    <a href="#nutrition" class="inline-flex"><x-nutri-score :letter="$letter" /></a>
+                @endif
             </p>
 
             <dl class="hidden grid-cols-2 gap-3 sm:grid sm:grid-cols-4">
@@ -112,6 +115,19 @@
                         <dt class="text-xs text-stone-500">Coût / portion</dt>
                         <dd class="font-semibold text-stone-800" title="{{ $this->cost->missingLabel() ?? 'Tous les ingrédients ont un prix' }}">
                             {{ $this->cost->label($prices, $this->cost->perServing()) }}
+                        </dd>
+                    </div>
+                @endif
+
+                {{-- Nutri-Score estimé (lot 43) : le détail est dans « Nutrition », sous les ingrédients. --}}
+                @if ($letter = $this->nutritionSummary['score']['letter'] ?? null)
+                    <div class="rounded-lg bg-stone-50 px-3 py-2">
+                        <dt class="text-xs text-stone-500">Nutri-Score estimé</dt>
+                        <dd class="mt-0.5">
+                            <a href="#nutrition" class="flex items-center gap-1.5 font-semibold text-stone-800 hover:underline">
+                                <x-nutri-score :letter="$letter" :label="false" size="sm" />
+                                <span class="truncate text-sm">{{ \App\Services\Nutrition\NutriScore::LETTERS[$letter] }}</span>
+                            </a>
                         </dd>
                     </div>
                 @endif

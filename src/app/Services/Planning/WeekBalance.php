@@ -55,7 +55,7 @@ class WeekBalance
     /**
      * Bilan d'une semaine.
      *
-     * @return array{meals: int, canteen: int, families: list<array{key: string, label: string, count: int, target: int, share: int, help: string}>, without: int}
+     * @return array{meals: int, canteen: int, families: list<array{key: string, label: string, count: int, target: int, share: int, help: string}>, without: int, nutrition: array<string, mixed>}
      */
     public function week(Carbon $from, Carbon $to): array
     {
@@ -67,12 +67,19 @@ class WeekBalance
 
         $counts = array_fill_keys(array_keys(self::FAMILIES), 0);
         $classified = 0;
+        $scored = [];   // lot 43 : calcul nutritionnel des repas chiffrés
 
         foreach ($meals as $meal) {
             $recipe = $meal->eatenRecipe();
 
             if (! $recipe) {
                 continue;
+            }
+
+            $nutrition = app(\App\Services\Nutrition\RecipeNutrition::class)->current($recipe);
+
+            if (! empty($nutrition['known'])) {
+                $scored[] = $nutrition;
             }
 
             $families = $this->familiesOf($recipe);
@@ -120,6 +127,41 @@ class WeekBalance
                     'help' => $definition[2],
                 ])
                 ->values()->all(),
+            'nutrition' => $this->nutritionOf($scored, $meals->count()),
+        ];
+    }
+
+    /**
+     * Lot 43 : Nutri-Score moyen de la semaine et repères par repas (sel, fibres, énergie).
+     *
+     * @param  list<array<string, mixed>>  $scored  calculs des repas chiffrés
+     * @return array{scored: int, of: int, letter: ?string, letters: array<string, int>, leans: bool, salt: ?float, fibres: ?float, energy: ?int, meal: array<string, float>}
+     */
+    private function nutritionOf(array $scored, int $meals): array
+    {
+        $benchmarks = app(\App\Services\Nutrition\MealBenchmarks::class);
+        $ranks = [];
+        $letters = array_fill_keys(array_keys(\App\Services\Nutrition\NutriScore::LETTERS), 0);
+
+        foreach ($scored as $row) {
+            if ($letter = $row['score']['letter'] ?? null) {
+                $letters[$letter]++;
+                $ranks[] = \App\Services\Nutrition\NutriScore::rank($letter);
+            }
+        }
+
+        $average = fn (string $key) => $scored === [] ? null : round(array_sum(array_map(fn ($row) => (float) ($row['per_portion'][$key] ?? 0), $scored)) / count($scored), 1);
+
+        return [
+            'scored' => count($scored),
+            'of' => $meals,
+            'letter' => $ranks === [] ? null : \App\Services\Nutrition\NutriScore::fromRank(array_sum($ranks) / count($ranks)),
+            'letters' => $letters,
+            'leans' => \App\Services\Nutrition\NutriScore::leans($ranks),
+            'salt' => $average('salt'),
+            'fibres' => $average('fibres'),
+            'energy' => $scored === [] ? null : (int) round($average('energy_kcal')),
+            'meal' => ['salt' => $benchmarks->meal('salt'), 'fibres' => $benchmarks->meal('fibres'), 'energy_kcal' => $benchmarks->meal('energy_kcal')],
         ];
     }
 

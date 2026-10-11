@@ -85,6 +85,7 @@ class DeployCommand extends Command
             }
 
             $this->components->task('Structure de la base de données', fn () => $this->call('migrate', ['--force' => true, '--no-interaction' => true]) === 0);
+            $this->referenceData();
             $this->components->task('Caches vidés', fn () => $this->call('optimize:clear') === 0);
             if (! file_exists(public_path('storage'))) {
                 $this->components->task('Lien vers les fichiers envoyés', fn () => $this->call('storage:link', ['--no-interaction' => true]) === 0);
@@ -144,6 +145,29 @@ class DeployCommand extends Command
      *
      * @return list<string>|null versions à récupérer ; null : on s'arrête
      */
+    /** Lot 43 : table Ciqual et catalogue d'ingrédients, seulement s'ils ont changé. */
+    private function referenceData(): void
+    {
+        $reference = app(\App\Services\Nutrition\ReferenceData::class);
+
+        if (! config('bouffe.reference_data', true) || $reference->pending() === []) {
+            return;
+        }
+
+        $result = null;
+        $this->components->task('Données nutritionnelles (Ciqual) et catalogue', function () use ($reference, &$result) {
+            $result = $reference->sync();
+
+            return true;
+        });
+
+        if ($result && ! $result['skipped']) {
+            $this->components->twoColumnDetail('  Aliments Ciqual', $result['foods'] === null ? 'déjà à jour' : (string) $result['foods']);
+            $this->components->twoColumnDetail('  Ingrédients ajoutés / rattachés', $result['created'].' / '.($result['linked'] + $result['matched']));
+            $this->components->twoColumnDetail('  Recettes recalculées', (string) $result['recipes']);
+        }
+    }
+
     private function checkGit(GitUpdater $git, string $branch): ?array
     {
         if (! preg_match('/^[A-Za-z0-9._\/-]{1,100}$/', $branch)) {

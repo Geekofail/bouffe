@@ -60,6 +60,9 @@
                     <summary class="cursor-pointer text-sm font-medium text-stone-700">
                         Équilibre de la semaine
                         <span class="font-normal text-stone-500">· {{ $balance['meals'] }} repas{{ ($balance['canteen'] ?? 0) > 0 ? ', dont '.$balance['canteen'].' à la cantine' : '' }}</span>
+                        @if ($balance['nutrition']['letter'] ?? null)
+                            <span class="ml-1 inline-block align-middle"><x-nutri-score :letter="$balance['nutrition']['letter']" :label="false" size="sm" /></span>
+                        @endif
                     </summary>
 
                     <div class="mt-3 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
@@ -79,9 +82,48 @@
                         @endforeach
                     </div>
 
+                    {{-- Lot 43 : Nutri-Score estimé moyen et repères par repas. --}}
+                    @php $weekNutrition = $balance['nutrition'] ?? null; @endphp
+                    @if ($weekNutrition && $weekNutrition['scored'] > 0)
+                        <div class="mt-4 border-t border-stone-100 pt-3" data-week-nutrition>
+                            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-stone-600">
+                                <span class="flex items-center gap-2">
+                                    <x-nutri-score :letter="$weekNutrition['letter']" />
+                                    <span>en moyenne sur {{ $weekNutrition['scored'] }} repas chiffré{{ $weekNutrition['scored'] > 1 ? 's' : '' }}@if ($weekNutrition['scored'] < $weekNutrition['of']) (sur {{ $weekNutrition['of'] }})@endif</span>
+                                </span>
+                                <span class="flex items-center gap-1" aria-label="Répartition des lettres">
+                                    @foreach ($weekNutrition['letters'] as $letter => $count)
+                                        @if ($count > 0)
+                                            <span class="inline-flex items-center gap-0.5"><x-nutri-score :letter="$letter" :label="false" size="sm" /><span class="tabular-nums">×{{ $count }}</span></span>
+                                        @endif
+                                    @endforeach
+                                </span>
+                            </div>
+                            <dl class="mt-2 grid grid-cols-3 gap-2 text-xs">
+                                @foreach ([
+                                    ['Énergie', number_format($weekNutrition['energy'], 0, ',', ' ').' kcal', number_format($weekNutrition['meal']['energy_kcal'], 0, ',', ' ').' kcal', false],
+                                    ['Sel', number_format($weekNutrition['salt'], 1, ',', ' ').' g', number_format($weekNutrition['meal']['salt'], 1, ',', ' ').' g', $weekNutrition['salt'] > $weekNutrition['meal']['salt']],
+                                    ['Fibres', number_format($weekNutrition['fibres'], 1, ',', ' ').' g', number_format($weekNutrition['meal']['fibres'], 1, ',', ' ').' g', false],
+                                ] as [$label, $value, $reference, $over])
+                                    <div class="rounded-lg bg-stone-50 px-2.5 py-1.5">
+                                        <dt class="text-stone-500">{{ $label }} / repas</dt>
+                                        <dd @class(['font-semibold tabular-nums', 'text-stone-800' => ! $over, 'text-amber-700' => $over])>{{ $value }}</dd>
+                                        <dd class="text-stone-500 tabular-nums">repère {{ $reference }}</dd>
+                                    </div>
+                                @endforeach
+                            </dl>
+                            @if ($weekNutrition['leans'])
+                                <p class="mt-2 flex items-start gap-1.5 text-xs text-amber-800">
+                                    <x-icon name="info" class="size-4 shrink-0" />
+                                    La semaine penche vers D : « Remplir la semaine » privilégie maintenant les recettes notées A et B.
+                                </p>
+                            @endif
+                        </div>
+                    @endif
+
                     <p class="mt-3 text-xs text-stone-500">
                         Repères indicatifs, pour voir d'un coup d'œil ce qui domine la semaine : Bouffe ne donne aucun
-                        conseil nutritionnel.
+                        conseil nutritionnel. Nutri-Score estimé et repères par repas d'après la table Ciqual (Anses).
                         @if ($balance['without'] > 0) {{ $balance['without'] }} repas n'ont pas pu être classés. @endif
                     </p>
                 </details>

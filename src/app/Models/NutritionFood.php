@@ -8,18 +8,19 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Un aliment de la table Ciqual (Anses), importé une fois (R19).
+ * Un aliment de la table Ciqual (Anses), R19.
  *
- * Bouffe ne livre aucune donnée nutritionnelle : le fichier officiel est téléchargé par
- * l'utilisateur puis importé (`php artisan bouffe:ciqual`). Les valeurs sont pour 100 g.
+ * La table Ciqual 2025 est livrée avec Bouffe et importée au déploiement (lot 43, ReferenceData).
+ * Les valeurs sont pour 100 g. Source : Anses, Table Ciqual 2025 (licence ouverte Etalab).
  *
  * @property string $ciqual_code
  * @property string $name
  * @property string|null $food_group
+ * @property string|null $food_subgroup
  * @property string|null $energy_kcal
  */
 #[Fillable([
-    'ciqual_code', 'name', 'search_name', 'food_group',
+    'ciqual_code', 'name', 'search_name', 'food_group', 'food_subgroup',
     'energy_kcal', 'proteins', 'carbs', 'sugars', 'fat', 'saturated_fat', 'fibres', 'salt', 'source',
 ])]
 class NutritionFood extends Model
@@ -65,6 +66,20 @@ class NutritionFood extends Model
         $normalized = NameNormalizer::normalize($text);
 
         return $normalized === '' ? $query : $query->where('search_name', 'like', '%'.$normalized.'%');
+    }
+
+    /** Mention à afficher avec toute valeur tirée de la table (licence ouverte Etalab). */
+    public const ATTRIBUTION = 'Source : Anses, Table de composition nutritionnelle des aliments Ciqual 2025.';
+
+    /**
+     * Sous-groupes Ciqual comptés comme « fruits, légumes et légumineuses » par le Nutri-Score
+     * (les pommes de terre et les fruits à coque n'en font pas partie).
+     */
+    public const FRUIT_VEGETABLE_SUBGROUPS = ['fruits', 'légumes', 'légumineuses'];
+
+    public function isFruitOrVegetable(): bool
+    {
+        return in_array(mb_strtolower((string) $this->food_subgroup), self::FRUIT_VEGETABLE_SUBGROUPS, true);
     }
 
     /** Nom sans la partie descriptive après la virgule : « Carotte, crue » → « Carotte ». */

@@ -80,6 +80,26 @@ class Ingredient extends Model
 
         // Réglages de stock proposés d'après le rayon (modifiables ensuite).
         static::creating(fn (Ingredient $ingredient) => StockDefaults::fill($ingredient));
+
+        // Lot 43 : un nouvel ingrédient reçoit tout de suite son aliment Ciqual (catalogue, puis nom).
+        static::created(function (Ingredient $ingredient) {
+            if ($ingredient->ciqual_code !== null || $ingredient->ciqual_source !== null
+                || ! \App\Services\Nutrition\RecipeNutrition::ready()) {
+                return;   // déjà choisi, ou migration du lot 43 pas encore passée
+            }
+
+            try {
+                $food = NutritionFood::query()->exists()
+                    ? app(\App\Services\Nutrition\CiqualImporter::class)->suggestFor($ingredient)
+                    : null;
+            } catch (\Throwable) {
+                return;   // table absente (avant migration) : rien à proposer
+            }
+
+            if ($food) {
+                $ingredient->forceFill(['ciqual_code' => $food->ciqual_code, 'ciqual_source' => 'auto'])->saveQuietly();
+            }
+        });
     }
 
     /* ================================================================ R30 — réglages par foyer */

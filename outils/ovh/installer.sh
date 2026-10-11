@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Bouffe : première installation chez OVH (hébergement mutualisé Pro), après le « git clone ».
-# À lancer en SSH, depuis n'importe où :  bash ~/www/bouffe/outils/ovh/installer.sh
+# À lancer en SSH, depuis n'importe où :  bash ~/bouffe/outils/ovh/installer.sh
 #
 # Le script peut être relancé sans risque : chaque étape vérifie ce qui est déjà fait.
 #  1er passage : PHP 8.4, Composer, bibliothèques, dossiers de storage, .env créé depuis .env.example

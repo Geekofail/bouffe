@@ -134,7 +134,8 @@ test('une ligne impossible à peser empêche l\'affichage plutôt que de fausser
     $this->importer->importCsv(base_path('tests/Fixtures/ciqual-extrait.csv'));
     $this->importer->matchIngredients();
 
-    $recipe = recipeWith('Omelette au sel', 2, [[4, 'piece', 'Œuf', false], [null, null, 'Sel', false]]);
+    // « 1 boîte de beurre » : une boîte sans poids connu ne se pèse pas.
+    $recipe = recipeWith('Omelette au beurre', 2, [[4, 'piece', 'Œuf', false], [1, 'boite', 'Beurre', false]]);
     Ingredient::firstWhere('name', 'Œuf')->forceFill(['piece_weight_g' => 50])->save();
 
     $result = $this->calculator->recipe($recipe);
@@ -142,6 +143,33 @@ test('une ligne impossible à peser empêche l\'affichage plutôt que de fausser
     expect($result['unweighable'])->toBe(1)
         ->and($result['known'])->toBeFalse()
         ->and($this->calculator->explain($result))->toContain('sans quantité chiffrable');
+});
+
+test('lot 43 : « sel à convenance » n\'est pas compté mais n\'empêche plus le calcul', function () {
+    $this->importer->importCsv(base_path('tests/Fixtures/ciqual-extrait.csv'));
+    $this->importer->matchIngredients();
+
+    $recipe = recipeWith('Omelette au sel', 2, [[4, 'piece', 'Œuf', false], [null, null, 'Sel', false]]);
+    Ingredient::firstWhere('name', 'Œuf')->forceFill(['piece_weight_g' => 50])->save();
+
+    $result = $this->calculator->recipe($recipe);
+
+    expect($result['known'])->toBeTrue()
+        ->and($result['unweighable'])->toBe(0)
+        ->and($result['uncounted'])->toBe(['Sel'])
+        ->and($result['values']['energy_kcal'])->toBe(137.0);   // 200 g d'œuf / 2
+});
+
+test('lot 43 : une pincée pèse 0,4 g, un brin d\'une herbe vendue en botte 1 g, une boîte le poids d\'une pièce', function () {
+    $units = Unit::pluck('id', 'code');
+    $sel = Ingredient::firstWhere('name', 'Sel');
+    $persil = Ingredient::firstWhere('name', 'Persil');           // vendu en botte
+    $tomates = Ingredient::firstWhere('name', 'Tomates concassées');
+    $tomates->forceFill(['piece_weight_g' => 400])->save();
+
+    expect($this->calculator->grams(2, Unit::find($units['pincee']), $sel))->toBe(0.8)
+        ->and($this->calculator->grams(3, Unit::find($units['brin']), $persil))->toBe(3.0)
+        ->and($this->calculator->grams(1, Unit::find($units['boite']), $tomates->fresh()))->toBe(400.0);
 });
 
 test('sans table importée, la fiche recette le dit au lieu d\'afficher des zéros', function () {
@@ -164,9 +192,12 @@ test('l\'écran Nutrition rattache et détache un aliment', function () {
 
     expect($beurre->fresh()->ciqual_code)->toBe('19024');
 
+    expect($beurre->fresh()->ciqual_source)->toBe('manuel');      // lot 43 : choix fait à la main
+
     Livewire::test(NutritionPage::class)->call('detach', $beurre->id);
 
-    expect($beurre->fresh()->ciqual_code)->toBeNull();
+    expect($beurre->fresh()->ciqual_code)->toBeNull()
+        ->and($beurre->fresh()->ciqual_source)->toBe('manuel');   // « aucun aliment » est aussi un choix
 });
 
 /* ================================================================ Équilibre (17.5) */

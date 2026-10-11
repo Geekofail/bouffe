@@ -430,6 +430,9 @@ class RecipeForm extends Form
                 'note' => $row['note'] ?? '',
             ], $this->filledComponentRows())));
 
+            // Lot 43 : Nutri-Score estimé et repères recalculés tout de suite (liste, planning).
+            app(\App\Services\Nutrition\RecipeNutrition::class)->refresh($recipe->fresh() ?? $recipe);
+
             return $recipe;
         });
     }

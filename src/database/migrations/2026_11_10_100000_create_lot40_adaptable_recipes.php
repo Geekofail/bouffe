@@ -22,44 +22,54 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('ingredient_substitutions', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('household_id')->nullable()->constrained()->cascadeOnDelete();   // vide : liste commune
-            $table->foreignId('ingredient_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('substitute_id')->constrained('ingredients')->cascadeOnDelete();
-            $table->decimal('ratio', 6, 3)->default(1);                                       // quantité × ratio (R43)
-            $table->foreignId('recipe_id')->nullable()->constrained()->cascadeOnDelete();     // vide : pour toutes les recettes
-            $table->string('note', 150)->nullable();
-            $table->string('source', 10)->default('manual');                                  // seed · manual · assistant · variant
-            $table->timestamps();
+        // Reprise possible : une première tentative interrompue (lot 43) a pu créer une partie
+        // des tables et colonnes ; chaque étape vérifie ce qui existe déjà.
+        if (! Schema::hasTable('ingredient_substitutions')) {
+            Schema::create('ingredient_substitutions', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('household_id')->nullable()->constrained()->cascadeOnDelete();   // vide : liste commune
+                $table->foreignId('ingredient_id')->constrained()->cascadeOnDelete();
+                $table->foreignId('substitute_id')->constrained('ingredients')->cascadeOnDelete();
+                $table->decimal('ratio', 6, 3)->default(1);                                       // quantité × ratio (R43)
+                $table->foreignId('recipe_id')->nullable()->constrained()->cascadeOnDelete();     // vide : pour toutes les recettes
+                $table->string('note', 150)->nullable();
+                $table->string('source', 10)->default('manual');                                  // seed · manual · assistant · variant
+                $table->timestamps();
 
-            $table->index(['ingredient_id', 'household_id']);
-        });
+                $table->index(['ingredient_id', 'household_id']);
+            });
+        }
 
-        Schema::table('recipe_steps', function (Blueprint $table) {
-            $table->string('uid', 12)->nullable()->after('recipe_id');
-            $table->index(['recipe_id', 'uid']);
-        });
+        if (! Schema::hasColumn('recipe_steps', 'uid')) {
+            Schema::table('recipe_steps', function (Blueprint $table) {
+                $table->string('uid', 12)->nullable()->after('recipe_id');
+                $table->index(['recipe_id', 'uid']);
+            });
+        }
 
         foreach (DB::table('recipe_steps')->whereNull('uid')->orderBy('id')->pluck('id') as $id) {
             DB::table('recipe_steps')->where('id', $id)->update(['uid' => Str::lower(Str::random(10))]);
         }
 
-        Schema::create('recipe_step_notes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('household_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('recipe_id')->constrained()->cascadeOnDelete();
-            $table->string('step_uid', 12);
-            $table->string('note', 500);
-            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-            $table->timestamps();
+        if (! Schema::hasTable('recipe_step_notes')) {
+            Schema::create('recipe_step_notes', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('household_id')->constrained()->cascadeOnDelete();
+                $table->foreignId('recipe_id')->constrained()->cascadeOnDelete();
+                $table->string('step_uid', 12);
+                $table->string('note', 500);
+                $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+                $table->timestamps();
 
-            $table->index(['recipe_id', 'step_uid']);
-        });
+                $table->index(['recipe_id', 'step_uid']);
+            });
+        }
 
-        Schema::table('recipe_photos', function (Blueprint $table) {
-            $table->string('step_uid', 12)->nullable()->after('step_number');
-        });
+        if (! Schema::hasColumn('recipe_photos', 'step_uid')) {
+            Schema::table('recipe_photos', function (Blueprint $table) {
+                $table->string('step_uid', 12)->nullable()->after('step_number');
+            });
+        }
 
         // Une photo d'étape suit désormais l'étape où elle est aujourd'hui.
         foreach (DB::table('recipe_photos')->where('kind', 'step')->whereNotNull('step_number')->get(['id', 'recipe_id', 'step_number']) as $photo) {
@@ -68,19 +78,25 @@ return new class extends Migration
             DB::table('recipe_photos')->where('id', $photo->id)->update(['step_uid' => $uid]);
         }
 
-        Schema::table('recipes', function (Blueprint $table) {
-            $table->json('equipment')->nullable();      // vide : d'après le texte des étapes
-        });
+        if (! Schema::hasColumn('recipes', 'equipment')) {
+            Schema::table('recipes', function (Blueprint $table) {
+                $table->json('equipment')->nullable();      // vide : d'après le texte des étapes
+            });
+        }
 
-        Schema::table('stays', function (Blueprint $table) {
-            $table->json('equipment')->nullable();      // vide : comme à la maison
-        });
+        if (! Schema::hasColumn('stays', 'equipment')) {
+            Schema::table('stays', function (Blueprint $table) {
+                $table->json('equipment')->nullable();      // vide : comme à la maison
+            });
+        }
 
-        Schema::table('products', function (Blueprint $table) {
-            $table->json('allergens')->nullable();      // étiquettes Open Food Facts : en:milk, en:gluten…
-            $table->json('traces')->nullable();
-            $table->timestamp('allergens_checked_at')->nullable();
-        });
+        if (! Schema::hasColumn('products', 'allergens')) {
+            Schema::table('products', function (Blueprint $table) {
+                $table->json('allergens')->nullable();      // étiquettes Open Food Facts : en:milk, en:gluten…
+                $table->json('traces')->nullable();
+                $table->timestamp('allergens_checked_at')->nullable();
+            });
+        }
 
         // Q58 : une courte liste commune de remplacements (seulement avec les ingrédients du catalogue).
         (new \Database\Seeders\SubstitutionSeeder)->run();

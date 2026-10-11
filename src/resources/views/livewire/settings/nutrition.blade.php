@@ -9,17 +9,13 @@
                 <x-icon name="warning" class="size-5 text-amber-600" /> Table Ciqual non importée
             </h2>
             <p class="mt-2 text-sm text-stone-600">
-                Bouffe ne livre aucune donnée nutritionnelle : les valeurs viennent du fichier officiel de l'Anses,
-                à télécharger une seule fois.
+                La table Ciqual 2025 de l'Anses est livrée avec Bouffe : elle s'installe d'elle-même lors de la
+                mise à jour (<code class="rounded bg-stone-100 px-1">bouffe:deploy</code>). Si elle n'apparaît pas, dans
+                une invite de commande, dans le dossier <code class="rounded bg-stone-100 px-1">src</code> :
             </p>
-            <ol class="mt-3 list-inside list-decimal space-y-1 text-sm text-stone-600">
-                <li>Téléchargez la table sur <span class="font-mono text-xs">ciqual.anses.fr</span> (ou data.gouv.fr).</li>
-                <li>Ouvrez le tableur et enregistrez-le au format <strong>CSV</strong>.</li>
-                <li>Dans une invite de commande, dans le dossier <code class="rounded bg-stone-100 px-1">src</code> :</li>
-            </ol>
-            <pre class="mt-2 overflow-x-auto rounded-lg bg-stone-900 p-3 text-xs text-stone-100">php artisan bouffe:ciqual C:\chemin\vers\ciqual.csv</pre>
+            <pre class="mt-2 overflow-x-auto rounded-lg bg-stone-900 p-3 text-xs text-stone-100">php artisan bouffe:ciqual</pre>
             <p class="mt-2 text-sm text-stone-500">
-                L'import rattache ensuite automatiquement vos ingrédients aux aliments de la table ; vous pourrez
+                Elle ajoute aussi le catalogue d'environ 1 100 ingrédients, chacun rattaché à son aliment. Vous pourrez
                 vérifier et corriger ici.
             </p>
         @else
@@ -44,7 +40,16 @@
                     Les valeurs affichées sur les recettes sont <strong>indicatives</strong> : elles dépendent des
                     quantités saisies et de la correspondance ci-dessous. En dessous de 70 % du poids de la recette
                     rattaché, rien n'est affiché — mieux vaut pas de chiffre qu'un chiffre faux.
+                    Le <strong>Nutri-Score estimé</strong> est calculé par Bouffe avec l'algorithme officiel, pour 100 g
+                    de recette : ce n'est pas le Nutri-Score d'un produit. Les repères comparent une portion à un repas
+                    type (un tiers des apports de référence d'un adulte), sans valeur médicale.
                 </span>
+            </p>
+
+            <p class="mt-3 text-xs text-stone-500" data-attribution>
+                {{ \App\Models\NutritionFood::ATTRIBUTION }} Licence ouverte Etalab —
+                <span class="font-mono">ciqual.anses.fr</span>.
+                Un choix fait ici (« choisi à la main ») n'est jamais remplacé par les mises à jour du catalogue.
             </p>
         @endif
     </div>
@@ -77,7 +82,14 @@
                             <span class="min-w-40 flex-1">
                                 <span class="block font-medium text-stone-800">{{ $ingredient->name }}</span>
                                 @if ($food)
-                                    <span class="block text-xs text-stone-500">{{ $food->name }}</span>
+                                    <span class="block text-xs text-stone-500">
+                                        {{ $food->name }}
+                                        @if ($ingredient->ciqual_source)
+                                            <span class="ml-1 rounded bg-stone-100 px-1.5 py-0.5 text-[11px] text-stone-500">{{ ['catalogue' => 'catalogue', 'auto' => 'automatique', 'manuel' => 'choisi à la main'][$ingredient->ciqual_source] ?? $ingredient->ciqual_source }}</span>
+                                        @endif
+                                    </span>
+                                @elseif ($ingredient->ciqual_source === 'manuel')
+                                    <span class="block text-xs text-stone-500">Aucun aliment (choisi à la main) : non chiffré.</span>
                                 @else
                                     <span class="block text-xs text-amber-700">Aucun aliment rattaché : cette recette ne sera pas chiffrée.</span>
                                 @endif

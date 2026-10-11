@@ -478,6 +478,14 @@ appliquées sinon.
 
 ---
 
+## Après la V5
+
+- **Lot 43 — Nutrition et catalogue Ciqual** (hors version, demandé avant la mise en ligne)
+  ([détail](lots/lot-43-nutrition-catalogue-ciqual.md)). La table Ciqual 2025 et un catalogue
+  d'environ 1 100 ingrédients sont livrés. Chaque recette reçoit un Nutri-Score estimé et des
+  repères par portion. La semaine affiche son Nutri-Score moyen, et « Remplir la semaine »
+  rééquilibre quand elle penche. La règle R19 est complétée (document 06).
+
 ## Sources
 
 - Mealie — [notes de version](https://github.com/mealie-recipes/mealie/releases), résumées sur

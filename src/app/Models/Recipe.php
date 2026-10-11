@@ -76,6 +76,8 @@ class Recipe extends Model
             'archived_at' => 'datetime',
             'origin_synced_at' => 'datetime',
             'shared_at' => 'datetime',
+            'nutrition' => 'array',              // lot 43 : calcul mis de côté (RecipeNutrition)
+            'nutrition_at' => 'datetime',
         ];
     }
 
@@ -83,6 +85,11 @@ class Recipe extends Model
     {
         static::saving(function (Recipe $recipe) {
             $recipe->search_title = NameNormalizer::normalize($recipe->title);
+
+            // Lot 43 : moins ou plus de portions, autres valeurs par portion.
+            if ($recipe->exists && $recipe->isDirty('servings') && \App\Services\Nutrition\RecipeNutrition::ready()) {
+                $recipe->nutrition_at = null;
+            }
 
             // Ouverte aux proches à l'instant : le fil des proches l'annonce (26.10).
             if ($recipe->isDirty('visibility') && $recipe->visibility !== 'private' && in_array($recipe->getOriginal('visibility'), [null, 'private'], true)) {

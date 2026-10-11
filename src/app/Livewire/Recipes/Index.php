@@ -27,6 +27,7 @@ class Index extends Component
         'rating' => 'Mieux notées',
         'quick' => 'Plus rapides',
         'forgotten' => 'Pas mangées depuis longtemps',
+        'nutri' => 'Meilleur Nutri-Score estimé',
     ];
 
     public const MAX_TIMES = [15, 30, 45, 60, 90];
@@ -67,6 +68,10 @@ class Index extends Component
     /** Filtre « moins de N € par portion » (17.2). */
     #[Url(as: 'prix', except: null)]
     public ?float $maxCost = null;
+
+    /** Lot 43 : Nutri-Score estimé — « AB » (A ou B) ou « ABC » (C ou mieux). */
+    #[Url(as: 'nutri', except: '')]
+    public string $nutri = '';
 
     #[Url(as: 'tri', except: 'recent')]
     public string $sort = 'recent';
@@ -113,7 +118,7 @@ class Index extends Component
 
     public function clearFilters(): void
     {
-        $this->reset('search', 'tagIds', 'maxMinutes', 'maxCost', 'inSeasonOnly', 'difficulty', 'favoritesOnly', 'toTestOnly', 'kidsOnly', 'showArchived');
+        $this->reset('search', 'tagIds', 'maxMinutes', 'maxCost', 'inSeasonOnly', 'difficulty', 'favoritesOnly', 'toTestOnly', 'kidsOnly', 'showArchived', 'nutri');
         $this->resetPage();
     }
 
@@ -134,13 +139,15 @@ class Index extends Component
     public function activeFilterCount(): int
     {
         return count($this->tagIds) + (int) (bool) $this->maxMinutes + (int) (bool) $this->maxCost + (int) $this->inSeasonOnly
-            + (int) ($this->difficulty !== '') + (int) $this->favoritesOnly + (int) $this->toTestOnly + (int) $this->kidsOnly + (int) $this->showArchived;
+            + (int) ($this->difficulty !== '') + (int) $this->favoritesOnly + (int) $this->toTestOnly + (int) $this->kidsOnly + (int) $this->showArchived
+            + (int) ($this->nutri !== '');
     }
 
     public function hasFilters(): bool
     {
         return $this->search !== '' || $this->tagIds !== [] || $this->maxMinutes || $this->maxCost || $this->inSeasonOnly
-            || $this->difficulty !== '' || $this->favoritesOnly || $this->toTestOnly || $this->kidsOnly || $this->showArchived;
+            || $this->difficulty !== '' || $this->favoritesOnly || $this->toTestOnly || $this->kidsOnly || $this->showArchived
+            || $this->nutri !== '';
     }
 
     /**
@@ -177,7 +184,8 @@ class Index extends Component
             ->when($this->toTestOnly, fn (Builder $q) => $q->where('is_to_test', true))
             ->when($this->kidsOnly, fn (Builder $q) => $q->where('kid_friendly', true))
             ->when(Difficulty::tryFrom($this->difficulty), fn (Builder $q, Difficulty $d) => $q->where('difficulty', $d->value))
-            ->when($this->maxMinutes, fn (Builder $q) => $q->maxTotalMinutes($this->maxMinutes));
+            ->when($this->maxMinutes, fn (Builder $q) => $q->maxTotalMinutes($this->maxMinutes))
+            ->when(in_array($this->nutri, ['AB', 'ABC'], true), fn (Builder $q) => $q->whereIn('recipes.nutri_score', str_split($this->nutri)));
 
         // Toutes les catégories sélectionnées doivent être présentes (ET)
         foreach ($shared ? [] : $this->tagIds as $tagId) {
@@ -198,6 +206,7 @@ class Index extends Component
 
         match ($this->sort) {
             'alpha' => $query->orderBy('search_title'),
+            'nutri' => $query->orderByRaw('CASE WHEN recipes.nutri_score IS NULL THEN 1 ELSE 0 END')->orderBy('recipes.nutri_score')->orderBy('search_title'),
             'rating' => $query->orderByDesc('ratings_avg_rating')->orderBy('search_title'),
             'quick' => $query->orderByRaw('(COALESCE(prep_minutes, 9999) + COALESCE(cook_minutes, 0) + COALESCE(rest_minutes, 0))')->orderBy('search_title'),
             'forgotten' => $query->orderByRaw('CASE WHEN last_planned_on IS NULL THEN 0 ELSE 1 END')->orderBy('last_planned_on')->orderBy('search_title'),

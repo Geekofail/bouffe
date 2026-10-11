@@ -119,6 +119,13 @@
             @endforeach
         </select>
 
+        {{-- Lot 43 : Nutri-Score estimé (calcul Bouffe d'après Ciqual). --}}
+        <select wire:model.live="nutri" class="form-input sm:w-auto" aria-label="Nutri-Score estimé">
+            <option value="">Tous Nutri-Scores</option>
+            <option value="AB">Nutri-Score A ou B</option>
+            <option value="ABC">Nutri-Score C ou mieux</option>
+        </select>
+
         <select wire:model.live="sort" class="form-input sm:w-auto" aria-label="Trier">
             @foreach (\App\Livewire\Recipes\Index::SORTS as $key => $label)
                 <option value="{{ $key }}">{{ $label }}</option>
@@ -221,7 +228,7 @@
         @if ($layout === 'liste')
             {{-- Liste compacte (29.4) : utile à 50 recettes et plus. --}}
             <ul class="card divide-y divide-stone-100 overflow-hidden rounded-2xl"
-                wire:loading.class="opacity-60" wire:target="search,toggleTag,maxMinutes,maxCost,inSeasonOnly,difficulty,sort,favoritesOnly,toTestOnly,showArchived">
+                wire:loading.class="opacity-60" wire:target="search,toggleTag,maxMinutes,maxCost,inSeasonOnly,difficulty,nutri,sort,favoritesOnly,toTestOnly,showArchived">
                 @foreach ($recipes as $recipe)
                     @php $cost = $costs[$recipe->id] ?? null; @endphp
                     <li wire:key="recipe-row-{{ $recipe->id }}">
@@ -242,6 +249,7 @@
                                     ])->filter()->join(' · ') }}
                                 </span>
                             </span>
+                            <x-nutri-score :letter="$recipe->nutri_score" :label="false" size="sm" />
                             @if (($seasons[$recipe->id]['status'] ?? null) === 'season')
                                 <span class="hidden shrink-0 items-center gap-1 rounded-full bg-herb-100 px-2 py-0.5 text-xs font-medium text-herb-800 sm:inline-flex"><x-icon name="leaf" class="size-3" /> De saison</span>
                             @endif
@@ -254,7 +262,7 @@
             </ul>
         @else
             <div class="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4"
-                 wire:loading.class="opacity-60" wire:target="search,toggleTag,maxMinutes,maxCost,inSeasonOnly,difficulty,sort,favoritesOnly,toTestOnly,showArchived">
+                 wire:loading.class="opacity-60" wire:target="search,toggleTag,maxMinutes,maxCost,inSeasonOnly,difficulty,nutri,sort,favoritesOnly,toTestOnly,showArchived">
                 @foreach ($recipes as $recipe)
                     <div wire:key="recipe-{{ $recipe->id }}" class="flex"><x-recipe.card :recipe="$recipe" :cost="$costs[$recipe->id] ?? null" :season="$seasons[$recipe->id] ?? null" class="w-full" /></div>
                 @endforeach

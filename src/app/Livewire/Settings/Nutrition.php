@@ -5,6 +5,7 @@ namespace App\Livewire\Settings;
 use App\Models\Ingredient;
 use App\Models\NutritionFood;
 use App\Services\Nutrition\CiqualImporter;
+use App\Services\Nutrition\RecipeNutrition;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\Title;
@@ -12,11 +13,12 @@ use Livewire\Attributes\Url;
 use Livewire\Component;
 
 /**
- * Paramètres → Nutrition (17.4).
+ * Paramètres → Nutrition (17.4, lot 43).
  *
- * Deux choses seulement : savoir si la table Ciqual est importée, et vérifier à quel aliment
- * chaque ingrédient de la maison correspond. La correspondance proposée automatiquement est
- * souvent juste, parfois non : c'est pour cela qu'elle est montrée et modifiable.
+ * La table Ciqual 2025 est livrée avec Bouffe, et chaque ingrédient du catalogue a son aliment.
+ * Cet écran sert à vérifier et corriger : à quel aliment correspond chaque ingrédient, d'où vient
+ * ce choix (catalogue, automatique, à la main), et la source des données (attribution Anses).
+ * Un choix fait ici n'est plus jamais remplacé automatiquement.
  */
 #[Title('Nutrition')]
 class Nutrition extends Component
@@ -61,7 +63,9 @@ class Nutrition extends Component
         }
 
         $ingredient = Ingredient::findOrFail($this->editingId);
-        $ingredient->forceFill(['ciqual_code' => $code])->save();
+        // Choix fait à la main : ni le catalogue ni la correspondance automatique n'y toucheront.
+        $ingredient->forceFill(['ciqual_code' => $code, 'ciqual_source' => 'manuel'])->save();
+        RecipeNutrition::markStaleForIngredients([$ingredient->id]);
 
         $this->closeEdit();
         unset($this->ingredients);
@@ -74,7 +78,9 @@ class Nutrition extends Component
             return;
         }
 
-        Ingredient::whereKey($ingredientId)->update(['ciqual_code' => null]);
+        // « Aucun aliment » est aussi un choix : il n'est plus proposé automatiquement.
+        Ingredient::whereKey($ingredientId)->update(['ciqual_code' => null, 'ciqual_source' => 'manuel']);
+        RecipeNutrition::markStaleForIngredients([$ingredientId]);
 
         unset($this->ingredients);
     }
@@ -88,6 +94,7 @@ class Nutrition extends Component
         ], ['density' => 'densité']);
 
         Ingredient::whereKey($this->editingId)->update(['density' => $value === '' ? null : (float) $value]);
+        RecipeNutrition::markStaleForIngredients([$this->editingId]);
 
         unset($this->ingredients);
         $this->dispatch('notify', message: 'Densité enregistrée : les volumes seront convertis en grammes avec cette valeur.');
@@ -97,6 +104,10 @@ class Nutrition extends Component
     public function matchAll(CiqualImporter $importer): void
     {
         $result = $importer->matchIngredients(false);
+
+        if ($result['matched'] > 0) {
+            \Illuminate\Support\Facades\DB::table('recipes')->update(['nutrition_at' => null]);
+        }
 
         unset($this->ingredients);
         $this->dispatch('notify', message: "{$result['matched']} ingrédient(s) rattachés automatiquement.");

@@ -55,6 +55,9 @@
             @if ($recipe->difficulty)
                 <span>{{ $recipe->difficulty->label() }}</span>
             @endif
+            @if ($recipe->nutri_score)
+                <x-nutri-score :letter="$recipe->nutri_score" :label="false" size="sm" />
+            @endif
             @if ($recipe->ratings_avg_rating)
                 <span class="inline-flex items-center gap-0.5 text-amber-700">
                     <x-icon name="star-solid" class="size-3.5" /> {{ number_format($recipe->ratings_avg_rating, 1, ',', '') }}

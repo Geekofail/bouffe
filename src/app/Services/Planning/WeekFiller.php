@@ -38,6 +38,9 @@ class WeekFiller
     /** @var array<int, list<string>> familles des recettes, calculées une fois (cantine, lot 39) */
     private array $recipeFamilies = [];
 
+    /** Lot 43 : rangs Nutri-Score (A = 1 … E = 5) des repas de la semaine, planifiés ou proposés. */
+    private array $weekRanks = [];
+
     public function __construct(
         private readonly WeekPlanner $planner,
         private readonly OccasionService $occasions,
@@ -75,6 +78,7 @@ class WeekFiller
         $eaters = $this->eatersByCell($weekStart);
 
         $used = $existing->map(fn (PlannedMeal $m) => $m->eatenRecipe()?->id)->filter()->unique()->flip()->all();
+        $this->weekRanks = $existing->map(fn (PlannedMeal $m) => \App\Services\Nutrition\NutriScore::rank($m->eatenRecipe()?->nutri_score))->filter()->values()->all();
         $tagCounts = $this->rules->countByTag($existing);
         $byDay = $existing->groupBy(fn (PlannedMeal $m) => $m->date->toDateString());
 
@@ -127,6 +131,7 @@ class WeekFiller
                     'pickFrom' => $pickFrom,
                     'useLeftovers' => $useLeftovers,
                     'canteen' => $this->canteenFor($day, $slot),
+                    'weekRanks' => $this->weekRanks,
                 ]);
 
                 if (! $choice) {
@@ -318,6 +323,7 @@ class WeekFiller
             'pickFrom' => max($count, (int) config('bouffe.planning.fill_pick_from', 5)),
             'useLeftovers' => false,
             'canteen' => $this->canteenFor($date, $slot),
+            'weekRanks' => $existing->map(fn (PlannedMeal $m) => \App\Services\Nutrition\NutriScore::rank($m->eatenRecipe()?->nutri_score))->filter()->values()->all(),
         ];
 
         $scored = $this->scoreAll($recipes, $context);
@@ -407,6 +413,19 @@ class WeekFiller
         if ((float) $recipe->ratings_avg_rating >= 4) {
             $score += 5;
             $reasons[] = 'bien notée';
+        }
+
+        // Lot 43 : Nutri-Score estimé. Petit coup de pouce aux recettes A et B, frein léger pour D
+        // et E — doublé quand la semaine penche déjà vers D ou pire.
+        $nutri = \App\Services\Nutrition\NutriScore::FILLER_BONUS[$recipe->nutri_score ?? ''] ?? 0;
+
+        if ($nutri !== 0) {
+            $leans = \App\Services\Nutrition\NutriScore::leans($context['weekRanks'] ?? []);
+            $score += $leans ? 2 * $nutri : $nutri;
+
+            if ($nutri > 0) {
+                $reasons[] = $leans ? 'équilibre de la semaine' : 'Nutri-Score '.$recipe->nutri_score;
+            }
         }
 
         // Saisons (lot 19, R18) : évalué au mois du repas, pas au mois d'aujourd'hui.
@@ -735,6 +754,10 @@ class WeekFiller
         }
 
         $used[$recipe->id] = true;
+
+        if ($rank = \App\Services\Nutrition\NutriScore::rank($recipe->nutri_score)) {
+            $this->weekRanks[] = $rank;
+        }
 
         foreach ($recipe->tags as $tag) {
             $tagCounts[$tag->id] = ($tagCounts[$tag->id] ?? 0) + 1;

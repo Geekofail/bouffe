@@ -14,16 +14,28 @@ use Illuminate\Support\Collection;
  * Valeurs nutritionnelles indicatives (17.4, règle R19).
  *
  * Trois précautions, qui sont le cœur de la règle :
- *  1. une ligne qu'on ne sait pas peser (« 1 boîte de… ») n'est **pas** comptée ;
+ *  1. une ligne qu'on ne sait pas peser (« 1 boîte de… » sans poids connu) empêche l'affichage ;
  *  2. la **couverture** dit quelle part du poids de la recette a pu être chiffrée ;
  *  3. en dessous de 70 %, les valeurs sont **masquées** plutôt qu'affichées à la louche.
  *
- * C'est indicatif : aucune recommandation médicale, aucun apport journalier, aucun jugement.
+ * Lot 43 : une pincée compte 0,4 g ; une ligne sans quantité (« sel, à convenance ») n'est pas
+ * comptée mais n'empêche plus le calcul — elle est citée (« non compté : sel ») ; un sachet, un
+ * pot ou une boîte se pèsent avec le poids d'une pièce de l'ingrédient. Le calcul donne aussi
+ * les valeurs pour 100 g et la part de fruits, légumes et légumineuses, pour le Nutri-Score
+ * estimé (NutriScore) et les repères par portion (MealBenchmarks).
+ *
+ * C'est indicatif : aucune recommandation médicale. Les repères comparent à un repas type.
  */
 class NutritionCalculator
 {
     /** En dessous de cette couverture, on n'affiche rien (R19). */
     public const MIN_COVERAGE = 70;
+
+    /** Poids d'une pincée, en grammes (sel, épices). */
+    public const PINCH_GRAMS = 0.4;
+
+    /** Poids d'un brin (herbes) quand l'ingrédient ne se compte pas en brins. */
+    public const SPRIG_GRAMS = 1.0;
 
     public function __construct(
         private readonly UnitConverter $converter,
@@ -52,21 +64,38 @@ class NutritionCalculator
             return $ingredient->piece_weight_g ? $quantity * (float) $ingredient->piece_weight_g : null;
         }
 
+        $pieceWeight = $ingredient->piece_weight_g ? (float) $ingredient->piece_weight_g : null;
+
         return match ($unit->type) {
             UnitType::Mass => $this->converter->toBase($quantity, $unit),
             // Volume : × densité de l'ingrédient (1 g/ml par défaut, modifiable).
             UnitType::Volume => ($ml = $this->converter->toBase($quantity, $unit)) === null
                 ? null
                 : $ml * (float) ($ingredient->density ?? 1),
-            UnitType::Piece => $ingredient->piece_weight_g ? $quantity * (float) $ingredient->piece_weight_g : null,
-            default => null,
+            UnitType::Piece => $this->countedGrams($quantity, $unit, $ingredient, $pieceWeight),
+            // Pincée : un poids fixe. Sachet, pot, boîte : le poids d'une pièce de l'ingrédient.
+            default => $unit->code === 'pincee'
+                ? $quantity * self::PINCH_GRAMS
+                : ($pieceWeight ? $quantity * $pieceWeight : null),
         };
+    }
+
+    /** Pièce, gousse, botte, brin… : le poids d'une pièce, sauf un brin d'une herbe vendue en botte. */
+    private function countedGrams(float $quantity, object $unit, Ingredient $ingredient, ?float $pieceWeight): ?float
+    {
+        $sprigOfBunch = $unit->code === 'brin' && $ingredient->default_unit_id !== null && $ingredient->default_unit_id !== $unit->id;
+
+        if ($sprigOfBunch) {
+            return $quantity * self::SPRIG_GRAMS;
+        }
+
+        return $pieceWeight ? $quantity * $pieceWeight : null;
     }
 
     /**
      * Valeurs par portion d'une recette.
      *
-     * @return array{known: bool, values: array<string, float>, coverage: int, counted: int, weighed: int, lines: int, unweighable: int, servings: int, missing: list<string>}
+     * @return array{known: bool, values: array<string, float>, per100: array<string, float>, fruit_vegetable: int, coverage: int, counted: int, weighed: int, lines: int, unweighable: int, servings: int, missing: list<string>, uncounted: list<string>}
      */
     public function recipe(Recipe $recipe, int|float|null $servings = null): array
     {
@@ -85,6 +114,8 @@ class NutritionCalculator
         $countedLines = 0;
         $unweighable = 0;
         $missing = [];
+        $uncounted = [];     // « à convenance » : pas de quantité, donc pas compté (lot 43)
+        $fruitVegetable = 0.0;
 
         foreach ($all as $line) {
             if ($line->is_optional || ! $line->ingredient) {
@@ -92,6 +123,13 @@ class NutritionCalculator
             }
 
             $lines++;
+
+            if ($line->quantity === null || (float) $line->quantity <= 0) {
+                $uncounted[] = (string) $line->ingredient->name;
+
+                continue;
+            }
+
             $quantity = $this->scaler->scale($line->quantity, $base, $servings);
             $grams = $this->grams($quantity, $line->unit, $line->ingredient);
 
@@ -113,6 +151,10 @@ class NutritionCalculator
             $counted += $grams;
             $countedLines++;
 
+            if ($food->isFruitOrVegetable()) {
+                $fruitVegetable += $grams;
+            }
+
             foreach (array_keys(NutritionFood::NUTRIENTS) as $nutrient) {
                 $totals[$nutrient] += $grams * (float) ($food->{$nutrient} ?? 0) / 100;
             }
@@ -124,6 +166,8 @@ class NutritionCalculator
         return [
             'known' => $known,
             'values' => collect($totals)->map(fn (float $total) => round($total / $servings, 1))->all(),
+            'per100' => collect($totals)->map(fn (float $total) => $counted > 0 ? round($total / $counted * 100, 2) : 0.0)->all(),
+            'fruit_vegetable' => $counted > 0 ? (int) round($fruitVegetable / $counted * 100) : 0,
             'coverage' => $coverage,
             'counted' => $countedLines,
             'weighed' => (int) round($weighed),
@@ -131,6 +175,7 @@ class NutritionCalculator
             'unweighable' => $unweighable,
             'servings' => $servings,
             'missing' => array_values(array_unique($missing)),
+            'uncounted' => array_values(array_unique($uncounted)),
         ];
     }
 
@@ -144,7 +189,7 @@ class NutritionCalculator
         }
 
         if (! $this->hasTable()) {
-            return 'La table Ciqual n\'est pas encore importée (Paramètres → Nutrition).';
+            return 'La table Ciqual n\'est pas encore importée (php artisan bouffe:ciqual).';
         }
 
         if ($result['counted'] === 0) {

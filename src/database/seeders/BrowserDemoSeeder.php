@@ -65,6 +65,9 @@ class BrowserDemoSeeder extends Seeder
             $this->journal();
             $this->stay();
         });
+
+        // Lot 43 : table Ciqual 2025 et catalogue (données réelles de l'Anses), recettes chiffrées.
+        app(\App\Services\Nutrition\ReferenceData::class)->sync(force: true);
     }
 
     /** Une semaine en partie remplie, autour d'aujourd'hui, et sa liste de courses. */

@@ -214,7 +214,7 @@ trait ProvidesRecipeData
     public function showVariant(?int $variantId): void
     {
         $this->variantId = $variantId;
-        unset($this->ingredientGroups, $this->variant, $this->nutrition);
+        unset($this->ingredientGroups, $this->variant, $this->nutrition, $this->nutritionSummary);
     }
 
     /** @return \Illuminate\Support\Collection<int, \App\Models\RecipeVariant> */
@@ -255,6 +255,16 @@ trait ProvidesRecipeData
     public function nutrition(): array
     {
         return app(\App\Services\Nutrition\NutritionCalculator::class)->recipe($this->recipe, $this->servings);
+    }
+
+    /**
+     * Nutri-Score estimé, repères par portion et détail du calcul (lot 43), pour les portions de base.
+     * Le calcul mis de côté est refait ici s'il est périmé.
+     */
+    #[Computed]
+    public function nutritionSummary(): array
+    {
+        return app(\App\Services\Nutrition\RecipeNutrition::class)->current($this->recipe);
     }
 
     /** Coût estimé pour le nombre de portions affiché (17.2, règle R17). */

@@ -33,6 +33,15 @@ class RecipeIngredient extends Model
         ];
     }
 
+    protected static function booted(): void
+    {
+        // Lot 43 : une ligne qui change, un calcul nutritionnel à refaire.
+        $stale = fn (RecipeIngredient $line) => \App\Services\Nutrition\RecipeNutrition::markStale([$line->recipe_id]);
+
+        static::saved($stale);
+        static::deleted($stale);
+    }
+
     /** @return BelongsTo<Recipe, $this> */
     public function recipe(): BelongsTo
     {

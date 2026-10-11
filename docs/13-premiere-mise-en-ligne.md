@@ -4,7 +4,15 @@ La liste à cocher de la première mise en ligne. Elle reprend les documents
 [10](10-mise-en-ligne-ovh.md) et [11](11-git-et-tests.md) dans l'ordre où on les fait, avec le dépôt
 `Geekofail/bouffe` et le script `outils/ovh/installer.sh`.
 
-Le code est sur GitHub depuis le 4 octobre 2026 (branche `main`, état au lot 42). Compte une soirée.
+Le code est sur GitHub depuis le 4 octobre 2026 (branche `main`). Compte une soirée.
+
+Le site est servi depuis le dossier racine **`www`** de l'hébergement. Le code est rangé à côté,
+dans `~/bouffe`, et `www` devient un raccourci vers `~/bouffe/src/public` : seul le dossier
+`public` est visible depuis Internet, jamais `.env`, `vendor` ni les sauvegardes.
+
+> **Avant la mise en ligne : le lot 43 sur le PC.** Déploie d'abord le lot 43 sur ton PC
+> (`php artisan bouffe:deploy`). La table Ciqual, le catalogue d'ingrédients et les Nutri-Scores
+> des recettes sont alors dans ta base, et donc dans la sauvegarde que tu reprendras à l'étape 4.
 
 > **Ce que Claude ne peut pas faire à ta place** : se connecter à l'espace client OVH ou en SSH, et
 > saisir un mot de passe (base, boîte e-mail, GitHub). Tout le reste est préparé.
@@ -15,17 +23,12 @@ Le code est sur GitHub depuis le 4 octobre 2026 (branche `main`, état au lot 42
 
 ---
 
-## 0. Sur le PC : envoyer le script sur GitHub
+## 0. Sur le PC : tout envoyer sur GitHub
 
-Le script `outils/ovh/installer.sh` vient d'être déposé dans ton dossier. Le serveur le récupérera
-avec le dépôt :
-
-```powershell
-cd C:\wamp64\www\Bouffe
-git add outils/ovh/installer.sh docs/13-premiere-mise-en-ligne.md
-git commit -m "Mise en ligne OVH : script d'installation"
-git push
-```
+Le script `outils/ovh/installer.sh` doit être sur GitHub : le serveur le récupérera avec le
+dépôt. Le serveur prend la branche `main` : le lot 43 doit donc y être fusionné (pull request
+`lot-43-nutrition` → `main`, document 11, §2). Voir le document du lot 43, « Mise à jour depuis le
+lot 42 ».
 
 Sur GitHub, onglet **Actions** : le workflow **Tests** doit passer au vert. Lance aussi **Toutes
 les bases** (bouton **Run workflow**) : ce sont les tests sous MySQL 8, la base d'OVH.
@@ -34,8 +37,8 @@ les bases** (bouton **Run workflow**) : ce sont les tests sous MySQL 8, la base 
 
 ## 1. Dans l'espace client OVH
 
-- [ ] **Multisite → Ajouter un domaine** : ton sous-domaine (par exemple `bouffe.ton-domaine.lu`).
-  - **Dossier racine : `bouffe/src/public`**.
+- [ ] **Multisite** : le domaine du site (par exemple `bouffe.ton-domaine.lu`) avec le **dossier
+  racine `www`** (celui que tu vois avec `ls`).
   - Coche **SSL**.
   - Si le domaine n'est pas chez OVH, ajoute l'enregistrement DNS indiqué.
 - [ ] **Bases de données → Créer une base de données**, de type **MySQL**. Note dans ton gestionnaire
@@ -65,18 +68,24 @@ titre « OVH », **sans** cocher « Allow write access ». Puis, de retour sur l
 
 ```bash
 printf 'Host github.com\n  IdentityFile ~/.ssh/bouffe_deploy\n' >> ~/.ssh/config
-cd ~/www
-git clone git@github.com:Geekofail/bouffe.git bouffe
+chmod 600 ~/.ssh/config
+ssh -T git@github.com
 ```
 
-À la question « Are you sure you want to continue connecting », réponds `yes`.
+À la question « Are you sure you want to continue connecting », réponds `yes`. La réponse attendue
+commence par « Hi Geekofail/bouffe! You've successfully authenticated ». Puis :
+
+```bash
+cd ~
+git clone git@github.com:Geekofail/bouffe.git bouffe
+```
 
 ---
 
 ## 3. En SSH : l'installation
 
 ```bash
-bash ~/www/bouffe/outils/ovh/installer.sh
+bash ~/bouffe/outils/ovh/installer.sh
 ```
 
 **Premier passage** : le script fait quatre choses, puis s'arrête.
@@ -89,7 +98,7 @@ bash ~/www/bouffe/outils/ovh/installer.sh
 Remplis maintenant `.env` :
 
 ```bash
-nano ~/www/bouffe/src/.env
+nano ~/bouffe/src/.env
 ```
 
 Les valeurs à remplir sont dans le document 10, étape 6 :
@@ -104,7 +113,25 @@ Les valeurs à remplir sont dans le document 10, étape 6 :
 Pour enregistrer dans nano : `Ctrl+O`, `Entrée`, puis `Ctrl+X` pour quitter.
 
 **Second passage** : relance la même commande. Le script vérifie le `.env`, crée les tables, puis
-lance le diagnostic de `bouffe:deploy`.
+lance `bouffe:deploy`. Sur cette base encore vide, il importe la table Ciqual et le catalogue
+(quelques secondes) ; la reprise de l'étape 4 les remplacera par ceux de ta base.
+
+### Le dossier `www` pointe vers Bouffe
+
+```bash
+mv ~/www ~/www-avant-bouffe
+ln -s ~/bouffe/src/public ~/www
+ls -l ~
+```
+
+La dernière commande doit montrer `www -> /homez.…/bouffe/src/public`. L'ancien contenu de `www`
+reste dans `~/www-avant-bouffe` : rien n'est supprimé.
+
+Ouvre `https://` suivi de ton domaine : la page de connexion de Bouffe s'affiche.
+
+- **Erreur 403 ou 500** : certains hébergements refusent un raccourci comme dossier racine. Remets
+  `www` comme avant (`rm ~/www && mv ~/www-avant-bouffe ~/www`), puis, dans l'espace client,
+  **Multisite → Modifier le domaine → dossier racine `bouffe/src/public`**. Le reste ne change pas.
 
 ---
 
@@ -115,18 +142,19 @@ Sur le **PC** :
 ```powershell
 cd C:\wamp64\www\Bouffe\src
 php artisan bouffe:backup
-scp storage\app\backups\bouffe-AAAA-MM-JJ_HHMMSS-manual.zip ton-login@ssh.clusterXXX.hosting.ovh.net:www/bouffe/src/storage/app/backups/
+scp storage\app\backups\bouffe-AAAA-MM-JJ_HHMMSS-manual.zip ton-login@ssh.clusterXXX.hosting.ovh.net:bouffe/src/storage/app/backups/
 ```
 
 Sur le **serveur** :
 
 ```bash
-cd ~/www/bouffe/src
+cd ~/bouffe/src
 php84 artisan bouffe:restore bouffe-AAAA-MM-JJ_HHMMSS-manual.zip --force
 php84 artisan bouffe:deploy
 ```
 
-Le diagnostic doit afficher « Base de données : MySQL 8… » et « Structure à jour ».
+Le diagnostic doit afficher « Base de données : MySQL 8… » et « Structure à jour ». La table Ciqual
+et le catalogue viennent de la sauvegarde : `bouffe:deploy` ne les réimporte pas.
 
 ---
 
@@ -146,6 +174,8 @@ Le travail ne change pas : une branche par lot, puis une *pull request* fusionn�
 (document 11, §2). Pour mettre en ligne :
 
 ```bash
-cd ~/www/bouffe/src
+cd ~/bouffe/src
 php84 artisan bouffe:deploy --git
 ```
+
+Quand un lot change la table Ciqual ou le catalogue, `bouffe:deploy` les applique tout seul.

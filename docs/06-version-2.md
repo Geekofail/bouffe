@@ -395,6 +395,21 @@ seulement une couverture faible) ; l'import est tolérant aux intitulés de colo
 d'une édition de la table à l'autre ; et pour R18, un ingrédient **secondaire** hors saison ne
 rend pas la recette hors saison — seul l'ingrédient principal compte.
 
+**Complétée au lot 43** ([détail](lots/lot-43-nutrition-catalogue-ciqual.md)) :
+
+- la table Ciqual 2025 est **livrée** avec Bouffe et importée au déploiement ; un catalogue
+  d'environ 1 100 ingrédients porte la correspondance, et un choix fait à la main n'est jamais
+  remplacé ;
+- une ligne **sans quantité** (« à convenance ») n'est pas comptée mais ne masque plus les valeurs
+  (elle est citée) ; une pincée compte 0,4 g ; sachet, pot et boîte se pèsent avec le poids d'une
+  pièce ;
+- en plus des valeurs, un **Nutri-Score estimé** (algorithme 2024, pour 100 g de recette, mention
+  « estimé », jamais le logo officiel) et des **repères par portion** par rapport à un repas type
+  (un tiers des apports de référence d'un adulte) qualifient la recette — toujours sans valeur de
+  conseil médical ;
+- mention de la source : « Source : Anses, Table de composition nutritionnelle des aliments Ciqual
+  2025 » (licence ouverte Etalab).
+
 ### R20 — Liste de courses hors-ligne ✅ (lot 16)
 
 - À l'ouverture en ligne, la liste en cours est copiée sur le téléphone (articles, rayons, ordre du magasin, état).

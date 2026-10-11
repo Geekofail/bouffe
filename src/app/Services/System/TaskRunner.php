@@ -75,6 +75,11 @@ class TaskRunner
                 $result['purged'] = $this->journal->purge();
             });
 
+            // Lot 43 : Nutri-Score estimé et repères des recettes modifiées depuis le dernier passage.
+            $this->step($result, 'Nutrition des recettes', function () {
+                app(\App\Services\Nutrition\RecipeNutrition::class)->refreshStale(200);
+            });
+
             // Lot 40 (40.4) : allergènes des produits scannés avant de les connaître.
             $this->step($result, 'Allergènes des produits', function () {
                 app(\App\Services\Stock\ProductLookup::class)->refreshPendingAllergens();

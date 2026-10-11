@@ -29,5 +29,12 @@ class DatabaseSeeder extends Seeder
             SeasonSeeder::class,       // mois de saison des fruits et légumes (lot 19)
             RecipeSeeder::class,
         ]);
+
+        // Lot 43 : table Ciqual 2025 et catalogue de ~1 100 ingrédients (désactivé dans les tests).
+        $result = app(\App\Services\Nutrition\ReferenceData::class)->sync();
+
+        if (! $result['skipped']) {
+            $this->command?->info("Ciqual : {$result['foods']} aliments, {$result['created']} ingrédients ajoutés, {$result['recipes']} recettes calculées.");
+        }
     }
 }

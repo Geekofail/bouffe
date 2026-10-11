@@ -206,28 +206,94 @@
         </ul>
     @endif
 
-    {{-- Valeurs nutritionnelles indicatives (17.4, R19) : masquées si la couverture est trop faible. --}}
-    @php $nutrition = $this->nutrition; $calculator = app(\App\Services\Nutrition\NutritionCalculator::class); @endphp
+    {{-- Valeurs nutritionnelles indicatives (17.4, R19), Nutri-Score estimé et repères (lot 43). --}}
+    @php
+        $nutrition = $this->nutrition;
+        $summary = $this->nutritionSummary;
+        $calculator = app(\App\Services\Nutrition\NutritionCalculator::class);
+        $benchmarks = app(\App\Services\Nutrition\MealBenchmarks::class);
+        $score = $summary['score'] ?? null;
+        $tones = ['good' => 'bg-herb-50 text-herb-800 ring-herb-200', 'warn' => 'bg-amber-50 text-amber-800 ring-amber-200', 'info' => 'bg-stone-100 text-stone-700 ring-stone-200'];
+    @endphp
     @if ($calculator->hasTable())
-        <details class="mt-5 border-t border-stone-100 pt-4 text-sm">
-            <summary class="cursor-pointer font-medium text-stone-700">Valeurs nutritionnelles (indicatives)</summary>
+        <details id="nutrition" class="mt-5 scroll-mt-24 border-t border-stone-100 pt-4 text-sm" data-nutrition @if ($score) open @endif>
+            <summary class="flex cursor-pointer flex-wrap items-center gap-2 font-medium text-stone-700">
+                Nutrition <span class="font-normal text-stone-500">(indicative)</span>
+                @if ($score) <x-nutri-score :letter="$score['letter']" /> @endif
+            </summary>
 
             @if ($nutrition['known'])
-                <p class="mt-2 text-xs text-stone-500">
+                @if ($score)
+                    <div class="mt-3 flex flex-wrap items-center gap-2">
+                        <span class="text-stone-700">{{ \App\Services\Nutrition\NutriScore::LETTERS[$score['letter']] }}</span>
+                        @foreach ($summary['flags'] as $flag)
+                            <span class="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ring-1 ring-inset {{ $tones[$flag['tone']] }}" data-flag="{{ $flag['key'] }}">{{ $flag['label'] }}</span>
+                        @endforeach
+                    </div>
+                @endif
+
+                <p class="mt-3 text-xs text-stone-500">
                     Par portion, pour {{ \App\Services\Planning\Appetites::label($nutrition['servings']) }} ·
-                    couverture {{ $nutrition['coverage'] }} % du poids de la recette.
+                    couverture {{ $nutrition['coverage'] }} % du poids de la recette ·
+                    « repas type » = un tiers des apports de référence d'un adulte.
                 </p>
-                <dl class="mt-2 grid grid-cols-2 gap-x-6 gap-y-1">
-                    @foreach (\App\Models\NutritionFood::NUTRIENTS as $key => [$label, $unit])
-                        <div class="flex justify-between border-b border-stone-100 py-1">
-                            <dt @class(['text-stone-500', 'pl-3 text-xs' => in_array($key, ['sugars', 'saturated_fat'], true)])>{{ $label }}</dt>
-                            <dd class="font-medium text-stone-800 tabular-nums">{{ $calculator->format($key, $nutrition['values'][$key]) }}</dd>
-                        </div>
-                    @endforeach
-                </dl>
+                <table class="mt-2 w-full text-left">
+                    <thead class="sr-only"><tr><th>Constituant</th><th>Par portion</th><th>Part d'un repas type</th></tr></thead>
+                    <tbody class="divide-y divide-stone-100">
+                        @foreach (\App\Models\NutritionFood::NUTRIENTS as $key => [$label, $unit])
+                            @php $share = in_array($key, ['carbs', 'fat'], true) ? null : $benchmarks->share($key, $nutrition['values'][$key]); @endphp
+                            <tr>
+                                <td @class(['py-1 text-stone-500', 'pl-3 text-xs' => in_array($key, ['sugars', 'saturated_fat'], true)])>{{ $label }}</td>
+                                <td class="py-1 text-right font-medium text-stone-800 tabular-nums">{{ $calculator->format($key, $nutrition['values'][$key]) }}</td>
+                                <td class="w-28 py-1 pl-3 sm:w-40">
+                                    @if ($share !== null)
+                                        <span class="flex items-center gap-2" title="{{ $share }} % d'un repas type">
+                                            <span class="h-1.5 flex-1 overflow-hidden rounded-full bg-stone-100">
+                                                <span @class(['block h-full rounded-full', 'bg-amber-500' => $share > 100 && ! in_array($key, ['fibres', 'proteins'], true), 'bg-herb-500' => in_array($key, ['fibres', 'proteins'], true) || $share <= 100]) style="width: {{ min(100, $share) }}%"></span>
+                                            </span>
+                                            <span class="w-10 text-right text-xs text-stone-500 tabular-nums">{{ $share }} %</span>
+                                        </span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                @if ($score)
+                    <details class="mt-3 rounded-lg bg-stone-50 px-3 py-2" data-nutri-score-detail>
+                        <summary class="cursor-pointer text-xs font-medium text-stone-700">Pourquoi « {{ $score['letter'] }} » ?</summary>
+                        <p class="mt-2 text-xs text-stone-500">
+                            Calcul de Bouffe avec l'algorithme du Nutri-Score, pour 100 g de recette (ingrédients pesés crus) :
+                            {{ $score['negative'] }} point(s) à limiter − {{ $score['positive'] }} point(s) favorables = {{ $score['score'] }}.
+                            Ce n'est pas le Nutri-Score officiel d'un produit.
+                        </p>
+                        <table class="mt-2 w-full text-xs">
+                            <tbody class="divide-y divide-stone-200/70">
+                                @foreach (app(\App\Services\Nutrition\NutriScore::class)->breakdown($summary['per_100g'], $summary['fruit_vegetable'], $score) as $row)
+                                    <tr @class(['opacity-50' => ! $row['counted']])>
+                                        <td class="py-1 text-stone-600">{{ $row['label'] }}</td>
+                                        <td class="py-1 text-right text-stone-500 tabular-nums">{{ $row['value'] }}</td>
+                                        <td @class(['py-1 pl-3 text-right font-medium tabular-nums', 'text-amber-700' => $row['kind'] === 'negative' && $row['points'] > 0, 'text-herb-700' => $row['kind'] === 'positive' && $row['points'] > 0, 'text-stone-500' => $row['points'] === 0])>
+                                            {{ $row['kind'] === 'negative' ? '+' : '−' }}{{ $row['points'] }} <span class="text-stone-500">/ {{ $row['max'] }}</span>
+                                            @unless ($row['counted']) <span class="sr-only">(non compté)</span> @endunless
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @unless ($score['proteins_counted'])
+                            <p class="mt-1 text-xs text-stone-500">Les protéines ne comptent pas : trop de points à limiter et peu de fruits et légumes (règle du Nutri-Score).</p>
+                        @endunless
+                    </details>
+                @endif
+
+                @if ($nutrition['uncounted'] !== [])
+                    <p class="mt-2 text-xs text-stone-500">Non compté (sans quantité) : {{ collect($nutrition['uncounted'])->map(fn ($name) => mb_strtolower($name))->join(', ', ' et ') }}.</p>
+                @endif
                 <p class="mt-2 text-xs text-stone-500">
-                    Source : table Ciqual de l'Anses, importée sur cette installation. Valeurs indicatives,
-                    calculées d'après les quantités saisies — ce n'est pas un conseil nutritionnel.
+                    {{ \App\Models\NutritionFood::ATTRIBUTION }} Valeurs indicatives, calculées d'après les quantités
+                    saisies — ce n'est pas un conseil nutritionnel.
                 </p>
             @else
                 <p class="mt-2 text-stone-500">{{ $calculator->explain($nutrition) }}</p>
