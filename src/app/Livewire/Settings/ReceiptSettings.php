@@ -81,7 +81,7 @@ class ReceiptSettings extends Component
 
         if ($key) {
             Settings::set($key, '');
-            $this->dispatch('notify', message: 'Clé retirée de Bouffe.');
+            $this->dispatch('notify', message: 'Clé retirée de Grignott.in.');
         }
     }
 
@@ -94,7 +94,7 @@ class ReceiptSettings extends Component
     private function keySource(string $key): ?string
     {
         if (Settings::stored($key)) {
-            return Settings::secret($key) !== null ? 'Enregistrée dans Bouffe (chiffrée)' : 'Illisible : saisissez-la de nouveau';
+            return Settings::secret($key) !== null ? 'Enregistrée dans Grignott.in (chiffrée)' : 'Illisible : saisissez-la de nouveau';
         }
 
         return Settings::secret($key) !== null ? 'Lue dans le fichier .env' : null;

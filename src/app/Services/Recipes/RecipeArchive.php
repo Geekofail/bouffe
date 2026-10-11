@@ -95,11 +95,11 @@ class RecipeArchive
         $payload = json_decode($json, true);
 
         if (! is_array($payload) || ($payload['format'] ?? null) !== self::FORMAT) {
-            throw new InvalidArgumentException('Ce fichier n\'est pas un export de recettes Bouffe.');
+            throw new InvalidArgumentException('Ce fichier n\'est pas un export de recettes Grignott.in.');
         }
 
         if ((int) ($payload['version'] ?? 0) > self::VERSION) {
-            throw new InvalidArgumentException('Ce fichier vient d\'une version plus récente de Bouffe.');
+            throw new InvalidArgumentException('Ce fichier vient d\'une version plus récente de Grignott.in.');
         }
 
         $recipes = $payload['recipes'] ?? null;

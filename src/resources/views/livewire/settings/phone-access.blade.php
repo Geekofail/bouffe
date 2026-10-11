@@ -6,14 +6,14 @@
         {{-- Adresses + QR codes --}}
         <section class="card min-w-0 space-y-4 p-5 lg:col-span-2">
             <div>
-                <h2 class="font-display font-semibold text-stone-900">Ouvrir Bouffe sur un téléphone</h2>
+                <h2 class="font-display font-semibold text-stone-900">Ouvrir Grignott.in sur un téléphone</h2>
                 <p class="text-sm text-stone-500">Le téléphone doit être connecté au même Wi-Fi que ce PC, et Wamp démarré.</p>
             </div>
 
             @if ($fromLan)
                 <div class="flex gap-3 rounded-xl bg-herb-50 p-3 text-sm text-herb-800">
                     <x-icon name="success" class="size-5 shrink-0" />
-                    <p>Cet appareil utilise déjà Bouffe par le réseau local ({{ $clientIp }}) : l'accès téléphone fonctionne.</p>
+                    <p>Cet appareil utilise déjà Grignott.in par le réseau local ({{ $clientIp }}) : l'accès téléphone fonctionne.</p>
                 </div>
             @endif
 

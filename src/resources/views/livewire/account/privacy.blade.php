@@ -1,16 +1,17 @@
 <div @class(['space-y-6', 'card p-6 sm:p-8' => $guest])>
     @if ($guest)
         <h1 class="text-xl font-semibold text-stone-900">Vos données</h1>
-        <p class="text-sm text-stone-600">Ce que Bouffe enregistre, où, qui le voit, et comment tout reprendre ou tout effacer.</p>
+        <p class="text-sm text-stone-600">Ce que Grignott.in enregistre, où, qui le voit, et comment tout reprendre ou tout effacer.</p>
     @else
-        <x-page-header title="Vos données" subtitle="Ce que Bouffe enregistre, où, qui le voit, et comment tout reprendre ou tout effacer." />
+        <x-page-header title="Vos données" subtitle="Ce que Grignott.in enregistre, où, qui le voit, et comment tout reprendre ou tout effacer." />
         <x-settings-nav />
     @endif
 
     <section @class(['rounded-xl bg-brand-50 p-4 text-sm text-stone-800', 'card' => ! $guest])>
         <h2 class="font-display mb-2 font-semibold text-stone-900">En bref</h2>
         <ul class="space-y-1.5">
-            <li class="flex gap-2"><x-icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-700" /> Bouffe est une application privée, installée par {{ $admins->join(', ', ' et ') ?: 'son administrateur' }} pour la famille et les proches. Pas de publicité, pas de revente, pas de mesure d'audience.</li>
+            <li class="flex gap-2"><x-icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-700" /> Grignott.in est une application privée, installée par {{ $admins->join(', ', ' et ') ?: 'son administrateur' }} pour la famille et les proches. Pas de publicité, pas de revente, pas de mesure d'audience.</li>
+            <li class="flex gap-2"><x-icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-700" /> Les données sont hébergées {{ $hosting }}.</li>
             <li class="flex gap-2"><x-icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-700" /> Chaque foyer ne voit que ses propres recettes, menus, stocks, courses et dépenses.</li>
             <li class="flex gap-2"><x-icon name="check" class="mt-0.5 size-4 shrink-0 text-brand-700" /> Vous pouvez exporter vos données, quitter un foyer ou supprimer votre compte à tout moment.</li>
         </ul>
@@ -55,9 +56,14 @@
         </section>
 
         <div class="space-y-6">
-            <section class="card space-y-2 p-4 text-sm text-stone-700 sm:p-5">
+            <section class="card space-y-2 p-4 text-sm text-stone-700 sm:p-5" data-hosting>
                 <h2 class="font-display font-semibold text-stone-900">Où</h2>
-                <p>Les données sont hébergées {{ $hosting }}.</p>
+                <p>Les données sont hébergées {{ $hosting }}. L'hébergeur fournit le serveur et le stockage ; il n'a pas à consulter les données et ne les utilise pas.</p>
+                <ul class="list-disc space-y-1 pl-5">
+                    <li>L'adresse <strong>grignott.in</strong> s'ouvre uniquement en connexion chiffrée (https).</li>
+                    <li>Les mots de passe sont chiffrés de façon irréversible ; les clés des services extérieurs sont chiffrées dans la base.</li>
+                    <li>Les sauvegardes automatiques restent sur le même hébergement. L'administrateur en télécharge une copie de temps en temps, gardée chez lui, pour pouvoir tout remettre en état après une panne.</li>
+                </ul>
             </section>
 
             <section class="card space-y-2 p-4 text-sm text-stone-700 sm:p-5">
@@ -73,14 +79,28 @@
 
         <section class="card space-y-3 p-4 text-sm text-stone-700 sm:p-5 lg:col-span-2">
             <h2 class="font-display font-semibold text-stone-900">Services extérieurs appelés</h2>
-            <p>Bouffe n'envoie rien à l'extérieur de lui-même, sauf dans ces cas, et seulement ce qui est indiqué :</p>
+            <p>Grignott.in n'envoie rien à l'extérieur, sauf dans ces cas, et seulement ce qui est indiqué :</p>
             <ul class="grid gap-3 md:grid-cols-2">
-                <li class="rounded-lg bg-stone-50 p-3">
+                <li class="rounded-lg bg-stone-50 p-3" data-service="tickets">
                     <p class="font-medium text-stone-900">Lecture des tickets de caisse</p>
-                    @if ($ocrLabel)
-                        <p>Quand vous photographiez un ticket (ou une recette), l'image recadrée est envoyée à <strong>{{ $ocrLabel }}</strong>{{ $ocrProvider === 'mistral' ? ' (entreprise française)' : '' }} pour être lue. Rien d'autre du foyer n'est envoyé.</p>
+                    @if ($ocrLabel && $ocrProvider === 'mistral')
+                        <p>Quand vous photographiez un ticket (ou une page de recette), l'image recadrée, numéro de carte masqué, est envoyée à <strong>Mistral AI</strong>, entreprise française dont les serveurs sont dans l'Union européenne pour être lue. Rien d'autre du foyer n'est envoyé : ni nom, ni e-mail, ni dépenses.</p>
+                        <p class="mt-1 text-stone-500">Selon sa politique de confidentialité, Mistral garde l'image et le texte lu 30 jours au plus, pour repérer les abus, puis les efface.</p>
+                    @elseif ($ocrLabel)
+                        <p>Quand vous photographiez un ticket (ou une recette), l'image recadrée est envoyée à <strong>{{ $ocrLabel }}</strong> pour être lue. Rien d'autre du foyer n'est envoyé.</p>
+                    @elseif ($ocrPlanned === 'mistral')
+                        <p><strong>Pas encore activée</strong> : pour l'instant, les tickets se saisissent à la main et rien n'est envoyé.</p>
+                        <p class="mt-1">Il est prévu de la confier à <strong>Mistral AI</strong>, entreprise française dont les serveurs sont dans l'Union européenne. Seule l'image recadrée du ticket (numéro de carte masqué) lui sera envoyée, jamais rien d'autre du foyer. Cette page le dira dès que ce sera le cas.</p>
                     @else
                         <p>Désactivée sur cette installation : les tickets se saisissent à la main, rien n'est envoyé.</p>
+                    @endif
+                </li>
+                <li class="rounded-lg bg-stone-50 p-3" data-service="assistant">
+                    <p class="font-medium text-stone-900">Assistant culinaire</p>
+                    @if ($assistantOn)
+                        <p>Quand vous lui demandez d'adapter une recette ou une idée de plat, l'assistant envoie à <strong>Mistral AI</strong>, entreprise française dont les serveurs sont dans l'Union européenne la recette concernée ou les ingrédients tapés, et rien d'autre : jamais un nom, les contraintes d'une personne, le stock ou les dépenses. Ses propositions ne sont enregistrées qu'après votre relecture.</p>
+                    @else
+                        <p><strong>Pas activé</strong>. S'il l'est un jour, il passera par le même service (Mistral AI), avec les mêmes règles : la recette concernée seulement, jamais un nom ni les données du foyer.</p>
                     @endif
                 </li>
                 <li class="rounded-lg bg-stone-50 p-3">

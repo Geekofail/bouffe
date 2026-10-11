@@ -46,7 +46,7 @@
 
             <div class="space-y-2 border-t border-stone-200 pt-4">
                 <h3 class="font-medium text-stone-900">Repas passés non cochés</h3>
-                <p class="text-sm text-stone-500">Un repas jamais marqué « mangé » ne retire rien du stock. Bouffe les rappelle le lendemain matin (cloche et accueil).</p>
+                <p class="text-sm text-stone-500">Un repas jamais marqué « mangé » ne retire rien du stock. Grignott.in les rappelle le lendemain matin (cloche et accueil).</p>
                 <label class="flex flex-wrap items-center gap-2 text-sm text-stone-700">
                     <select wire:model="autoCloseDays" class="form-input w-full max-w-full py-1.5 sm:w-auto" aria-label="Clôture des repas passés">
                         <option value="0">Toujours demander</option>

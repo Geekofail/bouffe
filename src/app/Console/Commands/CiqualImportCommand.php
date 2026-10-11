@@ -55,7 +55,7 @@ class CiqualImportCommand extends Command
             }
         } else {
             $this->newLine();
-            $this->components->info('Table Ciqual 2025 et catalogue livrés avec Bouffe');
+            $this->components->info('Table Ciqual 2025 et catalogue livrés avec Grignott.in');
 
             $result = $reference->sync(force: true);
 

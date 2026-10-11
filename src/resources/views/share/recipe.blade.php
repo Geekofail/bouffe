@@ -15,7 +15,7 @@
         <div class="border-b border-stone-200 bg-white px-4 py-2 print:hidden">
             <div class="mx-auto flex max-w-3xl flex-wrap items-center gap-3">
                 <span class="flex min-w-0 basis-full items-center gap-2 text-sm text-stone-600 sm:flex-1 sm:basis-auto">
-                    <x-app-logo class="size-6 text-brand-600" /> Recette partagée avec Bouffe
+                    <x-app-logo class="size-6 text-brand-600" /> Recette partagée avec Grignott.in
                 </span>
                 <form method="GET" class="flex items-center gap-2 text-sm text-stone-600">
                     <label for="share-portions">Portions</label>
@@ -90,7 +90,7 @@
             </div>
 
             <footer class="mt-8 border-t border-stone-200 pt-2 text-xs text-stone-600">
-                Recette partagée avec Bouffe · lien valable jusqu'au {{ $expiresAt->locale('fr')->isoFormat('D MMMM YYYY') }}
+                Recette partagée avec Grignott.in · lien valable jusqu'au {{ $expiresAt->locale('fr')->isoFormat('D MMMM YYYY') }}
                 @if ($recipe->source && ! $recipe->sourceIsUrl()) · {{ $recipe->source }} @endif
             </footer>
         </main>

@@ -260,7 +260,7 @@ class Show extends Component
             'required' => $twoFactor->required($user),
             'pending' => $pending,
             'secret' => $pending ? Totp::format($user->two_factor_secret) : null,
-            'otpUri' => $pending ? Totp::uri($user->two_factor_secret, $user->email, config('app.name', 'Bouffe')) : null,
+            'otpUri' => $pending ? Totp::uri($user->two_factor_secret, $user->email, config('app.name', 'Grignott.in')) : null,
             'remaining' => $twoFactor->remainingRecoveryCodes($user),
             'trusted' => $user->hasTwoFactor() && $twoFactor->isTrusted($user, request()),
             'sessionsAvailable' => $journal->sessionsAvailable(),

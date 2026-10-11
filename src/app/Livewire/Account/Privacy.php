@@ -32,6 +32,10 @@ class Privacy extends Component
             'admins' => Auth::check() ? User::query()->where('is_admin', true)->orderBy('id')->pluck('name') : collect(),
             'ocrLabel' => $reader?->configured() ? $reader->label() : null,
             'ocrProvider' => $reader?->configured() ? $reader->provider() : null,
+            // Prévu : la lecture des tickets par Mistral AI, même tant que la clé n'est pas saisie.
+            'ocrPlanned' => $ocr->provider(),
+            'assistantOn' => app(\App\Services\Assistant\AssistantService::class)->enabled()
+                && app(\App\Services\Assistant\CookingAssistant::class)->configured(),
             'receiptMonths' => Settings::int('receipts.keep_months', 12),
             'mailHost' => $mailer === 'log' || $mailer === 'array' ? null : (config("mail.mailers.{$mailer}.host") ?: $mailer),
             'journalDays' => (int) config('bouffe.security.journal_days', 180),

@@ -76,7 +76,7 @@ self.addEventListener('push', (event) => {
     try {
         data = event.data ? event.data.json() : {};
     } catch (e) {
-        data = { title: 'Bouffe', body: event.data ? event.data.text() : '' };
+        data = { title: 'Grignott.in', body: event.data ? event.data.text() : '' };
     }
 
     // Lot 37 (37.1) : pastille chiffrée sur l'icône (repas à clôturer), là où le système la propose.
@@ -86,7 +86,7 @@ self.addEventListener('push', (event) => {
 
     event.waitUntil(Promise.all([
         badge,
-        self.registration.showNotification(data.title || 'Bouffe', {
+        self.registration.showNotification(data.title || 'Grignott.in', {
             body: data.body || '',
             icon: '/icon-192.png',
             badge: '/icon-192.png',

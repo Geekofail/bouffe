@@ -116,7 +116,9 @@ return [
     ],
 
     // Hébergement, pour la page « Vos données » (27.12) : où sont les données.
-    'hosting' => env('BOUFFE_HOSTING', 'sur l\'ordinateur de l\'administrateur de cette installation'),
+    // Depuis la mise en ligne sur grignott.in : OVHcloud, en France. Sur un PC de développement,
+    // BOUFFE_HOSTING="sur l'ordinateur de l'administrateur" dans .env remet la phrase d'avant.
+    'hosting' => env('BOUFFE_HOSTING', 'chez OVHcloud, hébergeur français, sur un serveur situé en France'),
 
     // Stock : seuils des badges de date (jours avant la date effective). Réglables dans un écran au lot 8.
     'stock' => [

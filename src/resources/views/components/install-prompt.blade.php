@@ -10,7 +10,7 @@
     <div class="flex items-start gap-3">
         <x-app-logo class="mt-0.5 size-6 shrink-0 text-brand-400" />
         <div class="min-w-0 flex-1">
-            <p class="text-sm font-semibold">Installer Bouffe sur cet appareil</p>
+            <p class="text-sm font-semibold">Installer Grignott.in sur cet appareil</p>
             <p class="mt-0.5 text-xs text-stone-300">
                 Une icône sur l'écran d'accueil, et la liste de courses qui s'ouvre en magasin même sans réseau.
             </p>

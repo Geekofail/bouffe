@@ -20,7 +20,7 @@
             <button type="button" wire:click="join" class="btn btn-primary w-full">Rejoindre le foyer</button>
         @else
             @if ($known)
-                <p class="text-sm text-stone-600">Vous avez déjà un compte Bouffe avec {{ $invitation->email }} : connectez-vous, vous reviendrez ici pour rejoindre le foyer.</p>
+                <p class="text-sm text-stone-600">Vous avez déjà un compte Grignott.in avec {{ $invitation->email }} : connectez-vous, vous reviendrez ici pour rejoindre le foyer.</p>
                 <button type="button" wire:click="login" class="btn btn-primary w-full">Se connecter</button>
             @else
                 <form wire:submit="register" class="space-y-4" novalidate>

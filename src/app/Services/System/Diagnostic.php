@@ -89,7 +89,7 @@ class Diagnostic
             'status' => version_compare(PHP_VERSION, '8.4', '>=') ? self::OK : self::ERROR,
             'value' => PHP_VERSION,
             'help' => version_compare(PHP_VERSION, '8.4', '>=') ? null
-                : 'Bouffe demande PHP 8.4 : choisissez-la dans WampServer (clic sur l\'icône → PHP → Version).',
+                : 'Grignott.in demande PHP 8.4 : choisissez-la dans WampServer (clic sur l\'icône → PHP → Version).',
         ]];
 
         $missing = collect(self::EXTENSIONS)->reject(fn ($usage, $extension) => extension_loaded($extension));
@@ -170,7 +170,7 @@ class Diagnostic
                 'label' => 'Écriture dans '.($key === 'storage' ? 'storage' : 'bootstrap/cache'),
                 'status' => $writable ? self::OK : self::ERROR,
                 'value' => $writable ? 'Autorisée' : 'Refusée',
-                'help' => $writable ? null : "Bouffe ne peut pas écrire dans {$path} : vérifiez les droits du dossier.",
+                'help' => $writable ? null : "Grignott.in ne peut pas écrire dans {$path} : vérifiez les droits du dossier.",
             ];
         }
 

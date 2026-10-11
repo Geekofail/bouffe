@@ -55,7 +55,7 @@ class AssistantSettings extends Component
     private function keySource(): ?string
     {
         if (Settings::stored('receipts.mistral_key')) {
-            return Settings::secret('receipts.mistral_key') !== null ? 'Enregistrée dans Bouffe (chiffrée)' : 'Illisible : saisissez-la de nouveau';
+            return Settings::secret('receipts.mistral_key') !== null ? 'Enregistrée dans Grignott.in (chiffrée)' : 'Illisible : saisissez-la de nouveau';
         }
 
         return Settings::secret('receipts.mistral_key') !== null ? 'Lue dans le fichier .env' : null;

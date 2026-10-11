@@ -11,7 +11,7 @@
     @if ($activeLists->isEmpty())
         <div class="card">
             <x-empty-state icon="cart" title="Aucune liste en cours">
-                Bouffe la calcule d'après les repas planifiés, en tenant compte du stock.
+                Grignott.in la calcule d'après les repas planifiés, en tenant compte du stock.
                 <x-slot:actions>
                     <button type="button" wire:click="openGenerate" class="btn btn-primary"><x-icon name="sparkles" class="size-4" /> Générer la liste de courses</button>
                 </x-slot:actions>

@@ -89,6 +89,6 @@
     </div>
 
     <footer class="mt-8 border-t border-stone-200 pt-2 text-xs text-stone-500">
-        Bouffe · {{ $recipe->source ?: 'recette du carnet' }} · imprimé le {{ now()->locale('fr')->isoFormat('D MMMM YYYY') }}
+        Grignott.in · {{ $recipe->source ?: 'recette du carnet' }} · imprimé le {{ now()->locale('fr')->isoFormat('D MMMM YYYY') }}
     </footer>
 </x-print-page>

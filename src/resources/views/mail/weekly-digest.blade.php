@@ -11,7 +11,7 @@
 <tr><td align="center" style="padding:24px 12px;">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background:#ffffff;border-radius:12px;">
     <tr><td style="padding:24px 24px 8px;">
-        <p style="margin:0;color:#c0401c;font-weight:700;font-size:14px;">Bouffe</p>
+        <p style="margin:0;color:#c0401c;font-weight:700;font-size:14px;">Grignott.in</p>
         <h1 style="margin:4px 0 0;font-size:22px;">La semaine du {{ $weekStart->locale('fr')->isoFormat('D MMMM') }}</h1>
         <p style="margin:6px 0 0;color:#78716c;font-size:14px;">Bonsoir {{ $user->name }}, voici ce qui est prévu.</p>
     </td></tr>
@@ -72,7 +72,7 @@
 
     <tr><td style="padding:20px 24px 24px;">
         <a href="{{ route('planner.week', ['semaine' => $weekStart->toDateString()]) }}" style="display:inline-block;background:#c0401c;color:#ffffff;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:600;font-size:14px;">Ouvrir le planning</a>
-        <p style="margin:16px 0 0;font-size:12px;color:#a8a29e;">Vous recevez ce message car vous l'avez demandé dans Bouffe (Paramètres → Notifications).</p>
+        <p style="margin:16px 0 0;font-size:12px;color:#a8a29e;">Vous recevez ce message car vous l'avez demandé dans Grignott.in (Paramètres → Notifications).</p>
     </td></tr>
 </table>
 </td></tr>

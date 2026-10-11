@@ -8,7 +8,7 @@
     <body class="min-h-full font-sans text-stone-800 antialiased">
         <div class="border-b border-stone-200 bg-white px-4 py-2">
             <p class="mx-auto flex max-w-2xl items-center gap-2 text-sm text-stone-600">
-                <x-app-logo class="size-6 text-brand-600" /> Qui apporte quoi — avec Bouffe
+                <x-app-logo class="size-6 text-brand-600" /> Qui apporte quoi — avec Grignott.in
             </p>
         </div>
 

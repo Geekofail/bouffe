@@ -94,7 +94,7 @@
             <div>
                 <h2 class="font-display font-semibold text-stone-900">Préparation anticipée</h2>
                 <p class="text-sm text-stone-500">
-                    Bouffe calcule tout seul ce qu'il faut sortir du congélateur, faire tremper, mariner ou préparer la veille.
+                    Grignott.in calcule tout seul ce qu'il faut sortir du congélateur, faire tremper, mariner ou préparer la veille.
                     Les rappels apparaissent dans la cloche du menu et sur le planning.
                 </p>
             </div>

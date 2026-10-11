@@ -20,7 +20,7 @@
             <x-field label="Prénom" for="a-name" error="name">
                 <input id="a-name" type="text" wire:model="name" maxlength="100" autocomplete="given-name" class="form-input">
             </x-field>
-            <x-field label="Adresse e-mail" for="a-email" error="email" help="Sert à se connecter et à recevoir les e-mails de Bouffe.">
+            <x-field label="Adresse e-mail" for="a-email" error="email" help="Sert à se connecter et à recevoir les e-mails de Grignott.in.">
                 <input id="a-email" type="email" wire:model.live.blur="email" maxlength="191" autocomplete="email" class="form-input">
             </x-field>
             @if (mb_strtolower(trim($email)) !== mb_strtolower($user->email))

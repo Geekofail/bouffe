@@ -5,12 +5,12 @@
     </a>
 
     <x-page-header title="Importer une recette"
-                   :subtitle="$reviewing ? 'Relisez et corrigez ce que Bouffe a compris, puis enregistrez.' : 'Depuis une adresse, un texte collé ou un export Bouffe.'" />
+                   :subtitle="$reviewing ? 'Relisez et corrigez ce que Grignott.in a compris, puis enregistrez.' : 'Depuis une adresse, un texte collé ou un export Grignott.in.'" />
 
     @if (! $reviewing)
         {{-- ============================================================ Choix de la source --}}
         <div class="mb-6 flex flex-wrap gap-2" role="tablist">
-            @foreach (['url' => 'Depuis une adresse', 'texte' => 'Coller du texte', 'photo' => 'Photo d\'une page', 'json' => 'Fichier Bouffe'] as $key => $label)
+            @foreach (['url' => 'Depuis une adresse', 'texte' => 'Coller du texte', 'photo' => 'Photo d\'une page', 'json' => 'Fichier Grignott.in'] as $key => $label)
                 <button type="button" wire:click="selectTab('{{ $key }}')" role="tab" aria-selected="{{ $tab === $key ? 'true' : 'false' }}"
                         @class([
                             'rounded-full px-4 py-2 text-sm font-semibold ring-1 ring-inset transition',
@@ -25,7 +25,7 @@
         @if ($tab === 'url')
             <section class="card space-y-4 p-4 sm:p-6">
                 <p class="text-sm text-stone-600">
-                    Collez l'adresse d'une page de recette. Bouffe lit la page et en retire le titre, les portions,
+                    Collez l'adresse d'une page de recette. Grignott.in lit la page et en retire le titre, les portions,
                     les temps, les ingrédients et les étapes. Vous relisez tout avant d'enregistrer.
                 </p>
 
@@ -50,7 +50,7 @@
         @elseif ($tab === 'texte')
             <section class="card space-y-4 p-4 sm:p-6">
                 <p class="text-sm text-stone-600">
-                    Collez la recette telle quelle — titre, « Ingrédients », « Préparation ». Bouffe sépare les
+                    Collez la recette telle quelle — titre, « Ingrédients », « Préparation ». Grignott.in sépare les
                     ingrédients des étapes et analyse chaque ligne.
                 </p>
 
@@ -92,7 +92,7 @@
         @else
             <section class="card space-y-4 p-4 sm:p-6">
                 <p class="text-sm text-stone-600">
-                    Reprenez un carnet exporté depuis Bouffe (fichier <code class="rounded bg-stone-100 px-1">.json</code>).
+                    Reprenez un carnet exporté depuis Grignott.in (fichier <code class="rounded bg-stone-100 px-1">.json</code>).
                     Les recettes déjà présentes sous le même titre sont laissées de côté. Les photos ne sont pas reprises.
                 </p>
 

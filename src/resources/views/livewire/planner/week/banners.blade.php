@@ -122,7 +122,7 @@
                     @endif
 
                     <p class="mt-3 text-xs text-stone-500">
-                        Repères indicatifs, pour voir d'un coup d'œil ce qui domine la semaine : Bouffe ne donne aucun
+                        Repères indicatifs, pour voir d'un coup d'œil ce qui domine la semaine : Grignott.in ne donne aucun
                         conseil nutritionnel. Nutri-Score estimé et repères par repas d'après la table Ciqual (Anses).
                         @if ($balance['without'] > 0) {{ $balance['without'] }} repas n'ont pas pu être classés. @endif
                     </p>

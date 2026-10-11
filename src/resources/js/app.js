@@ -431,7 +431,7 @@ const keepOffline = async (button) => {
     const box = button.closest('[data-keep-offline-box]');
 
     if (!('caches' in window) || !window.isSecureContext) {
-        offlineStatus(box, 'Indisponible ici : il faut ouvrir Bouffe par son adresse en https.');
+        offlineStatus(box, 'Indisponible ici : il faut ouvrir Grignott.in par son adresse en https.');
         return;
     }
 
@@ -1060,8 +1060,8 @@ window.bouffePush = (urls = { key: '/notifications/cle', subscribe: '/notificati
         }
 
         if (this.isIos() && !this.isStandalone()) {
-            this.status = 'Sur iPhone : ajoutez d\'abord Bouffe à l\'écran d\'accueil';
-            this.hint = 'Dans Safari : bouton Partager → « Sur l\'écran d\'accueil », puis ouvrez Bouffe depuis cette icône et revenez ici (iOS 16.4 ou plus récent).';
+            this.status = 'Sur iPhone : ajoutez d\'abord Grignott.in à l\'écran d\'accueil';
+            this.hint = 'Dans Safari : bouton Partager → « Sur l\'écran d\'accueil », puis ouvrez Grignott.in depuis cette icône et revenez ici (iOS 16.4 ou plus récent).';
             return;
         }
 
@@ -1074,7 +1074,7 @@ window.bouffePush = (urls = { key: '/notifications/cle', subscribe: '/notificati
 
         if (Notification.permission === 'denied') {
             this.blocked = true;
-            this.status = 'Notifications bloquées pour Bouffe';
+            this.status = 'Notifications bloquées pour Grignott.in';
             this.hint = 'Autorisez-les dans les réglages du navigateur (icône à gauche de l\'adresse), puis rechargez la page.';
             return;
         }

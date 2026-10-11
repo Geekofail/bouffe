@@ -502,7 +502,7 @@ test('en consultation seule, on voit les tickets sans pouvoir en ajouter ni vali
 
 test('les clés d\'API sont chiffrées en base et jamais réaffichées', function () {
     Livewire::test(ReceiptSettings::class)
-        ->assertSee('Enregistrée dans Bouffe')
+        ->assertSee('Enregistrée dans Grignott.in')
         ->set('provider', 'azure')
         ->set('azureEndpoint', 'https://bouffe.cognitiveservices.azure.com')
         ->set('azureKey', 'secret-azure-123')

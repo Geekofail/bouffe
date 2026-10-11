@@ -22,8 +22,8 @@
                 @error('photo') <p class="form-error">{{ $message }}</p> @enderror
             </form>
             <p class="text-xs text-stone-500">
-                Plus rapide depuis le téléphone : <a href="{{ route('account.shortcuts') }}" wire:navigate class="font-medium text-brand-700 hover:underline">le raccourci « Envoyer à Bouffe »</a>
-                dans le menu Partager de Safari (sur Android, Bouffe y est déjà une fois installé).
+                Plus rapide depuis le téléphone : <a href="{{ route('account.shortcuts') }}" wire:navigate class="font-medium text-brand-700 hover:underline">le raccourci « Envoyer à Grignott.in »</a>
+                dans le menu Partager de Safari (sur Android, Grignott.in y est déjà une fois installé).
             </p>
         </section>
     @endif

@@ -65,7 +65,7 @@ final class Totp
     }
 
     /** Adresse otpauth:// lue par les applications (QR code). */
-    public static function uri(string $secret, string $account, string $issuer = 'Bouffe'): string
+    public static function uri(string $secret, string $account, string $issuer = 'Grignott.in'): string
     {
         return 'otpauth://totp/'.rawurlencode($issuer).':'.rawurlencode($account)
             .'?secret='.$secret.'&issuer='.rawurlencode($issuer).'&algorithm=SHA1&digits='.self::DIGITS.'&period='.self::PERIOD;

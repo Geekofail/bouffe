@@ -31,7 +31,7 @@
     </div>
 
     <header class="mb-6 rounded-2xl bg-brand-600 p-6 text-white sm:p-8">
-        <p class="text-sm font-semibold tracking-wide text-white uppercase">{{ \App\Support\CurrentHousehold::get()?->name ?? 'Bouffe' }}</p>
+        <p class="text-sm font-semibold tracking-wide text-white uppercase">{{ \App\Support\CurrentHousehold::get()?->name ?? 'Grignott.in' }}</p>
         <h1 class="font-display text-4xl font-semibold sm:text-5xl">L'année {{ $year }} en cuisine</h1>
         <p class="mt-1 text-white">{{ ucfirst($until) }}{{ $stats['complete'] ? '' : ' — l\'année n\'est pas finie' }}.</p>
 

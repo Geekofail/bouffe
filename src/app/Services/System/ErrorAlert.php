@@ -40,7 +40,7 @@ class ErrorAlert
                 'erreur sur '.parse_url((string) config('app.url'), PHP_URL_HOST),
                 'Une erreur est survenue',
                 [
-                    'Bouffe a rencontré une erreur le '.now()->locale('fr')->isoFormat('D MMMM YYYY [à] HH:mm:ss').'.',
+                    'Grignott.in a rencontré une erreur le '.now()->locale('fr')->isoFormat('D MMMM YYYY [à] HH:mm:ss').'.',
                     class_basename($e).' : '.Str::limit($e->getMessage(), 400),
                     'Fichier : '.Str::after($e->getFile(), base_path().DIRECTORY_SEPARATOR).':'.$e->getLine(),
                     $where,

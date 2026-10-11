@@ -5,7 +5,7 @@
     </a>
 
     <x-page-header :title="'Remplir la semaine du '.$this->weekStart()->locale('fr')->isoFormat('D MMMM')"
-                   subtitle="Bouffe propose, vous ajustez. Rien n'est enregistré avant « Valider ».">
+                   subtitle="Grignott.in propose, vous ajustez. Rien n'est enregistré avant « Valider ».">
         <x-slot:actions>
             <button type="button" wire:click="regenerate" class="btn btn-secondary" wire:loading.attr="disabled">
                 <x-icon name="undo" class="size-4" /> Relancer tout

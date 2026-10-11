@@ -169,7 +169,7 @@ class DataExporter
     /** Les recettes en texte lisible : de quoi les relire ou les imprimer sans rien installer. */
     private function recipesAsText(): string
     {
-        $lines = ['# Recettes de Bouffe', ''];
+        $lines = ['# Recettes de Grignott.in', ''];
 
         foreach (Recipe::with(['ingredients.ingredient', 'ingredients.unit', 'steps'])->orderBy('title')->get() as $recipe) {
             $lines[] = '## '.$recipe->title;
@@ -197,7 +197,7 @@ class DataExporter
     private function readme(array $data): string
     {
         return implode("\n", [
-            'Export des données de Bouffe',
+            'Export des données de Grignott.in',
             '============================',
             '',
             'Fait le '.Carbon::now()->locale('fr')->isoFormat('D MMMM YYYY à HH:mm').'.',
@@ -208,7 +208,7 @@ class DataExporter
             '  photos/        les photos des recettes et des réceptions (le nom du fichier figure dans donnees.json)',
             '  tickets/       les photos de tickets de caisse encore conservées',
             '',
-            'Ce dossier n\'est pas une sauvegarde : pour remettre Bouffe en état après une panne,',
+            'Ce dossier n\'est pas une sauvegarde : pour remettre Grignott.in en état après une panne,',
             'utilisez Paramètres → Sauvegardes, qui contient la base de données complète.',
             '',
             count($data['recettes']).' recette(s) · '.count($data['planning']).' repas planifié(s) · '

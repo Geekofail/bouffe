@@ -2,7 +2,7 @@
     <x-modal :show="$show" title="Partager par un lien" close="close">
         <div class="space-y-4 text-sm text-stone-700">
             <p>
-                Pour quelqu'un qui n'a pas Bouffe : une page en lecture seule, imprimable, avec la photo, les ingrédients
+                Pour quelqu'un qui n'a pas Grignott.in : une page en lecture seule, imprimable, avec la photo, les ingrédients
                 et les étapes. <strong>Sans</strong> vos notes de cuisine, les prix ni le nom du foyer.
                 Le lien reste valable {{ \App\Services\Recipes\RecipeShares::DAYS }} jours, et vous pouvez le révoquer à tout moment.
             </p>

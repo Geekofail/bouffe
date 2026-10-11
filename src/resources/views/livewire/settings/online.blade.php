@@ -46,7 +46,7 @@
                 </div>
                 <div class="rounded-lg bg-stone-50 p-3">
                     <p class="font-medium text-stone-900">2. Secours : tâche planifiée OVH (toutes les heures)</p>
-                    <p>Espace client OVH → Tâches planifiées - Cron → Ajouter : script <code class="rounded bg-white px-1 break-words">{{ str_contains($cronPath, '/www/') ? 'www/'.\Illuminate\Support\Str::after($cronPath, '/www/') : 'www/…/src/cron.php' }}</code>, PHP 8.4, toutes les heures.</p>
+                    <p>Espace client OVH → Tâches planifiées - Cron → Ajouter : script <code class="rounded bg-white px-1 break-words">{{ $cronPath }}</code>, PHP 8.4, toutes les heures.</p>
                 </div>
             </div>
 

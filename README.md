@@ -1,7 +1,12 @@
-# Bouffe — Gestion des repas de la semaine
+# Grignott.in — Gestion des repas de la semaine
 
-Application web locale (WampServer) pour planifier les repas de la semaine à deux,
-gérer un carnet de recettes et générer automatiquement la liste de courses.
+Application web pour planifier les repas de la semaine, gérer un carnet de recettes et générer
+automatiquement la liste de courses. En ligne sur [grignott.in](https://grignott.in) (OVH, en
+France) ; développée sous WampServer.
+
+Elle s'appelait **Bouffe** jusqu'en octobre 2026 : les noms techniques l'ont gardé (dossier,
+dépôt, commandes `php artisan bouffe:…`, réglages `BOUFFE_…`). La mise en ligne est décrite dans
+[docs/13-premiere-mise-en-ligne.md](docs/13-premiere-mise-en-ligne.md).
 
 ## Sommaire de l'analyse
 

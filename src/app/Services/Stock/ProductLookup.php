@@ -28,7 +28,7 @@ class ProductLookup
     public const ENDPOINT = 'https://world.openfoodfacts.org/api/v2/product/';
 
     /** Demandé par Open Food Facts : une application identifiée, avec un moyen de contact. */
-    public const USER_AGENT = 'Bouffe/1.0 (application familiale de planification de repas)';
+    public const USER_AGENT = 'Grignott.in/1.0 (application familiale de planification de repas)';
 
     public const TIMEOUT = 6;
 

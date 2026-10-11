@@ -29,7 +29,7 @@
         <div class="card">
             <x-empty-state icon="sun" title="Aucun séjour">
                 Un séjour a son propre planning et sa propre liste de courses, sans rien changer à ceux de la maison.
-                À la fin, Bouffe calcule qui doit combien.
+                À la fin, Grignott.in calcule qui doit combien.
             </x-empty-state>
         </div>
     @endif

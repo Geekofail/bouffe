@@ -32,7 +32,7 @@ class SqlDumper
         $pdo = $connection->getPdo();
         $counts = [];
 
-        $this->write($stream, '-- Sauvegarde Bouffe — '.now()->format('Y-m-d H:i:s')." — pilote {$driver}\n");
+        $this->write($stream, '-- Sauvegarde Grignott.in — '.now()->format('Y-m-d H:i:s')." — pilote {$driver}\n");
         $this->write($stream, match ($driver) {
             'mysql', 'mariadb' => "SET NAMES utf8mb4;\nSET FOREIGN_KEY_CHECKS=0;\n",
             'sqlite' => "PRAGMA foreign_keys=OFF;\n",

@@ -26,7 +26,7 @@ test('la page d\'accès téléphone affiche l\'adresse, le QR code et la configu
         ->assertSee('bouffeQrCode', false)
         ->assertSee('ServerAlias 192.168.1.42')
         ->assertSee('Require ip 192.168.1')
-        ->assertDontSee('utilise déjà Bouffe par le réseau local');
+        ->assertDontSee('utilise déjà Grignott.in par le réseau local');
 });
 
 test('la page d\'accès téléphone confirme quand on l\'ouvre depuis le réseau', function () {
@@ -36,7 +36,7 @@ test('la page d\'accès téléphone confirme quand on l\'ouvre depuis le réseau
     });
 
     Livewire::test(PhoneAccess::class)
-        ->assertSee('utilise déjà Bouffe par le réseau local')
+        ->assertSee('utilise déjà Grignott.in par le réseau local')
         ->assertSee('ipconfig');
 });
 
@@ -50,7 +50,7 @@ test('les pages déclarent le manifeste et l\'icône pour l\'écran d\'accueil',
     auth()->logout();
     $this->get(route('login'))->assertSee('manifest.webmanifest', false);
 
-    expect(json_decode(file_get_contents(public_path('manifest.webmanifest')), true)['short_name'])->toBe('Bouffe')
+    expect(json_decode(file_get_contents(public_path('manifest.webmanifest')), true)['short_name'])->toBe('Grignott.in')
         ->and(file_exists(public_path('icon-512.png')))->toBeTrue();
 });
 
@@ -92,5 +92,5 @@ test('les paramètres donnent accès aux sauvegardes, au téléphone et affichen
         ->assertOk()
         ->assertSee('Sauvegardes')
         ->assertSee('Accès téléphone')
-        ->assertSee('Bouffe 1.0');
+        ->assertSee('Grignott.in 1.0');
 });

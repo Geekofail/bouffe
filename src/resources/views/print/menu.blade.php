@@ -85,5 +85,5 @@
         </section>
     @endif
 
-    <footer class="mt-6 border-t border-stone-200 pt-2 text-xs text-stone-500">Bouffe · imprimé le {{ now()->locale('fr')->isoFormat('D MMMM YYYY') }}</footer>
+    <footer class="mt-6 border-t border-stone-200 pt-2 text-xs text-stone-500">Grignott.in · imprimé le {{ now()->locale('fr')->isoFormat('D MMMM YYYY') }}</footer>
 </x-print-page>

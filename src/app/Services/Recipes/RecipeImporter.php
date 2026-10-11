@@ -413,7 +413,7 @@ class RecipeImporter
 
     private function userAgent(): string
     {
-        return 'Bouffe/'.config('bouffe.version', '1.0').' (application personnelle)';
+        return 'Grignott.in/'.config('bouffe.version', '1.0').' (application personnelle)';
     }
 
     private function text(mixed $value): string

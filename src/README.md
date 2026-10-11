@@ -1,6 +1,7 @@
-# Bouffe — application Laravel
+# Grignott.in — application Laravel
 
-Code source de l'application **Bouffe** (planning des repas, recettes, liste de courses).
+Code source de l'application **Grignott.in**, anciennement Bouffe (planning des repas, recettes,
+liste de courses). Les noms techniques gardent « bouffe » (commandes `bouffe:…`, réglages `BOUFFE_…`).
 
 - Installation sous WampServer : [`../docs/INSTALL.md`](../docs/INSTALL.md)
 - Analyse et choix techniques : [`../docs`](../docs)

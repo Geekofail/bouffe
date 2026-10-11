@@ -28,5 +28,5 @@
             <p>Les listes sont vides. Lancez <code class="rounded bg-white px-1">php artisan db:seed</code> dans le dossier <code class="rounded bg-white px-1">src</code> pour charger les unités, rayons, catégories, créneaux et ~150 ingrédients courants.</p>
         </div>
     @endif
-    <p class="mt-8 text-center text-xs text-stone-500">Bouffe {{ $version }} · Laravel {{ app()->version() }} · PHP {{ PHP_VERSION }}</p>
+    <p class="mt-8 text-center text-xs text-stone-500">Grignott.in {{ $version }} · Laravel {{ app()->version() }} · PHP {{ PHP_VERSION }}</p>
 </div>

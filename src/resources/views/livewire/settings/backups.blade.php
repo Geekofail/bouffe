@@ -92,7 +92,7 @@
                 </h2>
 
                 @if (! $mirror['configured'])
-                    <p>Les sauvegardes sont sur le même disque que Bouffe : une panne emporterait tout. Indiquez une clé USB, un disque externe ou un dossier OneDrive dans <code class="rounded bg-stone-100 px-1">BOUFFE_BACKUP_MIRROR</code> (fichier <code>.env</code>) : chaque sauvegarde y sera recopiée.</p>
+                    <p>Les sauvegardes sont sur le même disque que Grignott.in : une panne emporterait tout. Indiquez une clé USB, un disque externe ou un dossier OneDrive dans <code class="rounded bg-stone-100 px-1">BOUFFE_BACKUP_MIRROR</code> (fichier <code>.env</code>) : chaque sauvegarde y sera recopiée.</p>
                 @elseif ($mirror['available'])
                     <p><strong>{{ $mirror['copies'] }}</strong> copie(s) dans <code class="break-all rounded bg-stone-100 px-1">{{ $mirror['path'] }}</code>. Les {{ $mirrorKeep ?: 'toutes les' }} plus récentes y sont gardées.</p>
                 @else

@@ -115,7 +115,7 @@
     {{-- Aide contextuelle (lot 30, 30.3) --}}
     <x-hint key="shopping">
         Deux magasins ? Touchez un article et choisissez « Seulement dans » un magasin : il passe dans un groupe à part.
-        Quand vos prix relevés montrent qu'un article est moins cher ailleurs, Bouffe propose de le déplacer.
+        Quand vos prix relevés montrent qu'un article est moins cher ailleurs, Grignott.in propose de le déplacer.
     </x-hint>
 
     {{-- ============================================================ Moins cher ailleurs (lot 27, C1) --}}

@@ -6,7 +6,7 @@
     <body class="flex min-h-full flex-col items-center justify-center bg-gradient-to-b from-brand-50 to-stone-50 px-4 py-12 font-sans text-stone-800 antialiased">
         <div class="mb-8 flex flex-col items-center gap-2 text-brand-700">
             <x-app-logo class="size-14" />
-            <span class="text-3xl font-bold tracking-tight">Bouffe</span>
+            <x-wordmark class="text-3xl" />
         </div>
 
         <div class="card w-full max-w-sm space-y-4 p-6">

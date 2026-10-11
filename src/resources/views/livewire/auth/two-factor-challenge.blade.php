@@ -4,7 +4,7 @@
         @if ($recovery)
             Saisissez l'un de vos codes de secours (chacun ne sert qu'une fois).
         @else
-            Ouvrez votre application d'authentification (Google Authenticator, Aegis…) et saisissez le code à 6 chiffres affiché pour Bouffe.
+            Ouvrez votre application d'authentification (Google Authenticator, Aegis…) et saisissez le code à 6 chiffres affiché pour Grignott.in.
         @endif
     </p>
 

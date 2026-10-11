@@ -64,7 +64,7 @@ test('TOTP : les valeurs de la RFC 6238 et le secret en base 32', function () {
         ->and(Totp::code($secret, Totp::step(2000000000)))->toBe('279037')
         ->and(Totp::verify($secret, '081 804', 1111111109 + 30))->toBe(Totp::step(1111111109))   // horloge décalée de 30 s
         ->and(Totp::verify($secret, '081804', 1111111109 + 90))->toBeNull()
-        ->and(Totp::uri($secret, 'pierre@example.lu'))->toStartWith('otpauth://totp/Bouffe:pierre%40example.lu?secret=GEZD');
+        ->and(Totp::uri($secret, 'pierre@example.lu'))->toStartWith('otpauth://totp/Grignott.in:pierre%40example.lu?secret=GEZD');
 });
 
 test('activation : le secret est chiffré, confirmé par un code, et donne 8 codes de secours', function () {
@@ -332,7 +332,7 @@ test('l\'e-mail de réinitialisation est en français, en HTML et en texte', fun
     $mail->assertSeeInHtml('Choisir un nouveau mot de passe')
         ->assertSeeInText("n'êtes pas à l'origine")
         ->assertSeeInHtml('/reinitialiser-mot-de-passe/jeton123');
-    expect($mail->envelope()->subject)->toBe('Bouffe — réinitialiser votre mot de passe');
+    expect($mail->envelope()->subject)->toBe('Grignott.in — réinitialiser votre mot de passe');
 });
 
 /* ================================================================ 27.7 — en-têtes */
@@ -517,14 +517,19 @@ test('« Vos données » se lit sans compte et dit ce que fait vraiment l\'insta
         ->assertSee('Ce qui est enregistré')
         ->assertSee('Désactivée sur cette installation')
         ->assertSee('Aucun serveur d\'envoi', false)
+        ->assertSee('OVHcloud')
         ->assertDontSee('Pierre');   // pas de prénom pour un visiteur
+
+    // Mistral prévu mais pas encore de clé : la page le dit, sans prétendre que c'est actif.
+    Settings::set('receipts.provider', 'mistral');
+    $this->get(route('privacy'))->assertSee('Pas encore activée')->assertSee('Mistral AI');
 
     config(['mail.default' => 'smtp', 'mail.mailers.smtp.host' => 'ssl0.ovh.net']);
     Settings::set('receipts.provider', 'mistral');
     Settings::set('receipts.mistral_key', 'cle-secrete');
 
     Livewire::actingAs($this->pierre)->test(Privacy::class)
-        ->assertSee('Mistral')->assertSee('ssl0.ovh.net')->assertSee('Pierre')
+        ->assertSee('Mistral AI')->assertSee('30 jours au plus')->assertSee('ssl0.ovh.net')->assertSee('Pierre')
         ->assertDontSee('cle-secrete');
 });
 

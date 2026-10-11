@@ -51,7 +51,7 @@ class YearInReview extends Component
             $text .= ' '.$prices->money($diff).' jetés de moins que l\'an dernier.';
         }
 
-        return $text.' (Bouffe)';
+        return $text.' (Grignott.in)';
     }
 
     /** Euros jetés en moins par rapport à la même période l'an dernier ; null si l'une des deux n'a aucun prix. */

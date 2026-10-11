@@ -54,7 +54,7 @@
     "isDynamicEntry": true
   },
   "node_modules/qrcode/lib/browser.js": {
-    "file": "assets/browser-CH82ntnI.js",
+    "file": "assets/browser-CbZoDdEC.js",
     "name": "browser",
     "src": "node_modules/qrcode/lib/browser.js",
     "isDynamicEntry": true,
@@ -86,7 +86,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-5hVlIKrF.js",
+    "file": "assets/app-d88r-7rm.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,

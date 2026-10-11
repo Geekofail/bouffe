@@ -1,7 +1,7 @@
 <section class="card mt-2 space-y-4 p-4 sm:p-5" data-what-to-make>
     <div>
         <h2 class="font-display text-lg font-semibold text-stone-900">Que faire avec… ?</h2>
-        <p class="text-sm text-stone-500">Quelques ingrédients à finir, hors stock ou pas : Bouffe cherche d'abord dans votre carnet.</p>
+        <p class="text-sm text-stone-500">Quelques ingrédients à finir, hors stock ou pas : Grignott.in cherche d'abord dans votre carnet.</p>
     </div>
 
     <form wire:submit="search" class="flex flex-wrap items-end gap-2">

@@ -9,7 +9,7 @@
         <x-app-logo class="mx-auto size-12 text-brand-600" />
         <h1 class="mt-4 text-xl font-bold text-stone-900">Pas de réseau</h1>
         <p class="mt-2 text-stone-600">
-            Cette page a besoin d'une connexion à Bouffe.
+            Cette page a besoin d'une connexion à Grignott.in.
         </p>
         <p class="mt-4 rounded-xl bg-white p-4 text-sm text-stone-600 shadow-sm ring-1 ring-stone-200">
             La liste de courses, elle, fonctionne en magasin même sans réseau : ouvrez-la

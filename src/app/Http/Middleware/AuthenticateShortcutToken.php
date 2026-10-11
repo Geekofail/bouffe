@@ -25,7 +25,7 @@ class AuthenticateShortcutToken
         $token = $this->tokens->find($request->bearerToken() ?? $request->header('X-Bouffe-Jeton'));
 
         if (! $token || ! $token->user || ! $token->user->households()->whereKey($token->household_id)->whereNull('disabled_at')->exists()) {
-            return $this->say('Jeton inconnu ou révoqué : créez-en un nouveau dans Bouffe, Mon compte, Raccourcis.', 401);
+            return $this->say('Jeton inconnu ou révoqué : créez-en un nouveau dans Grignott.in, Mon compte, Raccourcis.', 401);
         }
 
         $key = 'raccourci:'.$token->id;

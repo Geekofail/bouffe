@@ -82,7 +82,7 @@
     @if ($host && $canEdit && ! $past)
         <div class="space-y-2 rounded-lg bg-stone-50 p-3 text-sm" x-data="{ copied: false }" data-contribution-link>
             @if ($link)
-                <p class="text-stone-700">Le lien à envoyer à ceux qui n'ont pas Bouffe : ils voient cette liste et s'inscrivent avec leur prénom. Valable jusqu'au {{ $link->expires_at->locale('fr')->isoFormat('D MMMM') }}.</p>
+                <p class="text-stone-700">Le lien à envoyer à ceux qui n'ont pas Grignott.in : ils voient cette liste et s'inscrivent avec leur prénom. Valable jusqu'au {{ $link->expires_at->locale('fr')->isoFormat('D MMMM') }}.</p>
                 <div class="flex flex-wrap gap-2">
                     <input type="text" readonly value="{{ $linkUrl }}" aria-label="Lien « qui apporte quoi »" class="form-input basis-full text-sm sm:min-w-0 sm:flex-1 sm:basis-0" x-on:focus="$el.select()">
                     <button type="button" class="btn btn-secondary" x-on:click="navigator.clipboard?.writeText(@js($linkUrl)); copied = true; setTimeout(() => copied = false, 2000)">
@@ -92,7 +92,7 @@
                 </div>
                 <p class="text-xs text-stone-500">La page montre le nom de l'évènement, sa date et cette liste ; ni le menu, ni les allergies, ni les participants.</p>
             @else
-                <p class="text-stone-700">Des invités sans Bouffe ? Un lien leur permet de s'inscrire avec leur prénom.</p>
+                <p class="text-stone-700">Des invités sans Grignott.in ? Un lien leur permet de s'inscrire avec leur prénom.</p>
                 <button type="button" wire:click="createLink" class="btn btn-secondary"><x-icon name="link" class="size-4" /> Créer le lien</button>
             @endif
         </div>

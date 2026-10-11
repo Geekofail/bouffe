@@ -29,7 +29,7 @@ class WeeklyDigest extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Bouffe — la semaine du '.$this->weekStart->locale('fr')->isoFormat('D MMMM'));
+        return new Envelope(subject: 'Grignott.in — la semaine du '.$this->weekStart->locale('fr')->isoFormat('D MMMM'));
     }
 
     public function content(): Content

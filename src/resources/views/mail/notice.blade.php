@@ -11,7 +11,7 @@
 <tr><td align="center" style="padding:24px 12px;">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background:#ffffff;border-radius:12px;">
     <tr><td style="padding:24px 24px 8px;">
-        <p style="margin:0;color:#c0401c;font-weight:700;font-size:14px;">Bouffe</p>
+        <p style="margin:0;color:#c0401c;font-weight:700;font-size:14px;">Grignott.in</p>
         <h1 style="margin:4px 0 0;font-size:22px;">{{ $title }}</h1>
     </td></tr>
     <tr><td style="padding:8px 24px 0;font-size:15px;line-height:1.5;">

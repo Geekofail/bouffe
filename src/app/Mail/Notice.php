@@ -32,7 +32,7 @@ class Notice extends Mailable
 
     public function envelope(): Envelope
     {
-        return new Envelope(subject: 'Bouffe — '.$this->subjectLine);
+        return new Envelope(subject: 'Grignott.in — '.$this->subjectLine);
     }
 
     public function content(): Content
@@ -52,7 +52,7 @@ class Notice extends Mailable
             'Nouveau mot de passe',
             [
                 "Bonjour {$user->name},",
-                'Quelqu\'un (vous, sans doute) a demandé à changer le mot de passe de votre compte Bouffe.',
+                'Quelqu\'un (vous, sans doute) a demandé à changer le mot de passe de votre compte Grignott.in.',
                 "Le lien ci-dessous est valable {$minutes} minutes et ne sert qu'une fois.",
             ],
             ['Choisir un nouveau mot de passe', route('password.reset', ['token' => $token, 'email' => $user->email])],
@@ -68,7 +68,7 @@ class Notice extends Mailable
             'Nouvelle connexion',
             [
                 "Bonjour {$user->name},",
-                'Votre compte Bouffe vient d\'être ouvert depuis un appareil qu\'il ne connaissait pas :',
+                'Votre compte Grignott.in vient d\'être ouvert depuis un appareil qu\'il ne connaissait pas :',
                 DeviceLabel::describe($userAgent).($ip ? " — adresse {$ip}" : '').' — le '.now()->locale('fr')->isoFormat('D MMMM YYYY [à] HH:mm').'.',
                 'Si c\'est vous, il n\'y a rien à faire.',
             ],

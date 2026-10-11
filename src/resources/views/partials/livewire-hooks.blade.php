@@ -9,7 +9,7 @@
      class="fixed inset-x-0 top-0 z-[60] flex items-center justify-center gap-3 bg-amber-500 px-4 py-2 pt-[max(0.5rem,env(safe-area-inset-top))] text-sm font-medium text-white shadow print:hidden"
      role="alert">
     <x-icon name="warning" class="size-5 shrink-0" />
-    <span>Connexion à Bouffe perdue : les dernières modifications ne sont peut-être pas enregistrées.</span>
+    <span>Connexion à Grignott.in perdue : les dernières modifications ne sont peut-être pas enregistrées.</span>
     <button type="button" class="rounded-md bg-white/20 px-2 py-0.5 hover:bg-white/30" x-on:click="window.location.reload()">Réessayer</button>
 </div>
 

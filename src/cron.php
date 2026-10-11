@@ -8,7 +8,7 @@
 | L'hébergement mutualisé OVH lance un script PHP au plus une fois par heure. Dans l'espace client :
 | Hébergements → votre hébergement → Tâches planifiées - Cron → Ajouter :
 |
-|     Commande à exécuter : www/bouffe/src/cron.php        (chemin depuis la racine FTP)
+|     Commande à exécuter : bouffe/src/cron.php            (chemin depuis la racine FTP)
 |     Langage             : PHP 8.4
 |     Fréquence           : toutes les heures
 |

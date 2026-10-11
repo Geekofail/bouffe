@@ -29,8 +29,8 @@
 
 {{-- Bouffe a remarqué (lot 30, 30.4 et 30.5, R36) --}}
 @if ($this->learnings->isNotEmpty() && $filter === '' && trim($search) === '' && auth()->user()->canEdit())
-    <section class="mb-3 rounded-xl bg-herb-50 px-4 py-3 text-sm text-herb-900 ring-1 ring-herb-100" aria-label="Bouffe a remarqué">
-        <p class="flex items-center gap-2 font-semibold"><x-icon name="sparkles" class="size-5 shrink-0" /> Bouffe a remarqué</p>
+    <section class="mb-3 rounded-xl bg-herb-50 px-4 py-3 text-sm text-herb-900 ring-1 ring-herb-100" aria-label="Grignott.in a remarqué">
+        <p class="flex items-center gap-2 font-semibold"><x-icon name="sparkles" class="size-5 shrink-0" /> Grignott.in a remarqué</p>
         <ul class="mt-2 space-y-3">
             @foreach ($this->learnings as $learning)
                 <li wire:key="learn-{{ $learning['key'] }}" class="flex flex-wrap items-center gap-x-3 gap-y-2 pl-7">

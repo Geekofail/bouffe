@@ -74,7 +74,7 @@
                 @if ($costs['transfers'] === [])
                     <p class="flex items-center gap-2 text-sm text-herb-700"><x-icon name="success" class="size-5" /> Les comptes sont équilibrés.</p>
                 @else
-                    <p class="mb-3 text-sm text-stone-500">Le moins de remboursements possible. Bouffe ne fait aucun paiement : cochez quand c'est fait.</p>
+                    <p class="mb-3 text-sm text-stone-500">Le moins de remboursements possible. Grignott.in ne fait aucun paiement : cochez quand c'est fait.</p>
                     <ul class="divide-y divide-stone-100">
                         @foreach ($costs['transfers'] as $transfer)
                             <li class="flex flex-wrap items-center gap-2 py-2.5" wire:key="transfer-{{ md5($transfer['from'].$transfer['to']) }}">

@@ -2,7 +2,7 @@
     <x-slot:options>
         <p class="text-sm text-stone-600">
             {{ $items->count() }} étiquette{{ $items->count() > 1 ? 's' : '' }} ·
-            à découper et à coller sur les boîtes. Le QR code ouvre la fiche de l'article dans Bouffe.
+            à découper et à coller sur les boîtes. Le QR code ouvre la fiche de l'article dans Grignott.in.
         </p>
     </x-slot:options>
 

@@ -53,7 +53,7 @@ class Index extends Component
                 ['route' => 'settings.backups', 'icon' => 'archive', 'title' => 'Sauvegardes', 'count' => $backups->count(),
                     'text' => $latest ? 'Dernière : '.$latest->createdAt->locale('fr')->diffForHumans().'.' : 'Aucune sauvegarde pour l\'instant.'],
                 ['route' => 'settings.phone', 'icon' => 'phone', 'title' => 'Accès téléphone', 'count' => null,
-                    'text' => 'Ouvrir Bouffe sur les téléphones, sur le Wi-Fi de la maison.'],
+                    'text' => 'Ouvrir Grignott.in sur les téléphones, sur le Wi-Fi de la maison.'],
                 ['route' => 'settings.display', 'icon' => 'squares', 'title' => 'Affichage', 'count' => null,
                     'text' => 'Thème clair ou sombre, barre du bas du téléphone, blocs de l\'accueil.'],
                 ['route' => 'settings.notifications', 'icon' => 'bell', 'title' => 'Notifications', 'count' => null,

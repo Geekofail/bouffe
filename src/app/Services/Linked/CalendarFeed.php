@@ -84,7 +84,7 @@ class CalendarFeed
         $lines = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//Bouffe//Planning des repas//FR',
+            'PRODID:-//Grignott.in//Planning des repas//FR',
             'CALSCALE:GREGORIAN',
             'METHOD:PUBLISH',
             'X-WR-CALNAME:'.$this->escape('Repas — '.$household->name),

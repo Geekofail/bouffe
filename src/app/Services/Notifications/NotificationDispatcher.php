@@ -43,7 +43,7 @@ class NotificationDispatcher
         'rating' => ['Avis reçu', 'Un proche a noté une de vos recettes.', false],
         'price_rise' => ['Hausse de prix marquée', '+15 % ou plus sur un produit que vous achetez, d\'un relevé au suivant.', false],
         // Lot 41 (41.1) : même pendant les heures calmes — c'est vous qui l'avez lancé.
-        'timer' => ['Minuteur terminé', 'Quand aucune page de Bouffe ouverte ne l\'a fait sonner (à quelques minutes près).', true],
+        'timer' => ['Minuteur terminé', 'Quand aucune page de Grignott.in ouverte ne l\'a fait sonner (à quelques minutes près).', true],
     ];
 
     /** Messages de ce qui s'est passé depuis moins de 24 heures (proches, prix). */
@@ -436,7 +436,7 @@ class NotificationDispatcher
 
         foreach ($user->pushSubscriptions()->get() as $subscription) {
             $this->push->send($subscription, [
-                'title' => 'Bouffe',
+                'title' => 'Grignott.in',
                 'body' => 'Les notifications fonctionnent sur cet appareil. 👍',
                 'url' => route('settings.notifications'),
                 'tag' => 'test',

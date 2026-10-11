@@ -86,7 +86,10 @@ class Online extends Component
                 'lastEmail' => is_array($lastEmail) && isset($lastEmail['at']) ? Carbon::parse($lastEmail['at']) : null,
             ],
             'phpBinary' => PHP_BINARY,
-            'cronPath' => base_path('cron.php'),
+            // Chemin depuis la racine FTP d'OVH (/homez.123/login/…) : c'est ce que demande l'espace client.
+            'cronPath' => preg_match('#^/home[^/]*/[^/]+/(.+)$#', str_replace('\\', '/', base_path('cron.php')), $match)
+                ? $match[1]
+                : 'bouffe/src/cron.php',
         ]);
     }
 }

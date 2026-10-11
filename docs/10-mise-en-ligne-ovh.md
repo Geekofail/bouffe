@@ -147,10 +147,10 @@ nano .env        # ou modifie-le avec WinSCP (clic droit → Éditer)
 Valeurs à changer (le reste peut garder celles de `.env.example`) :
 
 ```ini
-APP_NAME=Bouffe
+APP_NAME=Grignott.in
 APP_ENV=production
 APP_DEBUG=false
-APP_URL=https://bouffe.exemple.lu
+APP_URL=https://grignott.in
 # Reprends la clé du .env de Wamp : les clés d'API (tickets) et les secrets de double
 # authentification sauvegardés sont chiffrés avec elle.
 APP_KEY=base64:...la même que sur le PC...
@@ -169,13 +169,12 @@ MAIL_MAILER=smtp
 MAIL_HOST=ssl0.ovh.net
 MAIL_PORT=465
 MAIL_SCHEME=smtps
-MAIL_USERNAME=bouffe@exemple.lu
+MAIL_USERNAME=contact@grignott.in
 MAIL_PASSWORD=mot_de_passe_de_la_boite
-MAIL_FROM_ADDRESS=bouffe@exemple.lu
-MAIL_FROM_NAME=Bouffe
+MAIL_FROM_ADDRESS=contact@grignott.in
+MAIL_FROM_NAME=Grignott.in
 
 BOUFFE_FORCE_HTTPS=true
-BOUFFE_HOSTING="chez OVHcloud, en France"
 
 # Sauvegardes en ligne (27.9) : une par jour, 14 gardées, lien par e-mail chaque lundi
 BOUFFE_BACKUP_AUTO_DAYS=1
@@ -278,7 +277,7 @@ Deux appels simultanés ne se gênent pas.
 **Secours OVH** : **Hébergements → ton hébergement → Tâches planifiées - Cron → Ajouter une
 planification**.
 
-- Commande : `www/bouffe/src/cron.php` (chemin depuis la racine FTP).
+- Commande : `bouffe/src/cron.php` (chemin depuis la racine FTP ; le code est dans `~/bouffe`, voir le document 13).
 - Langage : PHP 8.4.
 - Fréquence : toutes les heures.
 - Rapport d'erreurs : ton adresse (OVH l'envoie une fois par jour).
@@ -289,7 +288,7 @@ Sans service externe, tout fonctionne quand même, avec au plus une heure de ret
 
 ## 10. Surveillance (27.11)
 
-- L'adresse `https://bouffe.exemple.lu/sante` répond `{"status":"ok",…}` (code 200), ou le code 503
+- L'adresse `https://grignott.in/sante` répond `{"status":"ok",…}` (code 200), ou le code 503
   si la base, le stockage ou les tâches sont en panne (aucun passage depuis 90 minutes). Elle ne
   contient aucune donnée des foyers.
 - Ajoute-la dans [UptimeRobot](https://uptimerobot.com) (gratuit) : moniteur HTTP(s), toutes les

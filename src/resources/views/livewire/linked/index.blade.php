@@ -109,7 +109,7 @@
     <section class="card p-4 sm:p-5">
         <h2 class="font-display mb-1 font-semibold text-stone-900">Relier un foyer</h2>
         <p class="mb-4 text-sm text-stone-600">
-            Créez un lien et envoyez-le à un responsable de l'autre foyer : il l'ouvre, connecté à Bouffe, et accepte.
+            Créez un lien et envoyez-le à un responsable de l'autre foyer : il l'ouvre, connecté à Grignott.in, et accepte.
             Le lien sert une fois et reste valable {{ \App\Models\HouseholdLink::VALID_DAYS }} jours.
         </p>
 
@@ -124,7 +124,7 @@
                         <button type="button" class="btn btn-secondary" x-on:click="navigator.clipboard?.writeText(@js($linkUrl)); copied = true">
                             <x-icon name="duplicate" class="size-4" /> <span x-text="copied ? 'Copié' : 'Copier'">Copier</span>
                         </button>
-                        <a class="btn btn-ghost" href="mailto:?subject={{ rawurlencode('Relier nos foyers sur Bouffe') }}&body={{ rawurlencode("Bonjour,\n\nPour relier ton foyer à « ".$household?->name." » sur Bouffe, ouvre ce lien (valable ".\App\Models\HouseholdLink::VALID_DAYS." jours) :\n".$linkUrl) }}">
+                        <a class="btn btn-ghost" href="mailto:?subject={{ rawurlencode('Relier nos foyers sur Grignott.in') }}&body={{ rawurlencode("Bonjour,\n\nPour relier ton foyer à « ".$household?->name." » sur Grignott.in, ouvre ce lien (valable ".\App\Models\HouseholdLink::VALID_DAYS." jours) :\n".$linkUrl) }}">
                             <x-icon name="envelope" class="size-4" /> E-mail
                         </a>
                     </div>

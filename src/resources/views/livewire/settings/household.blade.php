@@ -231,7 +231,7 @@
                         <button type="button" class="btn btn-secondary" x-on:click="navigator.clipboard?.writeText(@js($inviteUrl)); copied = true">
                             <x-icon name="duplicate" class="size-4" /> <span x-text="copied ? 'Copié' : 'Copier'"></span>
                         </button>
-                        <a class="btn btn-ghost" href="mailto:?subject={{ rawurlencode('Invitation dans le foyer '.$household?->name.' sur Bouffe') }}&body={{ rawurlencode("Bonjour,\n\nRejoins le foyer « ".$household?->name." » sur Bouffe avec ce lien (valable ".\App\Models\Invitation::VALID_DAYS." jours) :\n".$inviteUrl) }}">
+                        <a class="btn btn-ghost" href="mailto:?subject={{ rawurlencode('Invitation dans le foyer '.$household?->name.' sur Grignott.in') }}&body={{ rawurlencode("Bonjour,\n\nRejoins le foyer « ".$household?->name." » sur Grignott.in avec ce lien (valable ".\App\Models\Invitation::VALID_DAYS." jours) :\n".$inviteUrl) }}">
                             <x-icon name="envelope" class="size-4" /> E-mail
                         </a>
                     </div>

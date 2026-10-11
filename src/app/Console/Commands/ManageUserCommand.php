@@ -30,7 +30,7 @@ class ManageUserCommand extends Command
                             {--admin : Administrateur de l\'installation}
                             {--sans-2fa : Désactive la double authentification du compte (téléphone perdu)}';
 
-    protected $description = 'Crée un compte Bouffe ou modifie le nom / mot de passe d\'un compte existant';
+    protected $description = 'Crée un compte Grignott.in ou modifie le nom / mot de passe d\'un compte existant';
 
     public function handle(): int
     {

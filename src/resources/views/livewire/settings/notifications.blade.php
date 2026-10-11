@@ -7,7 +7,7 @@
         <section class="card space-y-4 p-5" x-data="bouffePush({ key: '{{ route('push.key') }}', subscribe: '{{ route('push.subscribe') }}', unsubscribe: '{{ route('push.unsubscribe') }}' })" x-init="init()">
             <div>
                 <h2 class="font-display font-semibold text-stone-900">Sur cet appareil</h2>
-                <p class="text-sm text-stone-500">Les notifications arrivent même quand Bouffe est fermé. À activer sur chaque téléphone ou ordinateur.</p>
+                <p class="text-sm text-stone-500">Les notifications arrivent même quand Grignott.in est fermé. À activer sur chaque téléphone ou ordinateur.</p>
             </div>
 
             <div class="rounded-lg px-3 py-2 text-sm ring-1"
@@ -192,7 +192,7 @@
                     @endif
                 </p>
                 <p class="text-sm text-stone-600">
-                    Sous Windows, pour la créer, ouvrez un terminal dans le dossier de Bouffe et tapez
+                    Sous Windows, pour la créer, ouvrez un terminal dans le dossier de Grignott.in et tapez
                     <code class="rounded bg-stone-100 px-1">{{ $windowsCommand }}</code> : la commande à coller s'affiche.
                 </p>
                 @unless ($serverReady)

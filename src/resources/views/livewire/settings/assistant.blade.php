@@ -10,7 +10,7 @@
                     @if ($status['available'])
                         <strong>Prêt</strong> · {{ $status['label'] }}. Ses boutons apparaissent sur les recettes, dans « Que cuisiner ? », à l'import et en mode cuisine.
                     @else
-                        <strong>Indisponible</strong> · {{ $status['reason'] }} Ses boutons sont masqués ; tout le reste de Bouffe fonctionne normalement.
+                        <strong>Indisponible</strong> · {{ $status['reason'] }} Ses boutons sont masqués ; tout le reste de Grignott.in fonctionne normalement.
                     @endif
                 </p>
             </section>

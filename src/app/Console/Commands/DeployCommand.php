@@ -32,14 +32,14 @@ class DeployCommand extends Command
                             {--git : Récupérer d\'abord la dernière version du dépôt Git (avance rapide)}
                             {--branche=main : Branche du dépôt à récupérer avec --git}';
 
-    protected $description = 'Met Bouffe à jour : sauvegarde, structure de la base, caches, diagnostic';
+    protected $description = 'Met Grignott.in à jour : sauvegarde, structure de la base, caches, diagnostic';
 
     private ?string $backupName = null;
 
     public function handle(BackupManager $backups, Diagnostic $diagnostic, GitUpdater $git): int
     {
         $this->newLine();
-        $this->line('  <fg=white;bg=bright-red;options=bold> Bouffe </> mise à jour');
+        $this->line('  <fg=white;bg=bright-red;options=bold> Grignott.in </> mise à jour');
         $this->newLine();
 
         // Lot 36 (36.3) : vérifier le dépôt avant de toucher à quoi que ce soit.
@@ -131,8 +131,8 @@ class DeployCommand extends Command
         }
 
         $summary['warn'] > 0
-            ? $this->components->warn("Bouffe est à jour. {$summary['warn']} point(s) à surveiller.")
-            : $this->components->info('Bouffe est à jour, tout va bien.');
+            ? $this->components->warn("Grignott.in est à jour. {$summary['warn']} point(s) à surveiller.")
+            : $this->components->info('Grignott.in est à jour, tout va bien.');
 
         $this->line('  Détail dans l\'application : Paramètres → Diagnostic.');
         $this->newLine();
@@ -177,7 +177,7 @@ class DeployCommand extends Command
         }
 
         if (! $git->available()) {
-            $this->components->error('Git est introuvable, ou Bouffe n\'est pas dans un dépôt Git. Sans --git, la mise à jour par copie reste possible.');
+            $this->components->error('Git est introuvable, ou Grignott.in n\'est pas dans un dépôt Git. Sans --git, la mise à jour par copie reste possible.');
 
             return null;
         }

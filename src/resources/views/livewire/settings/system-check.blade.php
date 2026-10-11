@@ -69,8 +69,8 @@
             <x-icon name="archive" class="size-5 text-brand-600" /> Emporter mes données
         </h2>
         <p class="mt-1 text-sm text-stone-500">
-            Une archive avec les recettes, le planning, les listes, le stock et les photos, lisible sans Bouffe
-            (du texte et du JSON). Ce n'est pas une sauvegarde : pour remettre Bouffe en état après une panne,
+            Une archive avec les recettes, le planning, les listes, le stock et les photos, lisible sans Grignott.in
+            (du texte et du JSON). Ce n'est pas une sauvegarde : pour remettre Grignott.in en état après une panne,
             passez par <a href="{{ route('settings.backups') }}" wire:navigate class="font-medium text-brand-700">Sauvegardes</a>.
         </p>
         <a href="{{ route('settings.export') }}" class="btn btn-primary mt-4">
@@ -86,7 +86,7 @@
 
         <dl class="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
             @foreach ([
-                'Version de Bouffe' => $about['version'],
+                'Version de Grignott.in' => $about['version'],
                 'Laravel' => $about['laravel'],
                 'PHP' => $about['php'],
                 'Base de données' => $about['database'],
@@ -102,7 +102,7 @@
             @endforeach
         </dl>
 
-        <h3 class="mt-5 font-medium text-stone-900">Mettre Bouffe à jour</h3>
+        <h3 class="mt-5 font-medium text-stone-900">Mettre Grignott.in à jour</h3>
         <p class="mt-1 text-sm text-stone-500">
             Fermez l'éditeur, remplacez le dossier <code class="rounded bg-stone-100 px-1">src</code> par la nouvelle version,
             puis, dans une invite de commande ouverte dans ce dossier :

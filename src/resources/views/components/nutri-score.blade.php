@@ -9,7 +9,7 @@
         'D' => 'background:#ee8100;color:#fff',
         'E' => 'background:#e63e11;color:#fff',
     ];
-    $title = $letter ? 'Nutri-Score estimé '.$letter.' : '.\App\Services\Nutrition\NutriScore::LETTERS[$letter].' (calcul Bouffe d\'après la table Ciqual)' : '';
+    $title = $letter ? 'Nutri-Score estimé '.$letter.' : '.\App\Services\Nutrition\NutriScore::LETTERS[$letter].' (calcul Grignott.in d\'après la table Ciqual)' : '';
 @endphp
 
 @if ($letter && isset($colors[$letter]))

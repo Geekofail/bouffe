@@ -36,7 +36,7 @@
                 <div class="mx-auto flex h-14 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
                     <a href="{{ route('dashboard') }}" wire:navigate class="flex items-center gap-2 text-brand-700">
                         <x-app-logo class="size-7" />
-                        <span class="font-display text-xl font-bold tracking-tight">Bouffe</span>
+                        <x-wordmark class="font-display text-xl" />
                     </a>
 
                     <nav class="hidden flex-1 items-center gap-1 md:flex" aria-label="Navigation principale">

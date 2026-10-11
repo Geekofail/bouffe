@@ -40,7 +40,7 @@
     <aside class="space-y-3 text-sm text-stone-600">
         <div class="card p-4">
             <h3 class="mb-1 font-semibold text-stone-900">Qui paie ?</h3>
-            <p>Chacun coche ce qu'il achète. Le ticket de caisse se note dans l'onglet <button type="button" wire:click="selectTab('frais')" class="font-medium text-brand-700 underline">Frais</button> : Bouffe calcule ensuite qui doit combien.</p>
+            <p>Chacun coche ce qu'il achète. Le ticket de caisse se note dans l'onglet <button type="button" wire:click="selectTab('frais')" class="font-medium text-brand-700 underline">Frais</button> : Grignott.in calcule ensuite qui doit combien.</p>
         </div>
     </aside>
 </div>

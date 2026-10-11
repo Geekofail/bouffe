@@ -86,7 +86,7 @@ test('« Appliquer » règle le minimum ; rien n\'est jamais appliqué seul', fu
         ->and((float) Ingredient::find($this->milk->id)->min_stock_quantity)->toBe(0.0);   // pas appliqué seul
 
     Livewire::test(StockIndex::class)
-        ->assertSee('Bouffe a remarqué')
+        ->assertSee('Grignott.in a remarqué')
         ->call('applyLearning', 'min_stock', $this->milk->id)
         ->assertDispatched('notify', message: 'Garder au moins 1 l de « Lait demi-écrémé ».');
 

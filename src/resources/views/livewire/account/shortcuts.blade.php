@@ -8,8 +8,8 @@
     @unless ($secure)
         <div class="mb-4 flex gap-3 rounded-xl bg-amber-50 p-4 text-sm text-amber-900 ring-1 ring-amber-200">
             <x-icon name="warning" class="size-5 shrink-0" />
-            <p>Les raccourcis appellent Bouffe depuis l'iPhone, <strong>même hors de la maison</strong> : ils ont besoin de l'adresse en
-                https de Bouffe (voir « Accès depuis l'extérieur »). À la maison, sur le Wi-Fi, ils fonctionnent avec l'adresse actuelle.</p>
+            <p>Les raccourcis appellent Grignott.in depuis l'iPhone, <strong>même hors de la maison</strong> : ils ont besoin de l'adresse en
+                https de Grignott.in (voir « Accès depuis l'extérieur »). À la maison, sur le Wi-Fi, ils fonctionnent avec l'adresse actuelle.</p>
         </div>
     @endunless
 
@@ -72,7 +72,7 @@
                     'Obtenir le contenu de l\'URL : '.$urls['stock'].' · Méthode POST · '.$header.' · Corps : Formulaire, champ texte = Texte dicté.',
                     'Énoncer le texte : Contenu de l\'URL.',
                 ]],
-                ['Envoyer à Bouffe', 'Dans Safari (ou Instagram, Messages, Photos) : Partager › Envoyer à Bouffe', $canEdit, [
+                ['Envoyer à Grignott.in', 'Dans Safari (ou Instagram, Messages, Photos) : Partager › Envoyer à Grignott.in', $canEdit, [
                     'Dans les réglages du raccourci (ⓘ) : activer « Afficher dans la feuille de partage », types URL, pages Safari, texte et images.',
                     'Obtenir le contenu de l\'URL : '.$urls['inbox'].' · Méthode POST · '.$header.' · Corps : Formulaire, champ url = Entrée du raccourci (pour une photo : champ photo, de type Fichier).',
                     'Afficher la notification : Contenu de l\'URL (« Tarte tatin est dans À trier »).',
@@ -94,7 +94,7 @@
         @endforeach
 
         <p class="text-sm text-stone-600">
-            <strong>Sur Android</strong> : une fois Bouffe installé sur l'écran d'accueil (menu du navigateur › Installer), il apparaît
+            <strong>Sur Android</strong> : une fois Grignott.in installé sur l'écran d'accueil (menu du navigateur › Installer), il apparaît
             directement dans le menu <em>Partager</em> ; rien à créer.
         </p>
     </section>

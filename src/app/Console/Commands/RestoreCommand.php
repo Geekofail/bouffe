@@ -21,7 +21,7 @@ class RestoreCommand extends Command
                             {fichier? : Nom de l\'archive dans le dossier des sauvegardes}
                             {--force : Ne pas demander de confirmation}';
 
-    protected $description = 'Restaure une sauvegarde Bouffe (base de données + photos)';
+    protected $description = 'Restaure une sauvegarde Grignott.in (base de données + photos)';
 
     public function handle(BackupManager $backups): int
     {

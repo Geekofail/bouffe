@@ -264,7 +264,7 @@
                     <details class="mt-3 rounded-lg bg-stone-50 px-3 py-2" data-nutri-score-detail>
                         <summary class="cursor-pointer text-xs font-medium text-stone-700">Pourquoi « {{ $score['letter'] }} » ?</summary>
                         <p class="mt-2 text-xs text-stone-500">
-                            Calcul de Bouffe avec l'algorithme du Nutri-Score, pour 100 g de recette (ingrédients pesés crus) :
+                            Calcul de Grignott.in avec l'algorithme du Nutri-Score, pour 100 g de recette (ingrédients pesés crus) :
                             {{ $score['negative'] }} point(s) à limiter − {{ $score['positive'] }} point(s) favorables = {{ $score['score'] }}.
                             Ce n'est pas le Nutri-Score officiel d'un produit.
                         </p>

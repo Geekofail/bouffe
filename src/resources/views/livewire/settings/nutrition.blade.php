@@ -9,7 +9,7 @@
                 <x-icon name="warning" class="size-5 text-amber-600" /> Table Ciqual non importée
             </h2>
             <p class="mt-2 text-sm text-stone-600">
-                La table Ciqual 2025 de l'Anses est livrée avec Bouffe : elle s'installe d'elle-même lors de la
+                La table Ciqual 2025 de l'Anses est livrée avec Grignott.in : elle s'installe d'elle-même lors de la
                 mise à jour (<code class="rounded bg-stone-100 px-1">bouffe:deploy</code>). Si elle n'apparaît pas, dans
                 une invite de commande, dans le dossier <code class="rounded bg-stone-100 px-1">src</code> :
             </p>
@@ -40,7 +40,7 @@
                     Les valeurs affichées sur les recettes sont <strong>indicatives</strong> : elles dépendent des
                     quantités saisies et de la correspondance ci-dessous. En dessous de 70 % du poids de la recette
                     rattaché, rien n'est affiché — mieux vaut pas de chiffre qu'un chiffre faux.
-                    Le <strong>Nutri-Score estimé</strong> est calculé par Bouffe avec l'algorithme officiel, pour 100 g
+                    Le <strong>Nutri-Score estimé</strong> est calculé par Grignott.in avec l'algorithme officiel, pour 100 g
                     de recette : ce n'est pas le Nutri-Score d'un produit. Les repères comparent une portion à un repas
                     type (un tiers des apports de référence d'un adulte), sans valeur médicale.
                 </span>
