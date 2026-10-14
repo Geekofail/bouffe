@@ -1,4 +1,6 @@
-<div class="relative">
+{{-- Un clic hors de la cloche et du panneau le ferme. (Un fond « fixed » ne couvrirait que l'en-tête :
+     son flou d'arrière-plan lui fait contenir les éléments fixes.) --}}
+<div class="relative" x-data x-on:click.outside="if ($wire.open) $wire.close()">
     <button type="button" wire:click="toggle" class="btn btn-ghost relative px-2" title="Rappels et alertes">
         <x-icon name="bell" class="size-5" />
         @if ($this->count > 0)
@@ -12,10 +14,11 @@
     </button>
 
     @if ($open)
-        <div class="fixed inset-0 z-30" wire:click="close"></div>
-
-        <div class="absolute right-0 z-40 mt-2 max-h-[70vh] w-80 overflow-y-auto rounded-xl bg-white shadow-xl ring-1 ring-stone-200 sm:w-96"
-             x-data x-on:keydown.escape.window="$wire.close()">
+        {{-- Téléphone : toute la largeur de l'écran sous l'en-tête, au-dessus de la barre du bas.
+             Plus grand : sous la cloche, aligné à sa droite. --}}
+        <div class="fixed inset-x-3 top-16 z-40 max-h-[calc(100dvh-10rem)] overflow-y-auto rounded-xl bg-white shadow-xl ring-1 ring-stone-200
+                    sm:absolute sm:inset-x-auto sm:top-full sm:right-0 sm:mt-2 sm:max-h-[70vh] sm:w-96"
+             data-notifications-panel x-on:keydown.escape.window="$wire.close()">
             <div class="flex items-center justify-between border-b border-stone-200 px-4 py-3">
                 <h2 class="font-display font-semibold text-stone-900">À ne pas oublier</h2>
                 <button type="button" wire:click="close" class="btn btn-ghost -mr-2 px-2" title="Fermer">
