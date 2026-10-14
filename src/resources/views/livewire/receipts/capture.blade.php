@@ -9,8 +9,9 @@
         <section class="card p-4 sm:p-5" x-data="bouffeReceiptPhoto()">
             {{-- Choix du fichier --}}
             <div x-show="! image" class="space-y-3">
-                <div class="grid gap-2 sm:grid-cols-2">
-                    <label class="btn btn-primary cursor-pointer justify-center py-3">
+                {{-- « Prendre une photo » : sur téléphone ou tablette seulement (sur ordinateur, il ouvrirait le choix d'un fichier). --}}
+                <div class="grid gap-2 pointer-coarse:sm:grid-cols-2">
+                    <label class="btn btn-primary hidden cursor-pointer justify-center py-3 pointer-coarse:inline-flex">
                         <x-icon name="camera" class="size-5" /> Prendre une photo
                         <input type="file" accept="image/*" capture="environment" class="sr-only" x-on:change="pick($event)">
                     </label>

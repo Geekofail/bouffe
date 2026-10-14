@@ -105,10 +105,8 @@
                     <div class="flex flex-wrap items-center gap-2">
                         <button type="submit" class="btn btn-primary"><x-icon name="list" class="size-4" /> Remplir la semaine</button>
                         @if ($ocr)
-                            <label class="btn btn-secondary cursor-pointer">
-                                <x-icon name="camera" class="size-4" /> Photo du menu
-                                <input type="file" wire:model="photo" accept="image/*,application/pdf" class="sr-only" data-canteen-photo>
-                            </label>
+                            <x-photo-input model="photo" accept="image/*,application/pdf" data-canteen-photo
+                                           label="Photo du menu" camera-label="Photographier le menu" />
                             <span wire:loading wire:target="photo" class="text-sm text-stone-500">Lecture…</span>
                         @endif
                     </div>

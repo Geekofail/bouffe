@@ -203,7 +203,7 @@
                         [$cLabel, $cClass, $cIcon] = $confidenceLabels[$line['confidence']] ?? $confidenceLabels['none'];
                         $model = $receipt->isValidated() ? $receipt->lines->firstWhere('id', $line['id']) : null;
                     @endphp
-                    <article wire:key="line-{{ $line['id'] }}" @class(['card p-3 sm:p-4', 'ring-2 ring-amber-300' => $line['doubtful'] && ! $receipt->isValidated(), 'opacity-60' => $line['kind'] === 'ignored'])>
+                    <article wire:key="line-{{ $line['id'] }}-{{ $i }}" @class(['card p-3 sm:p-4', 'ring-2 ring-amber-300' => $line['doubtful'] && ! $receipt->isValidated(), 'opacity-60' => $line['kind'] === 'ignored'])>
                         <div class="flex items-start gap-3">
                             <div class="min-w-0 flex-1">
                                 @if ($editable)

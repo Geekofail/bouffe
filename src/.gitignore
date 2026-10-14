@@ -26,3 +26,4 @@ Homestead.yaml
 Thumbs.db
 /playwright-report
 /test-results
+/public/vendor/livewire

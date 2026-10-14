@@ -13,10 +13,8 @@
                 </x-field>
                 <div class="flex flex-wrap items-center gap-2">
                     <button type="submit" class="btn btn-primary" wire:loading.attr="disabled" wire:target="add"><x-icon name="plus" class="size-4" /> Garder pour plus tard</button>
-                    <label class="btn btn-secondary cursor-pointer">
-                        <x-icon name="camera" class="size-4" /> Photo d'une page
-                        <input type="file" wire:model="photo" accept="image/*,application/pdf" class="sr-only" data-inbox-photo>
-                    </label>
+                    <x-photo-input model="photo" accept="image/*,application/pdf" data-inbox-photo
+                                   label="Photo d'une page" camera-label="Photographier une page" />
                     <span wire:loading wire:target="photo,addPhoto" class="text-sm text-stone-500">Envoi…</span>
                 </div>
                 @error('photo') <p class="form-error">{{ $message }}</p> @enderror

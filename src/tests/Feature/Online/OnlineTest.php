@@ -503,7 +503,7 @@ test('erreur grave : un e-mail à l\'administrateur, pas plus d\'un par heure', 
 });
 
 test('bouffe:deploy passe en maintenance puis rouvre le site', function () {
-    $this->artisan('bouffe:deploy', ['--sans-sauvegarde' => true])->expectsOutputToContain('Site rouvert');
+    $this->artisan('bouffe:deploy', ['--sans-sauvegarde' => true])->expectsOutputToContain('Script Livewire publié')->expectsOutputToContain('Site rouvert');
 
     expect(app()->isDownForMaintenance())->toBeFalse();
 });

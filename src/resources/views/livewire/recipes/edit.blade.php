@@ -127,10 +127,8 @@
                 </div>
 
                 <div class="space-y-2 text-sm">
-                    <label class="btn btn-secondary cursor-pointer">
-                        <x-icon name="photo" class="size-4" /> {{ $previewUrl ? 'Changer la photo' : 'Choisir une photo' }}
-                        <input type="file" wire:model="photo" accept="image/jpeg,image/png,image/webp" class="sr-only">
-                    </label>
+                    <x-photo-input model="photo" accept="image/jpeg,image/png,image/webp"
+                                   :label="$previewUrl ? 'Changer la photo' : 'Choisir une photo'" />
                     <div wire:loading wire:target="photo" class="text-stone-500">Envoi en cours…</div>
                     @if ($previewUrl)
                         <button type="button" wire:click="removePhoto" class="block text-red-600 hover:underline">Retirer la photo</button>
@@ -176,9 +174,13 @@
                 @endforeach
             </datalist>
 
+            {{-- La clé de chaque ligne contient sa position : les champs sont reliés par position
+                 (form.ingredients.2…), et Livewire ne relie pas à nouveau un champ qu'il garde. Une ligne
+                 déplacée ou décalée par un retrait est donc recréée, reliée à sa nouvelle position ; sinon
+                 elle afficherait et modifierait une autre ligne (doublons, lignes écrasées). --}}
             <ul wire:sort="sortIngredients" class="space-y-3">
                 @foreach ($form->ingredients as $i => $row)
-                    <li wire:key="ing-{{ $row['uid'] }}" wire:sort:item="{{ $row['uid'] }}"
+                    <li wire:key="ing-{{ $row['uid'] }}-{{ $i }}" wire:sort:item="{{ $row['uid'] }}"
                         class="rounded-lg border border-stone-200 bg-white p-3 sm:border-0 sm:p-0">
                         <div class="grid grid-cols-[auto_5rem_1fr_auto] items-start gap-2 sm:grid-cols-[auto_5rem_9rem_1fr_12rem_auto_auto]">
                             <span wire:sort:handle class="cursor-grab pt-2 text-stone-300 hover:text-stone-500" title="Déplacer">
@@ -259,7 +261,7 @@
             @if ($form->components !== [])
                 <ul class="space-y-3">
                     @foreach ($form->components as $i => $row)
-                        <li wire:key="component-{{ $row['uid'] }}" class="rounded-lg border border-stone-200 p-3">
+                        <li wire:key="component-{{ $row['uid'] }}-{{ $i }}" class="rounded-lg border border-stone-200 p-3">
                             <div class="flex flex-wrap items-center gap-2">
                                 <input type="text" inputmode="decimal" wire:model="form.components.{{ $i }}.quantity"
                                        class="form-input w-16 text-center" aria-label="Combien de fois la recette">
@@ -296,7 +298,7 @@
 
             <ol wire:sort="sortSteps" class="space-y-3">
                 @foreach ($form->steps as $i => $step)
-                    <li wire:key="step-{{ $step['uid'] }}" wire:sort:item="{{ $step['uid'] }}" class="flex items-start gap-2 bg-white">
+                    <li wire:key="step-{{ $step['uid'] }}-{{ $i }}" wire:sort:item="{{ $step['uid'] }}" class="flex items-start gap-2 bg-white">
                         <span wire:sort:handle class="cursor-grab pt-2 text-stone-300 hover:text-stone-500" title="Déplacer">
                             <x-icon name="grip" class="size-5" />
                         </span>

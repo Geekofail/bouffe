@@ -76,7 +76,7 @@
                 @if ($ocrStatus['available'])
                     <form wire:submit="readPhoto" class="space-y-3">
                         <x-field label="Photo ou PDF" for="recipe-photo" error="photo">
-                            <input id="recipe-photo" type="file" accept="image/*,application/pdf" wire:model="photo" class="form-input">
+                            <x-photo-input id="recipe-photo" model="photo" accept="image/*,application/pdf" camera-label="Photographier la page" show-name />
                         </x-field>
                         <button type="submit" class="btn btn-primary" wire:loading.attr="disabled" wire:target="readPhoto,photo">
                             <x-icon name="camera" class="size-4" />
@@ -249,7 +249,7 @@
                 <ul class="space-y-3">
                     @foreach ($form->ingredients as $i => $row)
                         @php $status = $confidence[$row['uid']] ?? 'none'; @endphp
-                        <li wire:key="ing-{{ $row['uid'] }}" class="rounded-lg border border-stone-200 p-3 sm:border-0 sm:p-0">
+                        <li wire:key="ing-{{ $row['uid'] }}-{{ $i }}" class="rounded-lg border border-stone-200 p-3 sm:border-0 sm:p-0">
                             <div class="grid grid-cols-[auto_5rem_1fr_auto] items-start gap-2 sm:grid-cols-[auto_5rem_9rem_1fr_11rem_auto]">
                                 <span class="pt-2" title="{{ ['high' => 'Ingrédient reconnu', 'medium' => 'Ingrédient approchant, à vérifier', 'none' => 'Ingrédient inconnu, il sera créé'][$status] }}">
                                     @if ($status === 'high')
@@ -327,7 +327,7 @@
 
                 <ol class="space-y-3">
                     @foreach ($form->steps as $i => $step)
-                        <li wire:key="step-{{ $step['uid'] }}" class="flex items-start gap-2">
+                        <li wire:key="step-{{ $step['uid'] }}-{{ $i }}" class="flex items-start gap-2">
                             <span class="flex size-8 shrink-0 items-center justify-center rounded-full bg-brand-50 text-sm font-semibold text-brand-700">
                                 {{ $loop->iteration }}
                             </span>

@@ -187,3 +187,100 @@ test('les photos ne sont pas accessibles sans connexion', function () {
 
     $this->get(route('recipes.photo', ['recipe' => $recipe->id, 'size' => 'thumb']))->assertRedirect(route('login'));
 });
+
+/*
+ * Réordonner les lignes (ingrédients, étapes) ne duplique ni n'écrase rien.
+ * Le comportement dans le navigateur est vérifié par tests/Browser/recipe-rows.spec.js.
+ */
+
+/** Les lignes d'ingrédients du formulaire, en « quantité nom ». */
+function ingredientLines($component): array
+{
+    return array_map(fn ($row) => trim($row['quantity'].' '.$row['name']), $component->get('form.ingredients'));
+}
+
+test('réordonner les ingrédients : chaque ligne garde ses valeurs, dans tous les sens', function () {
+    $component = Livewire::test(Edit::class)
+        ->set('form.title', 'Ordre des lignes')
+        ->set('form.ingredients', [
+            fillRow(['name' => 'Farine', 'quantity' => '100']),
+            fillRow(['name' => 'Sucre', 'quantity' => '50']),
+            fillRow(['name' => 'Beurre', 'quantity' => '25']),
+            fillRow(['name' => 'Œuf', 'quantity' => '2']),
+        ]);
+    $uid = fn (int $i) => $component->get("form.ingredients.$i.uid");
+
+    $component->call('sortIngredients', $uid(2), 0);
+    expect(ingredientLines($component))->toBe(['25 Beurre', '100 Farine', '50 Sucre', '2 Œuf']);
+
+    $component->call('sortIngredients', $uid(0), 3);
+    expect(ingredientLines($component))->toBe(['100 Farine', '50 Sucre', '2 Œuf', '25 Beurre']);
+
+    $component->call('sortIngredients', $uid(1), 2);
+    expect(ingredientLines($component))->toBe(['100 Farine', '2 Œuf', '50 Sucre', '25 Beurre']);
+
+    // Même place, position hors limites, ligne inconnue : rien ne se perd, rien ne se double.
+    $component->call('sortIngredients', $uid(1), 1)
+        ->call('sortIngredients', $uid(0), 99)
+        ->call('sortIngredients', $uid(0), -5)
+        ->call('sortIngredients', 'inconnue', 0);
+    expect(ingredientLines($component))->toBe(['2 Œuf', '50 Sucre', '25 Beurre', '100 Farine'])
+        ->and(collect($component->get('form.ingredients'))->pluck('uid')->unique())->toHaveCount(4);
+});
+
+test('une saisie envoyée avec le déplacement va à la ligne saisie, pas à sa voisine', function () {
+    $component = Livewire::test(Edit::class)
+        ->set('form.title', 'Saisie puis déplacement')
+        ->set('form.ingredients', [
+            fillRow(['name' => 'Farine', 'quantity' => '100']),
+            fillRow(['name' => 'Sucre', 'quantity' => '50', 'new_aisle_id' => $this->misc->id]),
+            fillRow(['name' => 'Beurre', 'quantity' => '25', 'new_aisle_id' => $this->misc->id]),
+        ]);
+
+    // Comme dans le navigateur : la valeur tapée part avec l'appel, à la position d'avant le déplacement.
+    $component->update(
+        calls: [['method' => 'sortIngredients', 'params' => [$component->get('form.ingredients.2.uid'), 0]]],
+        updates: ['form.ingredients.2.quantity' => '30'],
+    );
+    expect(ingredientLines($component))->toBe(['30 Beurre', '100 Farine', '50 Sucre']);
+
+    $component->set('form.ingredients.2.quantity', '60')->call('save')->assertHasNoErrors();
+
+    $recipe = Recipe::where('title', 'Saisie puis déplacement')->firstOrFail();
+    expect($recipe->ingredients->map(fn ($l) => [$l->ingredient->name, (float) $l->quantity])->all())
+        ->toBe([['Beurre', 30.0], ['Farine', 100.0], ['Sucre', 60.0]]);
+});
+
+test('réordonner puis retirer des étapes : chaque étape garde son texte', function () {
+    $component = Livewire::test(Edit::class)
+        ->set('form.title', 'Ordre des étapes')
+        ->set('form.ingredients', [fillRow(['name' => 'Farine', 'quantity' => '100'])])
+        ->set('form.steps', [
+            ['uid' => 'a1', 'group_name' => '', 'instruction' => 'Préchauffer.'],
+            ['uid' => 'b2', 'group_name' => '', 'instruction' => 'Mélanger.'],
+            ['uid' => 'c3', 'group_name' => '', 'instruction' => 'Enfourner.'],
+        ]);
+
+    $component->call('sortSteps', 'c3', 0)->call('removeStep', 'a1');
+    expect(array_column($component->get('form.steps'), 'instruction'))->toBe(['Enfourner.', 'Mélanger.']);
+
+    $component->call('save')->assertHasNoErrors();
+    expect(Recipe::where('title', 'Ordre des étapes')->firstOrFail()->steps()->orderBy('position')->pluck('instruction')->all())
+        ->toBe(['Enfourner.', 'Mélanger.']);
+});
+
+test('la clé de chaque ligne contient sa position, pour relier ses champs à la bonne ligne après un déplacement', function () {
+    // Les champs sont reliés par position (form.ingredients.1.quantity) et Livewire ne relie pas à
+    // nouveau un champ qu'il garde : sans la position dans la clé, une ligne déplacée afficherait
+    // et modifierait une autre ligne.
+    $component = Livewire::test(Edit::class)->set('form.ingredients', [
+        fillRow(['uid' => 'premier1', 'name' => 'Farine']),
+        fillRow(['uid' => 'second22', 'name' => 'Sucre']),
+    ])->set('form.steps', [['uid' => 'etape111', 'group_name' => '', 'instruction' => 'Mélanger.']]);
+
+    $component->assertSeeHtml('wire:key="ing-premier1-0"')->assertSeeHtml('wire:key="ing-second22-1"')
+        ->assertSeeHtml('wire:key="step-etape111-0"');
+
+    $component->call('sortIngredients', 'second22', 0)
+        ->assertSeeHtml('wire:key="ing-second22-0"')->assertSeeHtml('wire:key="ing-premier1-1"');
+});

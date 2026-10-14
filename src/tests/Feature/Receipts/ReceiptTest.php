@@ -560,3 +560,23 @@ test('la commande d\'essai lit un vrai fichier sans rien garder', function () {
 test('la page Tickets résume les lectures du mois', function () {
     Livewire::test(ReceiptsIndex::class)->assertSee('Aucun ticket pour l\'instant')->assertSee('Lectures ce mois-ci');
 });
+
+test('retirer une ligne du ticket : la clé de chaque ligne suit sa position, la saisie suivante va à la bonne ligne', function () {
+    ($this->mistral)();
+    $receipt = app(ReceiptService::class)->read(($this->newReceipt)());
+    $page = Livewire::test(Show::class, ['receipt' => $receipt]);
+    $lines = $page->get('lines');
+
+    // Les champs sont reliés par position (lines.1.label) : la clé contient la position pour que
+    // Livewire relie à nouveau les champs des lignes décalées par un retrait (sinon la saisie part
+    // dans la ligne voisine, et elle est enregistrée aussitôt).
+    $page->assertSeeHtml('wire:key="line-'.$lines[1]['id'].'-1"');
+
+    $page->call('removeLine', 0)
+        ->assertSeeHtml('wire:key="line-'.$lines[1]['id'].'-0"')
+        ->set('lines.0.label', 'BEURRE DEMI-SEL 250G');
+
+    expect(\App\Models\ReceiptLine::find($lines[1]['id'])->label)->toBe('BEURRE DEMI-SEL 250G')
+        ->and(\App\Models\ReceiptLine::find($lines[0]['id']))->toBeNull()
+        ->and(\App\Models\ReceiptLine::find($lines[2]['id'])->label)->toBe($lines[2]['label']);
+});

@@ -87,6 +87,10 @@ class DeployCommand extends Command
             $this->components->task('Structure de la base de données', fn () => $this->call('migrate', ['--force' => true, '--no-interaction' => true]) === 0);
             $this->referenceData();
             $this->components->task('Caches vidés', fn () => $this->call('optimize:clear') === 0);
+            // Script de Livewire servi comme un fichier ordinaire (public/vendor/livewire) plutôt que par PHP :
+            // chez OVH, la version servie par PHP est coupée en route (ERR_HTTP2_PROTOCOL_ERROR) et aucun
+            // formulaire ne répond. Recopié à chaque mise à jour pour suivre la version de Livewire.
+            $this->components->task('Script Livewire publié', fn () => $this->callSilently('vendor:publish', ['--tag' => 'livewire:assets', '--force' => true]) === 0);
             if (! file_exists(public_path('storage'))) {
                 $this->components->task('Lien vers les fichiers envoyés', fn () => $this->call('storage:link', ['--no-interaction' => true]) === 0);
             }

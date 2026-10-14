@@ -37,9 +37,12 @@ test('liste des recettes › filtre « Nutri-Score A ou B »', async ({ page }, 
     await page.getByLabel('Nutri-Score estimé').selectOption('AB');
     await expect(page).toHaveURL(/nutri=AB/);
     await expect(page.locator('main [data-nutri-score]').first()).toBeVisible();
-    const letters = await page.locator('main article [data-nutri-score]').evaluateAll((els) => els.map((el) => el.dataset.nutriScore));
-    expect(letters.length).toBeGreaterThan(0);
-    expect(letters.every((letter) => letter === 'A' || letter === 'B')).toBe(true);
+    // L'adresse change avant que la liste filtrée n'arrive : on attend la liste elle-même.
+    const letters = () => page.locator('main article [data-nutri-score]').evaluateAll((els) => els.map((el) => el.dataset.nutriScore));
+    await expect.poll(async () => {
+        const list = await letters();
+        return list.length > 0 && list.every((letter) => letter === 'A' || letter === 'B');
+    }, { message: 'seulement des recettes A ou B' }).toBe(true);
 
     await expectNoOverflow(page);
     await expectAccessible(page);

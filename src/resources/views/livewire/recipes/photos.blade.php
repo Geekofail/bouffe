@@ -73,7 +73,7 @@
                 </x-field>
             @endif
             <x-field label="Photo" for="photo-upload" error="upload" help="JPEG, PNG ou WebP, 10 Mo au plus. Sur téléphone : prendre une photo ou en choisir une.">
-                <input id="photo-upload" type="file" wire:model="upload" accept="image/*" class="form-input py-1.5">
+                <x-photo-input id="photo-upload" model="upload" accept="image/*" />
             </x-field>
             <div wire:loading wire:target="upload" class="text-sm text-stone-500">Envoi de la photo…</div>
             @if ($upload && ! $errors->has('upload'))

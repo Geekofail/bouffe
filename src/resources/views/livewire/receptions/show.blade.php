@@ -262,7 +262,7 @@
 
                 <form wire:submit="saveMemory" class="space-y-2">
                     <textarea wire:model="memoryNote" rows="3" maxlength="2000" placeholder="ex. Julie a adoré le fondant, le rôti manquait de sel." class="form-input text-sm" aria-label="Note"></textarea>
-                    <input type="file" wire:model="photo" accept="image/*" class="block w-full text-sm text-stone-600 file:mr-3 file:rounded-md file:border-0 file:bg-stone-100 file:px-3 file:py-1.5 file:text-sm file:font-medium" aria-label="Photo">
+                    <x-photo-input model="photo" accept="image/*" aria-label="Photo" button-class="btn btn-secondary px-3 py-1.5 text-sm" show-name />
                     @error('photo') <p class="form-error">{{ $message }}</p> @enderror
                     <button type="submit" class="btn btn-secondary w-full py-1.5 text-sm" wire:loading.attr="disabled" wire:target="photo,saveMemory">Enregistrer le souvenir</button>
                 </form>
