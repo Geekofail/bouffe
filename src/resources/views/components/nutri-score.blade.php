@@ -9,19 +9,22 @@
         'D' => 'background:#ee8100;color:#fff',
         'E' => 'background:#e63e11;color:#fff',
     ];
+    // La lettre, centrée sur sa hauteur de capitale (et non sur la hauteur de ligne, que la police
+    // répartit inégalement au-dessus et au-dessous) : elle tombe au milieu de la pastille.
+    $glyph = 'block leading-none [text-box:trim-both_cap_alphabetic]';
     $title = $letter ? 'Nutri-Score estimé '.$letter.' : '.\App\Services\Nutrition\NutriScore::LETTERS[$letter].' (calcul Grignott.in d\'après la table Ciqual)' : '';
 @endphp
 
 @if ($letter && isset($colors[$letter]))
     @if ($label)
         <span {{ $attributes->merge(['class' => 'inline-flex items-center gap-1.5 rounded-full bg-stone-100 py-0.5 pr-2.5 pl-0.5 text-sm']) }} title="{{ $title }}" data-nutri-score="{{ $letter }}">
-            <span @class(['grid place-items-center rounded-full font-bold', 'size-6 text-sm' => $size === 'md', 'size-5 text-xs' => $size === 'sm']) style="{{ $colors[$letter] }}" aria-hidden="true">{{ $letter }}</span>
+            <span @class(['grid place-items-center rounded-full font-bold', 'size-6 text-sm' => $size === 'md', 'size-5 text-xs' => $size === 'sm']) style="{{ $colors[$letter] }}" aria-hidden="true"><span class="{{ $glyph }}">{{ $letter }}</span></span>
             <span class="whitespace-nowrap text-stone-700">Nutri-Score <span class="text-stone-500">estimé</span></span>
             <span class="sr-only">{{ $letter }}</span>
         </span>
     @else
         <span {{ $attributes->merge(['class' => 'grid shrink-0 place-items-center rounded-full font-bold '.($size === 'sm' ? 'size-5 text-xs' : 'size-6 text-sm')]) }} style="{{ $colors[$letter] }}" title="{{ $title }}" data-nutri-score="{{ $letter }}">
-            {{ $letter }}<span class="sr-only"> (Nutri-Score estimé)</span>
+            <span class="{{ $glyph }}">{{ $letter }}</span><span class="sr-only"> (Nutri-Score estimé)</span>
         </span>
     @endif
 @endif

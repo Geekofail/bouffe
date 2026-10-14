@@ -81,3 +81,33 @@ test('paramètres › nutrition : source Anses et origine des associations', asy
     await testInfo.attach('paramètres nutrition', { body: await page.screenshot({ fullPage: true }), contentType: 'image/png' });
     expect(errors, 'erreurs dans la console').toEqual([]);
 });
+
+test('pastille Nutri-Score : la lettre est au milieu de la pastille', async ({ page }) => {
+    await open(page, '/recettes');
+    await page.locator('main article a').first().click();
+    await page.waitForLoadState('networkidle');
+
+    // Pastilles de la liste (petites) et de la fiche (moyenne) : la lettre, rognée à sa hauteur de
+    // capitale, a le même centre que le disque coloré.
+    for (const path of ['/recettes', page.url()]) {
+        await open(page, new URL(path, page.url()).pathname);
+        const offsets = await page.locator('main [style*="background:#"]').evaluateAll((discs) => discs
+            .filter((disc) => disc.offsetParent !== null)
+            .map((disc) => {
+                const glyph = disc.querySelector('span:not(.sr-only)');
+                if (! glyph) return { letter: disc.textContent.trim(), dy: 99 };
+                const d = disc.getBoundingClientRect();
+                const g = glyph.getBoundingClientRect();
+                return {
+                    letter: glyph.textContent.trim(),
+                    dy: Math.abs((g.top + g.bottom) / 2 - (d.top + d.bottom) / 2),
+                    capRatio: g.height / parseFloat(getComputedStyle(glyph).fontSize),
+                };
+            }));
+        expect(offsets.length, `pastilles sur ${path}`).toBeGreaterThan(0);
+        for (const o of offsets) {
+            expect(o.dy, `lettre ${o.letter} centrée`).toBeLessThanOrEqual(0.75);
+            expect(o.capRatio, `lettre ${o.letter} rognée à la hauteur de capitale`).toBeLessThan(0.85);
+        }
+    }
+});

@@ -29,6 +29,8 @@ test('recette : le menu « Plus » s\'affiche en entier, sous le bouton', async 
 
     await button.click();
     await expect(menu).toBeVisible();
+    // La feuille glisse vers le haut à l'ouverture : on mesure une fois arrivée.
+    await menu.evaluate((el) => Promise.all(el.getAnimations().map((a) => a.finished)));
     const items = menu.locator('.menu-item');
     await expect(items.first()).toBeVisible();
 
